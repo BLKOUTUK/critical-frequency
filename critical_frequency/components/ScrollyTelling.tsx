@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -5,7 +6,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { FileText, ArrowRight, Quote, X, BookOpen, Library } from 'lucide-react';
+import { FileText, ArrowRight, Quote, X, BookOpen, Library, ArrowLeft, FolderOpen } from 'lucide-react';
 
 // --- DATA STRUCTURES ---
 
@@ -143,139 +144,126 @@ const papers: Paper[] = [
   }
 ];
 
+const StackedCard: React.FC<{ item: Paper; index: number; total: number; onClick: () => void }> = ({ item, index, total, onClick }) => {
+    // Offset calculation for the "Stack" effect
+    const topOffset = 120 + (index * 20); // Each card sticks 20px lower than the last
+    const [imgError, setImgError] = useState(false);
+    
+    return (
+        <div 
+            className="sticky mb-12 w-full max-w-4xl mx-auto perspective-1000"
+            style={{ 
+                top: `${topOffset}px`, 
+                zIndex: index + 10 
+            }}
+        >
+            <button 
+                onClick={onClick}
+                className="w-full relative group transition-all duration-300 hover:-translate-y-4 focus:outline-none"
+            >
+                {/* File Tab */}
+                <div className="absolute -top-8 left-0 bg-act-black text-white px-4 py-2 font-mono text-xs font-bold uppercase border-t-2 border-x-2 border-white rounded-t-lg z-0 group-hover:bg-act-pink group-hover:text-black transition-colors">
+                    File 00{item.id} // {item.type}
+                </div>
+
+                {/* Main Card Body */}
+                <div className="bg-act-paper border-4 border-act-black shadow-[0px_4px_20px_rgba(0,0,0,0.5)] flex flex-col md:flex-row h-[500px] md:h-[400px] overflow-hidden relative z-10 group-hover:shadow-[16px_16px_0px_0px_#FF007F] transition-shadow duration-300">
+                    
+                    {/* Image Section */}
+                    {item.image && !imgError ? (
+                        <div className="md:w-1/3 relative overflow-hidden grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500 border-b-4 md:border-b-0 md:border-r-4 border-act-black">
+                             <img 
+                                src={item.image} 
+                                alt="" 
+                                className="w-full h-full object-cover" 
+                                onError={() => setImgError(true)}
+                             />
+                             <div className="absolute inset-0 bg-act-blue mix-blend-multiply opacity-50"></div>
+                        </div>
+                    ) : (
+                        <div className="md:w-1/3 bg-act-black text-white p-8 flex flex-col justify-between border-b-4 md:border-b-0 md:border-r-4 border-black pattern-grid-lg">
+                             <Quote size={48} className="text-act-yellow" />
+                             <div className="font-mono text-[10px] uppercase opacity-50">NO IMAGE DATA</div>
+                        </div>
+                    )}
+
+                    {/* Content Section */}
+                    <div className="flex-1 p-8 flex flex-col justify-between bg-white relative">
+                        {/* Background Stamp */}
+                        <div className="absolute top-1/2 right-8 -translate-y-1/2 opacity-5 pointer-events-none">
+                            <FolderOpen size={200} />
+                        </div>
+
+                        <div>
+                            <div className="flex justify-between items-start mb-4">
+                                <span className="font-mono text-xs font-bold uppercase text-act-pink tracking-widest">{item.subtitle}</span>
+                                <span className="w-8 h-8 rounded-full border-2 border-black flex items-center justify-center font-bold hover:bg-black hover:text-white transition-colors">
+                                    <ArrowRight size={16} />
+                                </span>
+                            </div>
+                            <h3 className="font-display text-4xl md:text-5xl uppercase leading-[0.85] mb-6 text-act-black text-left group-hover:text-act-blue transition-colors">
+                                {item.title}
+                            </h3>
+                            <p className="font-display text-xl md:text-2xl uppercase leading-none text-stone-500 line-clamp-3 text-left">
+                                "{item.quote}"
+                            </p>
+                        </div>
+
+                        <div className="pt-6 border-t-2 border-stone-200 flex justify-between items-center mt-auto">
+                            <div className="font-mono text-[10px] uppercase font-bold text-stone-500">
+                                Author: {item.author}
+                            </div>
+                            <div className="bg-act-yellow px-2 py-1 font-mono text-[10px] font-bold uppercase border border-black shadow-[2px_2px_0px_0px_#000]">
+                                Confidential
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </button>
+        </div>
+    );
+};
+
+
 // --- MAIN COMPONENT ---
 
 export const EvidenceScroll: React.FC = () => {
-  const targetRef = useRef<HTMLDivElement>(null);
   const [selectedPaper, setSelectedPaper] = useState<Paper | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-60%"]);
 
   return (
     <>
-    <section ref={targetRef} className="relative md:h-[300vh] bg-act-black text-white" aria-labelledby="evidence-bank-heading">
+    <section className="bg-stone-900 py-24 px-6 min-h-screen relative border-b-4 border-act-pink" aria-labelledby="evidence-bank-heading">
       
-      {/* MOBILE VIEW (Vertical Stack) */}
-      <div className="md:hidden p-6 pb-24">
-         <div className="border-b-4 border-white mb-8 pb-4">
-             <div className="inline-block px-2 py-1 bg-white text-black font-mono text-[10px] font-bold uppercase mb-2">
-                 /// THE LIBRARY IS OPEN
-             </div>
-             <h2 id="evidence-bank-heading" className="font-display text-6xl uppercase leading-none text-act-yellow">
-                 EVIDENCE<br/>BANK
-             </h2>
-         </div>
-         
-         <div className="flex flex-col gap-8">
-             {papers.map((item, index) => (
-                 <div 
-                    key={index} 
-                    onClick={() => setSelectedPaper(item)}
-                    className="border-2 border-white bg-stone-900 active:scale-95 transition-transform"
-                 >
-                     {item.image && (
-                         <div className="h-48 w-full relative overflow-hidden grayscale">
-                             <img src={item.image} alt="" role="presentation" className="w-full h-full object-cover" />
-                             <div className="absolute inset-0 bg-act-pink mix-blend-multiply opacity-40"></div>
-                         </div>
-                     )}
-                     <div className="p-6 relative">
-                         <Quote size={40} className="text-stone-700 absolute top-4 right-4" />
-                         <div className="flex justify-between items-start mb-6">
-                             <span className="bg-act-yellow text-black px-2 py-1 font-mono text-[10px] font-bold uppercase">{item.type}</span>
-                         </div>
-                         <p className="font-display text-2xl uppercase leading-tight mb-6 text-white">
-                             "{item.quote}"
-                         </p>
-                         <div className="border-t border-stone-700 pt-4">
-                            <h3 className="font-mono text-xs font-bold text-act-pink uppercase mb-1">{item.title}</h3>
-                            <button className="text-stone-400 font-mono text-[10px] uppercase flex items-center gap-2">Read Full Paper <ArrowRight size={10}/></button>
-                         </div>
-                     </div>
-                 </div>
-             ))}
-         </div>
-      </div>
-
-
-      {/* DESKTOP VIEW (Horizontal Scroll) */}
-      <div className="hidden md:block sticky top-0 h-screen flex items-center overflow-hidden">
-        
-        {/* Background Texture */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '30px 30px'}}></div>
-
-        <motion.div style={{ x }} className="flex gap-16 pl-24 pr-48">
-          
-          {/* Intro Card */}
-          <div className="min-w-[600px] flex flex-col justify-center">
-             <div className="border-l-8 border-act-yellow pl-12 py-8">
-                 <div className="font-mono text-xs uppercase font-bold text-act-yellow mb-4 flex items-center gap-2">
-                     <Library size={16}/> ARCHIVE ACCESS
-                 </div>
-                 <h2 className="font-display text-9xl uppercase leading-[0.8] mb-8">
-                     THE<br/>EVIDENCE<br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-act-yellow to-white">BANK</span>
-                 </h2>
-                 <p className="font-mono text-lg text-stone-300 max-w-md border-t border-white/20 pt-6">
-                     We don't claim to have all the answers, but we have asked the right questions. 300+ pages of community reality.
-                 </p>
-             </div>
+      {/* Section Header */}
+      <div className="container mx-auto mb-24 text-center">
+          <div className="inline-block px-4 py-2 bg-act-yellow border-2 border-black font-mono text-sm font-bold uppercase mb-6 transform -rotate-1 shadow-[4px_4px_0px_0px_#fff]">
+              /// THE EVIDENCE DOSSIER
           </div>
-
-          {/* Cards */}
-          {papers.map((item, index) => (
-            <button 
-                key={index} 
-                onClick={() => setSelectedPaper(item)}
-                className="relative min-w-[500px] h-[600px] border-4 border-white bg-act-black flex flex-col text-left group hover:border-act-pink transition-all duration-300 hover:-translate-y-4 focus:outline-none focus:ring-4 focus:ring-act-pink"
-            >
-                {/* Decorative Elements */}
-                <div className="absolute -top-3 -left-3 w-6 h-6 bg-white border-2 border-black z-20 group-hover:bg-act-pink transition-colors"></div>
-                <div className="absolute -bottom-3 -right-3 w-6 h-6 bg-white border-2 border-black z-20 group-hover:bg-act-pink transition-colors"></div>
-
-                {/* Top Section */}
-                <div className="flex-1 p-10 relative overflow-hidden flex flex-col justify-between">
-                     {item.image && (
-                         <div className="absolute inset-0 z-0 grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700 opacity-40 group-hover:opacity-60">
-                             <img src={item.image} alt="" className="w-full h-full object-cover" />
-                             <div className="absolute inset-0 bg-act-blue mix-blend-multiply opacity-50"></div>
-                         </div>
-                     )}
-                     
-                     <div className="relative z-10 flex justify-between items-start">
-                         <span className="bg-white text-black px-3 py-1 font-mono text-xs font-bold uppercase border-2 border-black shadow-[4px_4px_0px_0px_#000]">{item.type}</span>
-                         <span className="font-mono text-4xl font-bold text-white/20">0{item.id}</span>
-                     </div>
-
-                     <div className="relative z-10">
-                         <Quote size={60} className="text-act-yellow mb-6 opacity-80" />
-                         <p className="font-display text-4xl uppercase leading-none text-white drop-shadow-lg">
-                             "{item.quote}"
-                         </p>
-                     </div>
-                </div>
-
-                {/* Bottom Section */}
-                <div className="bg-white text-black p-8 border-t-4 border-black group-hover:bg-act-pink group-hover:text-white transition-colors h-48 flex flex-col justify-between">
-                     <div>
-                        <div className="font-mono text-xs uppercase font-bold opacity-60 mb-2">{item.subtitle}</div>
-                        <h3 className="font-display text-4xl uppercase leading-none">{item.title}</h3>
-                     </div>
-                     <div className="flex justify-between items-end border-t-2 border-black/10 pt-4 group-hover:border-white/20">
-                         <span className="font-mono text-xs font-bold uppercase">{item.author}</span>
-                         <span className="flex items-center gap-2 font-mono text-xs font-bold uppercase">Open Dossier <BookOpen size={16}/></span>
-                     </div>
-                </div>
-            </button>
-          ))}
-
-          {/* Spacer for scroll */}
-          <div className="min-w-[400px]"></div>
-
-        </motion.div>
+          <h2 id="evidence-bank-heading" className="font-display text-6xl md:text-8xl uppercase leading-none text-white mb-6">
+              THE CASE<br/>FILES.
+          </h2>
+          <p className="font-mono text-stone-400 max-w-xl mx-auto">
+              We have compiled the data. We have mapped the erasure. 
+              <span className="text-white font-bold"> Click a file below to open the full dossier.</span>
+          </p>
       </div>
+
+      {/* STACKED CARD CONTAINER */}
+      <div className="container mx-auto pb-24 relative">
+          {/* Vertical line connecting the stack */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-stone-800 -translate-x-1/2 z-0 hidden md:block"></div>
+          
+          {papers.map((item, index) => (
+              <StackedCard 
+                key={item.id} 
+                item={item} 
+                index={index} 
+                total={papers.length}
+                onClick={() => setSelectedPaper(item)} 
+              />
+          ))}
+      </div>
+
     </section>
 
     {/* READER MODAL */}
@@ -285,57 +273,67 @@ export const EvidenceScroll: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
+                className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-0 md:p-8"
                 onClick={() => setSelectedPaper(null)}
             >
                 <motion.div 
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 100, opacity: 0 }}
-                    className="bg-act-paper w-full max-w-4xl max-h-full h-[90vh] md:h-auto md:aspect-[3/4] lg:aspect-video overflow-hidden border-4 border-black shadow-[16px_16px_0px_0px_#FF007F] flex flex-col md:flex-row"
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    exit={{ y: "100%" }}
+                    transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                    className="bg-act-paper w-full max-w-5xl h-full md:h-[90vh] overflow-hidden border-x-4 border-t-4 border-act-pink shadow-[0px_0px_50px_rgba(255,0,127,0.5)] flex flex-col md:flex-row relative"
                     onClick={(e) => e.stopPropagation()}
                 >
                     {/* Header / Sidebar */}
-                    <div className="bg-act-black text-white p-6 md:w-1/3 flex flex-col justify-between border-b-4 md:border-b-0 md:border-r-4 border-black relative">
+                    <div className="bg-act-black text-white p-8 md:w-1/3 flex flex-col justify-between border-b-4 md:border-b-0 md:border-r-4 border-act-pink shrink-0 relative overflow-hidden">
                          {/* Noise Texture */}
                          <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none"></div>
 
                          <div>
-                             <div className="font-mono text-xs text-act-yellow font-bold uppercase mb-2">/// CLASSIFIED DOCUMENT</div>
-                             <h2 className="font-display text-5xl md:text-6xl uppercase leading-none mb-6 text-white">{selectedPaper.title}</h2>
-                             <div className="w-12 h-1 bg-act-pink mb-6"></div>
-                             <p className="font-mono text-xs md:text-sm text-stone-300 uppercase leading-relaxed">
-                                 AUTHOR: {selectedPaper.author}<br/>
-                                 REF: {selectedPaper.type}-00{selectedPaper.id}<br/>
-                                 STATUS: PUBLIC RELEASE
-                             </p>
+                             <div className="font-mono text-xs text-act-pink font-bold uppercase mb-4 flex items-center gap-2">
+                                <Library size={14}/> CLASSIFIED DOSSIER
+                             </div>
+                             <h2 className="font-display text-5xl md:text-6xl uppercase leading-[0.85] mb-8 text-white">{selectedPaper.title}</h2>
+                             
+                             <div className="space-y-4 font-mono text-xs text-stone-400 border-t border-stone-700 pt-4">
+                                 <div><span className="text-white">AUTHOR:</span> {selectedPaper.author}</div>
+                                 <div><span className="text-white">REF:</span> {selectedPaper.type}-00{selectedPaper.id}</div>
+                                 <div><span className="text-white">ACCESS:</span> GRANTED</div>
+                             </div>
                          </div>
 
-                         <div className="hidden md:block">
-                             <Quote size={40} className="text-stone-700 mb-4" />
-                             <p className="font-display text-xl uppercase leading-tight text-stone-400">
+                         <div className="hidden md:block mt-8">
+                             <Quote size={40} className="text-act-yellow mb-4" />
+                             <p className="font-display text-2xl uppercase leading-tight text-stone-300">
                                  "{selectedPaper.quote}"
                              </p>
                          </div>
                     </div>
 
                     {/* Content Area */}
-                    <div className="flex-1 bg-white text-black p-8 md:p-12 overflow-y-auto relative">
-                        <button 
-                            onClick={() => setSelectedPaper(null)}
-                            className="absolute top-4 right-4 p-2 hover:bg-black hover:text-white transition-colors border-2 border-transparent hover:border-black focus:outline-none focus:ring-2 focus:ring-act-pink"
-                            aria-label="Close Reader"
-                        >
-                            <X size={24} />
-                        </button>
-
-                        <div className="max-w-prose mx-auto pt-8">
-                             {selectedPaper.fullText}
+                    <div className="flex-1 bg-white text-black overflow-y-auto custom-scrollbar relative">
+                        
+                        {/* Sticky Toolbar */}
+                        <div className="sticky top-0 bg-white/95 backdrop-blur border-b-2 border-stone-100 p-4 flex justify-between items-center z-20">
+                            <div className="font-mono text-xs font-bold uppercase text-stone-500">Reading Mode</div>
+                            <button 
+                                onClick={() => setSelectedPaper(null)}
+                                className="flex items-center gap-2 px-4 py-2 bg-black text-white hover:bg-act-pink hover:text-black transition-colors font-mono text-xs font-bold uppercase"
+                            >
+                                <X size={14} /> Close File
+                            </button>
                         </div>
 
-                        <div className="mt-12 pt-8 border-t-2 border-black flex justify-between items-center">
-                            <div className="font-display text-2xl uppercase">BLKOUT UK</div>
-                            <div className="font-mono text-xs font-bold uppercase">End of File</div>
+                        <div className="p-8 md:p-16 max-w-2xl mx-auto">
+                            <h3 className="font-display text-3xl mb-8 border-b-4 border-black pb-4">{selectedPaper.subtitle}</h3>
+                            <div className="prose prose-lg prose-headings:font-display prose-p:font-mono prose-li:font-mono">
+                                {selectedPaper.fullText}
+                            </div>
+                        </div>
+
+                        <div className="p-8 md:p-16 bg-stone-100 border-t-4 border-black text-center mt-12">
+                            <div className="font-display text-4xl uppercase mb-2">BLKOUT UK</div>
+                            <div className="font-mono text-xs font-bold text-stone-500 uppercase">Policy Unit // End of Transmission</div>
                         </div>
                     </div>
 

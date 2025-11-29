@@ -1,14 +1,17 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
 
-import React, { useState, useRef } from 'react';
-import { Download, Type, Palette, Layout, Layers, Check, Scissors, Loader2 } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Download, Type, Palette, Layout, Layers, Check, Scissors, Loader2, Square, Grid, Circle, AlertTriangle, Zap, Heart, Star, Skull, Stamp, MousePointer2, Save } from 'lucide-react';
 import { toPng } from 'html-to-image';
 
 type AssetType = 'FLYER' | 'BLUEPRINT' | 'STICKER';
 type ColorTheme = 'PINK' | 'YELLOW' | 'BLUE' | 'BW';
+type BorderStyle = 'SOLID' | 'DASHED' | 'DOTTED' | 'DOUBLE';
+type GraphicIcon = 'NONE' | 'ZAP' | 'STAR' | 'ALERT' | 'SKULL' | 'HEART';
 
 interface DesignState {
   headline: string;
@@ -17,6 +20,8 @@ interface DesignState {
   theme: ColorTheme;
   fontMode: 'LOUD' | 'TECH';
   texture: boolean;
+  borderStyle: BorderStyle;
+  graphic: GraphicIcon;
 }
 
 const THEMES = {
@@ -26,9 +31,27 @@ const THEMES = {
   BW: { bg: 'bg-black', text: 'text-white', border: 'border-white', accent: 'bg-act-pink', secondary: 'text-stone-400' },
 };
 
+const BORDERS = {
+  SOLID: 'border-solid',
+  DASHED: 'border-dashed',
+  DOTTED: 'border-dotted',
+  DOUBLE: 'border-double'
+};
+
+const GRAPHICS = {
+  NONE: null,
+  ZAP: Zap,
+  STAR: Star,
+  ALERT: AlertTriangle,
+  SKULL: Skull,
+  HEART: Heart
+};
+
 export const MovementResourceBuilder: React.FC = () => {
   const [activeTab, setActiveTab] = useState<AssetType>('FLYER');
   const [isDownloading, setIsDownloading] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const captureRef = useRef<HTMLDivElement>(null);
   
   const [design, setDesign] = useState<DesignState>({
@@ -37,22 +60,53 @@ export const MovementResourceBuilder: React.FC = () => {
     body: "We are the signal in the noise. Join the vanguard of community health.",
     theme: 'PINK',
     fontMode: 'LOUD',
-    texture: true
+    texture: true,
+    borderStyle: 'SOLID',
+    graphic: 'NONE'
   });
+
+  // Load saved design on mount
+  useEffect(() => {
+    const savedDesign = localStorage.getItem('blkout_zine_design');
+    if (savedDesign) {
+      try {
+        setDesign(JSON.parse(savedDesign));
+      } catch (e) {
+        console.error("Failed to parse saved design", e);
+      }
+    }
+  }, []);
+
+  const handleSave = () => {
+    setIsSaving(true);
+    try {
+      localStorage.setItem('blkout_zine_design', JSON.stringify(design));
+      setSaveMessage("SAVED!");
+      setTimeout(() => setSaveMessage(null), 2000);
+    } catch (e) {
+      console.error("Failed to save design", e);
+      setSaveMessage("ERROR");
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   const handleDownload = async () => {
     if (!captureRef.current) return;
     setIsDownloading(true);
 
     try {
-        const dataUrl = await toPng(captureRef.current, { cacheBust: true });
+        const dataUrl = await toPng(captureRef.current, { 
+            cacheBust: true,
+            pixelRatio: 2 // Higher resolution
+        });
         const link = document.createElement('a');
         link.download = `BLKOUT-${activeTab}-${Date.now()}.png`;
         link.href = dataUrl;
         link.click();
     } catch (err) {
         console.error('Failed to generate image', err);
-        alert('Failed to generate image. Please try again.');
+        alert('Failed to generate image. This may be due to browser security settings on external images.');
     } finally {
         setIsDownloading(false);
     }
@@ -73,34 +127,45 @@ export const MovementResourceBuilder: React.FC = () => {
                       Movement<br/>Materials
                   </h2>
               </div>
-              <p className="font-mono text-sm max-w-md text-right md:text-left">
-                  The revolution will not be templated. <br/>
-                  Customize. Print. Paste. Post.
-              </p>
+              <div className="flex flex-col items-end gap-2">
+                  <p className="font-mono text-sm max-w-md text-right md:text-left">
+                      The revolution will not be templated. <br/>
+                      Customize. Print. Paste. Post.
+                  </p>
+                  <button 
+                    onClick={handleSave}
+                    disabled={isSaving}
+                    className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-act-black font-mono text-xs font-bold uppercase hover:bg-act-yellow transition-colors focus:outline-none focus:ring-2 focus:ring-act-pink"
+                  >
+                    {isSaving ? <Loader2 size={14} className="animate-spin"/> : <Save size={14}/>}
+                    {saveMessage ? saveMessage : "SAVE PROGRESS"}
+                  </button>
+              </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-auto lg:h-[700px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-auto lg:h-[800px]">
               
               {/* LEFT: CANVAS PREVIEW */}
-              <div className="lg:col-span-8 bg-stone-100 border-2 border-act-black shadow-[8px_8px_0px_0px_#111] flex items-center justify-center p-8 relative overflow-hidden" role="region" aria-label="Design Preview">
+              <div className="lg:col-span-8 bg-stone-200 border-2 border-act-black shadow-[8px_8px_0px_0px_#111] flex items-center justify-center p-8 relative overflow-hidden" role="region" aria-label="Design Preview">
                   <div className="absolute inset-0 pointer-events-none opacity-5 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
                   
                   {/* The Asset Canvas */}
-                  <div className="transform scale-75 md:scale-90 lg:scale-100 transition-all duration-300 shadow-2xl">
-                      <div ref={captureRef}>
+                  <div className="transform scale-75 md:scale-90 lg:scale-100 transition-all duration-300">
+                      <div ref={captureRef} className="shadow-2xl">
                         {activeTab === 'FLYER' && <FlyerTemplate design={design} />}
                         {activeTab === 'BLUEPRINT' && <BlueprintTemplate design={design} />}
                         {activeTab === 'STICKER' && <StickerTemplate design={design} />}
                       </div>
                   </div>
 
-                  <div className="absolute bottom-4 right-4 font-mono text-[10px] text-stone-400 uppercase">
-                      PREVIEW MODE // 300 DPI
+                  <div className="absolute bottom-4 right-4 font-mono text-[10px] text-stone-500 uppercase flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                      LIVE PREVIEW // 300 DPI
                   </div>
               </div>
 
               {/* RIGHT: TOOLKIT */}
-              <div className="lg:col-span-4 bg-act-black text-white p-6 border-2 border-act-black flex flex-col gap-6 shadow-[8px_8px_0px_0px_#FF007F]" role="form" aria-label="Customization Tools">
+              <div className="lg:col-span-4 bg-act-black text-white p-6 border-2 border-act-black flex flex-col gap-6 shadow-[8px_8px_0px_0px_#FF007F] h-full" role="form" aria-label="Customization Tools">
                   
                   {/* Tab Selectors */}
                   <div className="flex border-b border-stone-700 pb-6 gap-2" role="tablist">
@@ -187,8 +252,10 @@ export const MovementResourceBuilder: React.FC = () => {
                       {/* Style Toggles */}
                       <div className="space-y-3">
                            <div className="flex items-center gap-2 text-act-pink font-mono text-xs uppercase font-bold">
-                              <Layout size={14} aria-hidden="true" /> Style
+                              <Layout size={14} aria-hidden="true" /> Style & Layout
                           </div>
+                          
+                          {/* Font Mode */}
                           <div className="flex gap-4">
                               <button 
                                 onClick={() => setDesign({...design, fontMode: 'LOUD'})}
@@ -205,6 +272,41 @@ export const MovementResourceBuilder: React.FC = () => {
                                   TECH
                               </button>
                           </div>
+
+                          {/* Border Style */}
+                          <div className="grid grid-cols-4 gap-2">
+                             {(['SOLID', 'DASHED', 'DOTTED', 'DOUBLE'] as BorderStyle[]).map(bs => (
+                                 <button
+                                    key={bs}
+                                    onClick={() => setDesign({...design, borderStyle: bs})}
+                                    className={`h-8 border-white flex items-center justify-center transition-all ${design.borderStyle === bs ? 'bg-white text-black' : 'border opacity-50'}`}
+                                    title={bs}
+                                 >
+                                     <Square size={16} className={bs === 'DASHED' ? 'stroke-dashed' : bs === 'DOTTED' ? 'stroke-dotted' : ''} strokeWidth={bs === 'DOUBLE' ? 1 : 2} />
+                                 </button>
+                             ))}
+                          </div>
+
+                           {/* Graphic Overlays */}
+                           <div className="flex items-center gap-2 text-white font-mono text-xs uppercase font-bold mt-2">
+                              <Stamp size={14} aria-hidden="true" /> Overlay Graphic
+                          </div>
+                          <div className="grid grid-cols-6 gap-2">
+                             {(Object.keys(GRAPHICS) as GraphicIcon[]).map(icon => {
+                                 const Icon = GRAPHICS[icon];
+                                 return (
+                                     <button
+                                        key={icon}
+                                        onClick={() => setDesign({...design, graphic: icon})}
+                                        className={`h-8 border border-stone-700 flex items-center justify-center transition-all ${design.graphic === icon ? 'bg-act-pink text-white border-act-pink' : 'hover:bg-stone-800'}`}
+                                        title={icon}
+                                     >
+                                         {Icon ? <Icon size={14} /> : <span className="text-[10px]">OFF</span>}
+                                     </button>
+                                 )
+                             })}
+                          </div>
+
                           <button 
                              onClick={() => setDesign({...design, texture: !design.texture})}
                              aria-pressed={design.texture}
@@ -240,52 +342,98 @@ export const MovementResourceBuilder: React.FC = () => {
 
 // --- TEMPLATES ---
 
+const GraphicOverlay: React.FC<{ icon: GraphicIcon; color: string }> = ({ icon, color }) => {
+    const IconComponent = GRAPHICS[icon];
+    if (!IconComponent) return null;
+    return (
+        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 pointer-events-none transform rotate-12 z-10 ${color}`}>
+            <IconComponent size={200} strokeWidth={1} />
+        </div>
+    );
+};
+
 const FlyerTemplate: React.FC<{ design: DesignState }> = ({ design }) => {
     const theme = THEMES[design.theme];
+    const [tornTabs, setTornTabs] = useState<number[]>([]);
+
+    const handleTear = (index: number) => {
+        if (!tornTabs.includes(index)) {
+            setTornTabs([...tornTabs, index]);
+        }
+    };
 
     return (
-        <div className={`w-[350px] h-[500px] ${theme.bg} ${theme.text} relative flex flex-col overflow-hidden shadow-xl`}>
-            {design.texture && <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none mix-blend-multiply z-10"></div>}
-            
-            {/* Header Area */}
-            <div className="p-6 border-b-4 border-black flex-1 flex flex-col justify-start relative z-0">
-                <div className="absolute top-0 right-0 p-2 bg-black text-white font-mono text-[10px] font-bold transform rotate-90 origin-top-right">
-                    BLKOUT UK POLICY
-                </div>
+        <div className="relative group perspective-1000">
+            {/* Paper Shadow/Curl Effect for Photorealism */}
+            <div className="absolute inset-0 bg-black/40 blur-xl transform translate-y-4 translate-x-4 z-[-1] rounded-sm"></div>
 
-                <div className={`font-mono text-xs font-bold uppercase mb-4 ${theme.secondary}`}>
-                    /// {design.subhead}
-                </div>
+            <div className={`w-[350px] h-[550px] ${theme.bg} ${theme.text} relative flex flex-col overflow-visible shadow-inner`}>
+                {design.texture && <div className="absolute inset-0 bg-noise opacity-40 pointer-events-none mix-blend-multiply z-20"></div>}
                 
-                <h1 className={`${design.fontMode === 'LOUD' ? 'font-display text-7xl leading-[0.85]' : 'font-mono text-4xl font-bold'} uppercase mb-6 break-words`}>
-                    {design.headline}
-                </h1>
+                {/* Graphic Overlay */}
+                <GraphicOverlay icon={design.graphic} color={theme.text} />
 
-                <div className={`w-16 h-2 bg-black mb-6`}></div>
-
-                <p className={`${design.fontMode === 'LOUD' ? 'font-sans text-lg font-bold' : 'font-mono text-xs'} leading-tight max-w-[90%]`}>
-                    {design.body}
-                </p>
-            </div>
-
-            {/* Tear-off Bottom */}
-            <div className="h-24 bg-white relative flex items-end">
-                {/* Dashed Cut Line */}
-                <div className="absolute top-0 w-full border-t-2 border-black border-dashed flex items-center justify-center">
-                    <div className="bg-white px-2 -mt-2">
-                        <Scissors size={16} className="text-black" />
+                {/* Main Content Area */}
+                <div className={`p-6 border-b-4 border-black flex-1 flex flex-col justify-start relative z-10 border-4 border-b-0 ${BORDERS[design.borderStyle]}`}>
+                    <div className="absolute top-0 right-0 p-2 bg-black text-white font-mono text-[10px] font-bold transform rotate-90 origin-top-right shadow-md">
+                        BLKOUT UK POLICY
                     </div>
+
+                    <div className={`font-mono text-xs font-bold uppercase mb-4 ${theme.secondary}`}>
+                        /// {design.subhead}
+                    </div>
+                    
+                    <h1 className={`${design.fontMode === 'LOUD' ? 'font-display text-7xl leading-[0.85]' : 'font-mono text-4xl font-bold'} uppercase mb-6 break-words drop-shadow-sm`}>
+                        {design.headline}
+                    </h1>
+
+                    <div className={`w-16 h-2 bg-black mb-6`}></div>
+
+                    <p className={`${design.fontMode === 'LOUD' ? 'font-sans text-lg font-bold' : 'font-mono text-xs'} leading-tight max-w-[90%]`}>
+                        {design.body}
+                    </p>
                 </div>
 
-                {/* Tabs */}
-                <div className="w-full flex justify-around h-full pt-4">
-                    {[1, 2, 3, 4].map((i) => (
-                        <div key={i} className="h-full border-l border-r border-stone-200 w-full flex items-center justify-center">
-                             <span className="font-mono text-[8px] font-bold transform -rotate-90 whitespace-nowrap text-stone-600">
-                                 mental-health.blkoutuk.com
-                             </span>
+                {/* Tear-off Bottom Section */}
+                <div className="h-32 bg-white relative flex items-start pt-0 z-10 shadow-[0_-5px_10px_rgba(0,0,0,0.1)]">
+                    {/* Dashed Cut Line */}
+                    <div className="absolute -top-[2px] left-0 w-full border-t-4 border-black border-dashed flex items-center justify-center z-20">
+                        <div className="bg-white px-2 -mt-3 text-black">
+                            <Scissors size={20} className="transform rotate-90" />
                         </div>
-                    ))}
+                    </div>
+
+                    {/* Tabs Container */}
+                    <div className="w-full flex justify-around h-full items-start px-2">
+                        {[1, 2, 3, 4, 5].map((i) => (
+                            <button 
+                                key={i} 
+                                onClick={() => handleTear(i)}
+                                disabled={tornTabs.includes(i)}
+                                className={`
+                                    h-full w-full border-l border-r border-stone-300 relative group/tab
+                                    transition-all duration-300 transform origin-top
+                                    ${tornTabs.includes(i) ? 'opacity-0 pointer-events-none' : 'hover:translate-y-1 hover:rotate-1 cursor-pointer bg-white'}
+                                `}
+                                style={{
+                                    boxShadow: 'inset 0 0 10px rgba(0,0,0,0.05)'
+                                }}
+                                title="Click to tear off"
+                            >
+                                 <div className="absolute inset-0 bg-gradient-to-b from-stone-100 to-white opacity-50 pointer-events-none"></div>
+                                 <div className="h-full flex items-center justify-center">
+                                     <span className="font-mono text-[9px] font-bold transform -rotate-90 whitespace-nowrap text-stone-800 tracking-wider">
+                                         mental-health.blkoutuk.com
+                                     </span>
+                                 </div>
+                                 
+                                 {/* Hover Hint */}
+                                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 opacity-0 group-hover/tab:opacity-100 transition-opacity">
+                                    <MousePointer2 size={12} className="text-act-pink" />
+                                 </div>
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
@@ -296,11 +444,14 @@ const BlueprintTemplate: React.FC<{ design: DesignState }> = ({ design }) => {
     const theme = THEMES[design.theme];
 
     return (
-        <div className={`w-[500px] h-[350px] ${theme.bg === 'bg-black' ? 'bg-[#003366]' : theme.bg} ${theme.text} relative flex flex-col overflow-hidden shadow-xl border-4 ${theme.border}`}>
+        <div className={`w-[500px] h-[350px] ${theme.bg === 'bg-black' ? 'bg-[#003366]' : theme.bg} ${theme.text} relative flex flex-col overflow-hidden shadow-xl border-4 ${theme.border} ${BORDERS[design.borderStyle]}`}>
             {design.texture && <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/graphy.png')] z-10"></div>}
             
             {/* Grid Background */}
             <div className="absolute inset-0 opacity-20 z-0" style={{backgroundImage: `linear-gradient(${theme.bg === 'bg-white' ? '#000' : '#fff'} 1px, transparent 1px), linear-gradient(90deg, ${theme.bg === 'bg-white' ? '#000' : '#fff'} 1px, transparent 1px)`, backgroundSize: '20px 20px'}}></div>
+
+            {/* Graphic Overlay */}
+            <GraphicOverlay icon={design.graphic} color={theme.text === 'text-black' ? 'text-stone-400' : 'text-white'} />
 
             {/* Technical Header */}
             <div className={`absolute top-4 left-4 border ${theme.border} p-2 font-mono text-[10px] uppercase z-10 bg-inherit`}>
@@ -314,7 +465,7 @@ const BlueprintTemplate: React.FC<{ design: DesignState }> = ({ design }) => {
 
             {/* Main Content Area */}
             <div className="flex-1 flex flex-col items-center justify-center text-center p-12 relative z-0">
-                <div className={`border-2 ${theme.border} px-8 py-6 backdrop-blur-sm`}>
+                <div className={`border-2 ${theme.border} px-8 py-6 backdrop-blur-sm bg-opacity-10 bg-white`}>
                     <h1 className={`${design.fontMode === 'LOUD' ? 'font-display text-5xl' : 'font-mono text-3xl font-bold'} uppercase mb-2`}>
                         {design.headline}
                     </h1>
@@ -347,7 +498,9 @@ const StickerTemplate: React.FC<{ design: DesignState }> = ({ design }) => {
         <div className={`w-[400px] h-[250px] ${theme.bg} ${theme.text} relative flex items-center justify-center overflow-hidden shadow-xl rounded-lg border-8 border-white`}>
             {design.texture && <div className="absolute inset-0 bg-noise opacity-40 pointer-events-none z-10"></div>}
             
-            <div className="w-full h-full p-4 flex flex-col items-center justify-center text-center relative z-0 border-4 border-transparent">
+            <GraphicOverlay icon={design.graphic} color={theme.text === 'text-black' ? 'text-black' : 'text-white'} />
+
+            <div className={`w-full h-full p-4 flex flex-col items-center justify-center text-center relative z-0 border-4 border-transparent ${BORDERS[design.borderStyle]}`}>
                 
                 {/* Hello My Name Is Style Header */}
                 <div className="bg-white text-black w-full py-1 mb-2 absolute top-0 left-0 text-center">
@@ -357,7 +510,7 @@ const StickerTemplate: React.FC<{ design: DesignState }> = ({ design }) => {
                     <span className="font-mono text-[8px] font-bold uppercase tracking-widest">The Future Is</span>
                 </div>
 
-                <h1 className={`${design.fontMode === 'LOUD' ? 'font-display text-7xl' : 'font-display text-6xl'} uppercase leading-[0.85] mt-8 transform -rotate-2`}>
+                <h1 className={`${design.fontMode === 'LOUD' ? 'font-display text-7xl' : 'font-display text-6xl'} uppercase leading-[0.85] mt-8 transform -rotate-2 mix-blend-hard-light`}>
                     {design.headline}
                 </h1>
                 

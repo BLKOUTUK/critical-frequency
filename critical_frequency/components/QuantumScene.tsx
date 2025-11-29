@@ -1,4 +1,3 @@
-
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -121,7 +120,8 @@ const HeroContent = () => {
 export const HeroScene: React.FC = () => {
   return (
     <div className="absolute inset-0 z-0 opacity-80 pointer-events-none mix-blend-multiply">
-      <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
+      {/* Clamp DPR to max 1.5 to prevent mobile overheating */}
+      <Canvas camera={{ position: [0, 0, 8], fov: 50 }} dpr={[1, 1.5]}>
         <color attach="background" args={['#F2F2F2']} />
         <HeroContent />
       </Canvas>
@@ -176,7 +176,7 @@ const HubContent = () => {
 export const CommunityHubScene: React.FC = () => {
   return (
     <div className="w-full h-full absolute inset-0">
-      <Canvas camera={{ position: [4, 2, 6], fov: 45 }}>
+      <Canvas camera={{ position: [4, 2, 6], fov: 45 }} dpr={[1, 1.5]}>
         <HubContent />
       </Canvas>
     </div>

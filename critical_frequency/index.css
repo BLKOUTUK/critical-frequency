@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Layout */
+html, body, #root {
+  height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  background-color: #F2F2F2;
+  color: #111;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF007F;
+  border: 2px solid #111;
+}
+
+/* Print Styles for Policy Makers */
+@media print {
+  nav, footer, button, .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+
+  canvas {
+    display: none !important; /* Hide 3D backgrounds to save ink */
+  }
+
+  h1, h2, h3, p {
+    text-shadow: none !important;
+    color: black !important;
+    -webkit-text-stroke: 0 !important;
+  }
+}

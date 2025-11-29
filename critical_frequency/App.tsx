@@ -55,105 +55,63 @@ const App: React.FC = () => {
   };
   
   const handleDownloadStrategy = () => {
-    // Detailed Strategy Document content
+    // Concise Strategy Summary
     const content = `
-BLKOUT UK: THE VANGUARD PROTOCOL
-STRATEGIC PROPOSAL & INVESTMENT CASE
+BLKOUT UK: CRITICAL FREQUENCY
+THE VANGUARD PROTOCOL - STRATEGIC SUMMARY
 =============================================================================
 
-1. EXECUTIVE SUMMARY
+THE SHIFT
 -----------------------------------------------------------------------------
-The UK mental health system is facing a catastrophic failure of relevance. 
-While policy shifts towards "prevention" and "community-based care," the 
-infrastructure remains stubbornly analogue, hospital-centric, and culturally 
-inert.
+The Secretary of State for Health has mandated a move from:
+[1] Hospital -> Community
+[2] Analogue -> Digital
+[3] Sickness -> Prevention
 
-BLKOUT UK proposes a radical update to this operating system. By leveraging 
-digital affinity networks, peer-led interventions, and "Reality Data," we 
-offer a scalable model that connects the most marginalized populations directly 
-to the center of health strategy. 
+Current policy fails Black Queer men on all three counts. We are invisible
+until crisis.
 
-We are not just asking for inclusion; we are offering a lifeline to a system 
-in drift.
-
-2. THE STRATEGIC CONTEXT
+THE INTERVENTION
 -----------------------------------------------------------------------------
-The Secretary of State for Health has mandated three transformational shifts:
-1. From Hospital to Community
-2. From Analogue to Digital
-3. From Sickness to Prevention
+BLKOUT UK proposes a radical infrastructure update:
 
-Currently, for Black Queer men, these are empty slogans.
-- "Community" often means geographical postcodes where they feel unsafe.
-- "Digital" is limited to booking appointments for services that don't understand them.
-- "Prevention" is non-existent; the state only engages at the point of crisis (detention/sectioning).
+1. THE DATA VOID (THE PROBLEM)
+   We replace "Official Statistics" (which fragment identity) with
+   "Reality Data" (Street Intel). We close the feedback loop between
+   the margins and the centre.
 
-3. THE PROBLEM: THE DATA VOID
+2. AFFINITY NETWORKS (THE SOLUTION)
+   Community is not a postcode. It is a frequency. We use digital
+   affinity networks to provide safe, always-on peer support that
+   bypasses geographic danger zones.
+
+3. THE RELAY (THE METHOD)
+   A continuous dialogue. No sacred cows. Policy stress-tested
+   against lived reality before implementation.
+
+THE INVESTMENT CASE
 -----------------------------------------------------------------------------
-You cannot treat a population you cannot see. Standard demographic data collection 
-forces individuals to fragment their identity (choosing between "Black" or "LGBTQ+"). 
-This creates a "Data Void"—a statistical blind spot where thousands of men exist 
-without appropriate service provision until they enter the acute crisis pathway.
+We are not asking for charity. We are offering an efficiency upgrade.
+Target: Reduce acute psychiatric admissions by catching users upstream.
 
-This is not just a social justice issue; it is a massive economic inefficiency. 
-The cost of acute psychiatric detention far outstrips the cost of upstream 
-preventative engagement.
-
-4. THE SOLUTION: THE VANGUARD PROTOCOL
------------------------------------------------------------------------------
-BLKOUT UK operates as a "Policy Unit" from the margins. Our model is built on:
-
-A. AFFINITY NETWORKS (The "Where")
-We reject community-as-geography. We build community-as-relationship. Using 
-digital platforms, we create safe, high-trust spaces that transcend physical 
-location, allowing for "always-on" peer support.
-
-B. REALITY DATA (The "What")
-We gather high-fidelity, qualitative insight ("Street Intel") that quantitative 
-NHS metrics miss. We feed this bottom-up data into top-down policy making, 
-closing the feedback loop.
-
-C. THE RELAY (The "How")
-A continuous dialogue between stakeholders, ensuring that policy is stress-tested 
-against lived reality before implementation.
-
-5. INVESTMENT CASE & FINANCIALS
------------------------------------------------------------------------------
-We are seeking strategic partnership and core funding to scale the Vanguard Protocol.
-
-ROI PROJECTION:
-- Reduced Acute Admissions: Targeted reduction of 15% in crisis detentions within pilot cohort.
-- Engagement Efficiency: 300% increase in "early help" access compared to standard NHS pathways.
-- Trust Equity: Rebuilding the fractured social contract between state health bodies and Black communities.
-
-6. CONCLUSION
------------------------------------------------------------------------------
-The system has drifted. The margins have the map. 
-We invite you to join us in correcting the signal.
+"We are tuning the system to the people, not the people to the system."
 
 --
 CONTACT:
 BLKOUT UK Policy Unit
-Email: contact@blkoutuk.com
 Web: mental-health.blkoutuk.com
+Email: contact@blkoutuk.com
 `;
 
     const blob = new Blob([content], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'BLKOUT_UK_Strategic_Proposal.txt';
+    link.download = 'BLKOUT_UK_Strategy_Summary.txt';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
-  };
-
-  const handleSubmitContact = (e: React.FormEvent) => {
-      e.preventDefault();
-      const subject = `Feedback from ${formData.name} (${formData.org})`;
-      const body = `Name: ${formData.name}%0D%0AOrganization: ${formData.org}%0D%0AEmail: ${formData.email}%0D%0A%0D%0A--- MESSAGE ---%0D%0A${formData.message}`;
-      window.location.href = `mailto:contact@blkoutuk.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -459,7 +417,8 @@ Web: mental-health.blkoutuk.com
                         <p className="font-mono text-xs text-act-pink mb-4 uppercase font-bold tracking-widest flex items-center gap-2">
                              <MessageSquare size={14}/> Stay In Touch / Join The Vanguard
                         </p>
-                        <form onSubmit={handleSubmitContact} className="space-y-4">
+                        {/* UPDATE: Uses Formspree for actual submission logic */}
+                        <form action="https://formspree.io/f/xbjnqnga" method="POST" className="space-y-4">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label htmlFor="name" className="sr-only">Name</label>
@@ -467,11 +426,10 @@ Web: mental-health.blkoutuk.com
                                         <User size={16} className="text-stone-400" />
                                         <input 
                                             id="name" 
+                                            name="name"
                                             type="text" 
                                             placeholder="NAME" 
                                             required
-                                            value={formData.name}
-                                            onChange={(e) => setFormData({...formData, name: e.target.value})}
                                             className="w-full p-2 bg-transparent outline-none font-mono text-sm uppercase"
                                         />
                                     </div>
@@ -482,11 +440,10 @@ Web: mental-health.blkoutuk.com
                                         <Mail size={16} className="text-stone-400" />
                                         <input 
                                             id="email" 
+                                            name="email"
                                             type="email" 
                                             placeholder="EMAIL" 
                                             required
-                                            value={formData.email}
-                                            onChange={(e) => setFormData({...formData, email: e.target.value})}
                                             className="w-full p-2 bg-transparent outline-none font-mono text-sm uppercase"
                                         />
                                     </div>
@@ -498,10 +455,9 @@ Web: mental-health.blkoutuk.com
                                     <Building size={16} className="text-stone-400" />
                                     <input 
                                         id="org" 
+                                        name="organization"
                                         type="text" 
                                         placeholder="ORGANIZATION / ROLE" 
-                                        value={formData.org}
-                                        onChange={(e) => setFormData({...formData, org: e.target.value})}
                                         className="w-full p-2 bg-transparent outline-none font-mono text-sm uppercase"
                                     />
                                 </div>
@@ -510,10 +466,9 @@ Web: mental-health.blkoutuk.com
                                 <label htmlFor="message" className="sr-only">Feedback/Message</label>
                                 <textarea 
                                     id="message" 
+                                    name="message"
                                     placeholder="COMMENTS / FEEDBACK / PROPOSALS..." 
                                     rows={3}
-                                    value={formData.message}
-                                    onChange={(e) => setFormData({...formData, message: e.target.value})}
                                     className="w-full p-2 border-2 border-black bg-stone-100 focus:bg-white outline-none focus:ring-2 focus:ring-act-pink font-mono text-sm"
                                 ></textarea>
                             </div>
@@ -521,7 +476,7 @@ Web: mental-health.blkoutuk.com
                                 <Send size={20} /> SEND TRANSMISSION
                             </button>
                             <p className="text-[10px] font-mono text-center text-stone-500">
-                                Directed to contact@blkoutuk.com via secure channel.
+                                Directed to BLKOUT UK Policy Unit.
                             </p>
                         </form>
                     </div>

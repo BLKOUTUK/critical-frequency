@@ -47,8 +47,8 @@ export const TheRelay: React.FC = () => {
                  <div className="w-full bg-stone-900 border-2 border-stone-700 p-2 relative group cursor-pointer hover:border-act-pink transition-colors" role="listitem">
                      {/* "Bass Weight" Thick Border top */}
                      <div className="h-64 relative overflow-hidden grayscale contrast-125 sepia-50 group-hover:grayscale-0 transition-all duration-500">
-                         {/* Image: Sound System Stack */}
-                         <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?q=80&w=1000&auto=format&fit=crop" alt="A towering sound system speaker stack in a dimly lit club" className="w-full h-full object-cover" />
+                         {/* Image: The Relay Episode 1 */}
+                         <img src="/relay-1.png" alt="The Relay podcast episode 1 - The Systemic Drift" className="w-full h-full object-cover" />
                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                              <Play size={48} className="text-white fill-current" aria-hidden="true" />
                          </div>
@@ -65,8 +65,8 @@ export const TheRelay: React.FC = () => {
                  {/* Middle Speaker Box */}
                  <div className="w-full bg-stone-900 border-2 border-stone-700 p-2 relative group cursor-pointer hover:border-act-blue transition-colors ml-4 md:ml-12" role="listitem">
                      <div className="h-48 relative overflow-hidden grayscale contrast-125 sepia-50 group-hover:grayscale-0 transition-all duration-500">
-                         {/* Image: Mixer/Decks */}
-                         <img src="https://images.unsplash.com/photo-1558535218-973d29e31350?q=80&w=1000&auto=format&fit=crop" alt="Close up of audio mixer knobs and sliders" className="w-full h-full object-cover" />
+                         {/* Image: The Relay Episode 2 */}
+                         <img src="/relay-2.png" alt="The Relay podcast episode 2 - Who Cares?" className="w-full h-full object-cover" />
                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                              <Play size={48} className="text-white fill-current" aria-hidden="true" />
                          </div>
@@ -83,8 +83,8 @@ export const TheRelay: React.FC = () => {
                  {/* Bottom Speaker Box */}
                  <div className="w-full bg-stone-900 border-2 border-stone-700 p-2 relative group cursor-pointer hover:border-act-yellow transition-colors -ml-2 md:-ml-8" role="listitem">
                      <div className="h-48 relative overflow-hidden grayscale contrast-125 sepia-50 group-hover:grayscale-0 transition-all duration-500">
-                         {/* Image: Cables/Patch Bay */}
-                         <img src="https://images.unsplash.com/photo-1563330232-571141438033?q=80&w=1000&auto=format&fit=crop" alt="Tangled audio patch cables in a studio" className="w-full h-full object-cover" />
+                         {/* Image: The Relay Episode 3 */}
+                         <img src="/relay-3.png" alt="The Relay podcast episode 3 - New Coalitions" className="w-full h-full object-cover" />
                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                              <Play size={48} className="text-white fill-current" aria-hidden="true" />
                          </div>

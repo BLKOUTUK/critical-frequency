@@ -10,7 +10,7 @@ import { EvidenceScroll } from './components/ScrollyTelling';
 import { AmplificationStation } from './components/AmplificationStation';
 import { MovementResourceBuilder } from './components/ZineGenerator';
 import { TheRelay } from './components/TheRelay';
-import { ArrowDown, Menu, X, Activity, Scale, Radio, Compass, EyeOff, Send, MessageSquare, User, Mail, Building, FileText } from 'lucide-react';
+import { ArrowDown, Menu, X, Activity, Scale, Radio, Compass, EyeOff, Send, MessageSquare, User, Mail, Building, FileText, Users, Heart, Mic, Calendar, ExternalLink } from 'lucide-react';
 
 // Custom BLKOUT Logo Component - Uses user provided image
 const BlkoutLogo = ({ className = "w-12 h-12" }: { className?: string }) => (
@@ -188,7 +188,7 @@ Email: research@blkoutuk.com
             <a href="#demographics" onClick={scrollToSection('demographics')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">The Shift</a>
             <a href="#evidence" onClick={scrollToSection('evidence')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">Evidence</a>
             <a href="#relay" onClick={scrollToSection('relay')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">The Relay</a>
-            <a href="#impact" onClick={scrollToSection('impact')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">Impact</a>
+            <a href="#about" onClick={scrollToSection('about')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">About</a>
             <button onClick={handleDownloadStrategy} className="px-6 py-2 bg-act-black text-white border-2 border-act-black hover:bg-white hover:text-black transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">
               Download Strategy
             </button>
@@ -212,6 +212,7 @@ Email: research@blkoutuk.com
             <a href="#evidence" onClick={scrollToSection('evidence')} className="hover:text-act-pink py-4 w-full text-center">Evidence</a>
             <a href="#relay" onClick={scrollToSection('relay')} className="hover:text-act-pink py-4 w-full text-center">The Relay</a>
             <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-act-pink py-4 w-full text-center">Impact</a>
+            <a href="#about" onClick={scrollToSection('about')} className="hover:text-act-pink py-4 w-full text-center">About</a>
             <button onClick={handleDownloadStrategy} className="px-6 py-2 bg-act-black text-white border-2 border-act-black hover:bg-white hover:text-black transition-all focus:outline-none focus:ring-2 focus:ring-act-pink mt-4">
               Download Strategy
             </button>
@@ -446,6 +447,103 @@ Email: research@blkoutuk.com
 
         {/* RESOURCE BUILDER (Visual) */}
         <MovementResourceBuilder />
+
+        {/* ABOUT BLKOUT - Who We Are */}
+        <section id="about" className="py-24 bg-white border-b-2 border-act-black relative overflow-hidden" aria-labelledby="section-about">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-5 pointer-events-none" style={{backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
+
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="max-w-5xl mx-auto">
+
+                    {/* Header */}
+                    <div className="text-center mb-16">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-act-black text-white font-mono text-xs font-bold uppercase mb-6">
+                            <Users size={14} aria-hidden="true"/> WHO WE ARE
+                        </div>
+                        <h2 id="section-about" className="font-display text-5xl md:text-7xl mb-6 text-act-black uppercase leading-none">
+                            BLKOUT<span className="text-act-pink">_</span>UK
+                        </h2>
+                        <p className="text-xl font-display uppercase text-stone-600 max-w-2xl mx-auto">
+                            Community-Owned Liberation Platform for Black Queer Men in the UK
+                        </p>
+                    </div>
+
+                    {/* Main Content Grid */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+
+                        {/* Left: The Story */}
+                        <div className="space-y-6">
+                            <div className="bg-act-paper p-6 border-2 border-act-black shadow-[4px_4px_0px_0px_#000]">
+                                <h3 className="font-display text-2xl uppercase mb-4 text-act-black">The Mission</h3>
+                                <p className="font-sans text-base leading-relaxed text-stone-700 mb-4">
+                                    BLKOUT exists because Black Queer men in the UK deserve infrastructure built by and for us. Not charity. Not afterthought programming. Real, community-owned systems for connection, support, and collective power.
+                                </p>
+                                <p className="font-sans text-base leading-relaxed text-stone-700">
+                                    We are registered as a <strong>Community Benefit Society</strong> under the Co-operative and Community Benefit Societies Act 2014—meaning democratic member ownership, not shareholders.
+                                </p>
+                            </div>
+
+                            <div className="bg-act-black text-white p-6 border-2 border-act-black">
+                                <div className="font-mono text-xs text-act-pink uppercase mb-3 font-bold">/// Core Belief</div>
+                                <p className="font-display text-2xl uppercase leading-tight">
+                                    "Without community, there is no liberation."
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Right: What We Do */}
+                        <div className="space-y-4">
+                            <h3 className="font-display text-2xl uppercase mb-4 text-act-black">What We Build</h3>
+
+                            {[
+                                { icon: Heart, title: "Peer Support", desc: "IVOR AI assistant and community networks for 24/7 connection" },
+                                { icon: Calendar, title: "Events & Culture", desc: "Gatherings that create the conditions for joy and belonging" },
+                                { icon: Mic, title: "The Relay", desc: "Podcast amplifying Black Queer voices and policy dialogue" },
+                                { icon: FileText, title: "Research & Policy", desc: "Evidence base for systemic change, not just service delivery" }
+                            ].map((item, i) => (
+                                <div key={i} className="flex gap-4 p-4 border-2 border-stone-200 hover:border-act-pink hover:bg-stone-50 transition-all group">
+                                    <div className="w-12 h-12 bg-act-yellow flex items-center justify-center border-2 border-act-black group-hover:bg-act-pink transition-colors">
+                                        <item.icon size={20} className="text-act-black" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-display text-lg uppercase text-act-black">{item.title}</h4>
+                                        <p className="font-mono text-xs text-stone-600">{item.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Full Proposal Link Box */}
+                    <div className="bg-act-blue text-white p-8 border-2 border-act-black shadow-[8px_8px_0px_0px_#000] relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+
+                        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div>
+                                <div className="font-mono text-xs text-act-yellow uppercase mb-2 font-bold">/// Full Research Proposal</div>
+                                <h3 className="font-display text-3xl uppercase leading-tight mb-2">
+                                    Read the Complete Strategy
+                                </h3>
+                                <p className="font-mono text-sm text-white/80">
+                                    Research briefing, outcomes paper, policy recommendations, cost model, and user journeys.
+                                </p>
+                            </div>
+                            <a
+                                href="https://mental-health.blkoutuk.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 px-8 py-4 bg-white text-act-blue font-display text-xl uppercase hover:bg-act-yellow hover:text-act-black transition-colors border-2 border-white whitespace-nowrap"
+                            >
+                                <ExternalLink size={20} />
+                                View Proposal
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
 
         {/* Manifesto / Footer - UPDATED "THE WAY FORWARD" */}
         <section className="py-24 bg-act-black text-white relative border-b-4 border-act-pink" aria-label="Manifesto and Footer">

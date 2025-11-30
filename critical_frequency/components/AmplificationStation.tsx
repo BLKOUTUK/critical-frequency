@@ -1,4 +1,3 @@
-
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -12,7 +11,7 @@ export const AmplificationStation: React.FC = () => {
     <section className="py-24 bg-act-paper border-b-2 border-act-black relative overflow-hidden">
       {/* Background Texture: Speaker Mesh */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{backgroundImage: 'radial-gradient(circle, #000 1.5px, transparent 1.5px)', backgroundSize: '4px 4px'}}></div>
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center mb-16">
            <div className="inline-block px-4 py-1 bg-act-blue text-white font-mono text-xs font-bold uppercase mb-4 border border-black shadow-[4px_4px_0px_0px_#000]">
@@ -51,9 +50,9 @@ const PreAmpWidget: React.FC = () => {
     <div className="relative group">
       {/* Cable graphic */}
       <div className="absolute -top-12 left-8 w-2 h-16 bg-black z-0"></div>
-      
+
       <div className="bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-2 border-black h-full flex flex-col justify-between relative z-10">
-        
+
         <div className="flex justify-between items-center border-b-2 border-black pb-4 mb-4">
            <span className="font-display text-2xl uppercase">PRE-AMP</span>
            <Settings size={24} />
@@ -75,7 +74,7 @@ const PreAmpWidget: React.FC = () => {
         </div>
 
         <div className="mt-8">
-             <button 
+             <button
                 onClick={handleCopy}
                 className={`w-full py-3 font-mono text-xs font-bold uppercase border-2 border-black flex items-center justify-center gap-2 transition-all ${copied ? 'bg-act-pink text-white' : 'bg-act-black text-white hover:bg-white hover:text-black'}`}
              >
@@ -88,13 +87,49 @@ const PreAmpWidget: React.FC = () => {
 };
 
 const DubplateCutter: React.FC = () => {
+    const handleDownload = () => {
+        const content = `
+BLKOUT UK: POLICY DUBPLATE (ONE-PAGER)
+=======================================
+
+1. REALITY DATA (VIP MIX)
+-------------------------
+Standard stats hide us. We use "Street Intel" to map the true needs of Black Queer men.
+We are invisible to the spreadsheet but dying in the streets. We demand data justice.
+
+2. ECONOMIC MODEL
+-----------------
+Prevention is cheaper than cure.
+Acute Episode: £180k+
+Vanguard Intervention: £5k
+The math is simple. The choice is political.
+
+3. THE VANGUARD PROTOCOL
+------------------------
+- Digital Affinity Networks (Safe Harbour)
+- Peer-Led Triage (Trust Equity)
+- Culture as Infrastructure (Signal Boost)
+
+JOIN THE MOVEMENT: mental-health.blkoutuk.com
+`;
+        const blob = new Blob([content], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'BLKOUT_Policy_Dubplate.txt';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    };
+
     return (
         <div className="relative group">
              {/* Cable graphic */}
              <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-2 h-16 bg-black z-0"></div>
 
              <div className="bg-act-black p-6 shadow-[4px_4px_0px_0px_#FF007F] border-2 border-white h-full text-white flex flex-col relative z-10">
-                
+
                 <div className="flex justify-between items-center border-b border-white/30 pb-4 mb-4">
                     <span className="font-display text-2xl uppercase text-white">DUBPLATE</span>
                     <Disc size={24} className="animate-spin-slow" />
@@ -117,7 +152,8 @@ const DubplateCutter: React.FC = () => {
                     <div className="flex justify-between"><span>TRACK 2:</span> <span className="text-white">ECONOMIC MODEL</span></div>
                 </div>
 
-                <button 
+                <button
+                    onClick={handleDownload}
                     className="w-full py-3 bg-white text-black font-display text-xl uppercase hover:bg-act-pink hover:text-white transition-colors flex items-center justify-center gap-2"
                 >
                     <Download size={20} />
@@ -129,13 +165,20 @@ const DubplateCutter: React.FC = () => {
 }
 
 const FrequencyVisualizer: React.FC = () => {
+    const handleScrollToContact = () => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <div className="relative group">
             {/* Cable graphic */}
             <div className="absolute -top-12 right-8 w-2 h-16 bg-black z-0"></div>
 
             <div className="bg-act-blue p-6 shadow-[4px_4px_0px_0px_#E6FF00] border-2 border-black h-full flex flex-col justify-between relative z-10 text-white">
-                
+
                 <div className="flex justify-between items-center border-b border-white/30 pb-4 mb-4">
                     <span className="font-display text-2xl uppercase">VISUALIZER</span>
                     <BarChart2 size={24} />
@@ -153,7 +196,8 @@ const FrequencyVisualizer: React.FC = () => {
                     "We refuse to be left picking up the pieces."
                 </div>
 
-                <button 
+                <button
+                    onClick={handleScrollToContact}
                     className="w-full py-3 border-2 border-white text-white font-display text-xl uppercase hover:bg-white hover:text-act-blue transition-colors flex items-center justify-center gap-2"
                 >
                     <Mic2 size={20} />

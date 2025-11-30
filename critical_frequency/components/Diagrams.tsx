@@ -1,4 +1,3 @@
-
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -50,6 +49,7 @@ export const DataGapDiagram: React.FC = () => {
          <div className="flex flex-col items-center gap-2 w-20 md:w-24 relative">
              <motion.div
                 className="w-full bg-act-blue border-x-2 border-t-2 border-act-black"
+                initial={{ height: "5%" }}
                 animate={{ height: "15%" }}
                 transition={{ duration: 0.5 }}
              />
@@ -179,86 +179,121 @@ export const IntersectionalNexusDiagram: React.FC = () => {
     )
 }
 
-// --- CULTURAL CONSTELLATION DIAGRAM (Formerly Affinity Network) ---
+// --- AFFINITY NETWORK DIAGRAM (Formerly Radical Grid) ---
 export const AffinityNetworkDiagram: React.FC = () => {
   // Simulating organic, non-grid connections
+  const [imgError, setImgError] = useState(false);
 
   return (
-    <div className="flex flex-col items-center p-8 bg-act-black border-2 border-act-pink shadow-[8px_8px_0px_0px_#FF007F] my-8 relative overflow-hidden">
-      {/* Milky Way Background */}
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-            backgroundImage: 'radial-gradient(ellipse at center, rgba(100,100,150,0.3) 0%, transparent 60%), radial-gradient(white 1px, transparent 1px)',
-            backgroundSize: '100% 100%, 50px 50px'
-        }}
-      ></div>
-
-      <div className="w-full mb-6 border-b border-act-pink/50 pb-4 relative z-10">
-        <h3 className="font-display text-3xl text-white uppercase">Cultural Constellation</h3>
-        <p className="font-mono text-xs text-act-pink mt-2">
-          /// RELATIONSHIP OVER GEOGRAPHY
+    <div className="flex flex-col items-center p-8 bg-white border-2 border-act-black shadow-[8px_8px_0px_0px_#FF007F] my-8">
+      <div className="w-full mb-6 border-b-2 border-act-black pb-4">
+        <h3 className="font-display text-3xl text-act-black uppercase">Cultural Constellation</h3>
+        <p className="font-mono text-xs text-stone-500 mt-2">
+          /// CULTURE OVER GEOGRAPHY
         </p>
       </div>
 
-      <div className="relative w-full aspect-square md:h-80 p-4 overflow-hidden z-10">
+      <div className="relative w-full aspect-square md:h-80 bg-act-black border-2 border-act-black overflow-hidden group">
+
+         {/* Milky Way Background */}
+         {!imgError ? (
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-80 transition-transform duration-[60s] ease-linear group-hover:scale-110"
+                style={{backgroundImage: 'url("https://images.unsplash.com/photo-1538370965046-79c0d6907d47?q=80&w=1000&auto=format&fit=crop")'}}
+            >
+                {/* Hidden img to catch errors */}
+                <img
+                    src="https://images.unsplash.com/photo-1538370965046-79c0d6907d47?q=80&w=1000&auto=format&fit=crop"
+                    className="hidden"
+                    onError={() => setImgError(true)}
+                    alt=""
+                />
+            </div>
+         ) : (
+             <div className="absolute inset-0 bg-stone-900 flex items-center justify-center">
+                 <div className="text-stone-700 font-mono text-xs">NO SATELLITE DATA</div>
+             </div>
+         )}
+
+         <div className="absolute inset-0 bg-black/40"></div>
 
          {/* Connection Lines (Organic/Curved) */}
-         <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
-             {/* Dynamic Affinity Lines */}
+         <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 mix-blend-screen">
+             {/* Constellation Lines */}
              <motion.path
-                d="M 80,80 Q 160,160 240,80"
-                stroke="#FF007F" strokeWidth="1" fill="none"
+                d="M 80,80 L 160,160 L 240,80"
+                stroke="#fff" strokeWidth="1" fill="none"
+                strokeOpacity="0.3"
+                animate={{ strokeOpacity: [0.1, 0.4, 0.1] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+             />
+             <motion.path
+                d="M 80,80 L 100,200 L 80,240"
+                stroke="#fff" strokeWidth="1" fill="none"
+                strokeOpacity="0.2"
+             />
+             <motion.path
+                d="M 240,80 L 220,200 L 240,240"
+                stroke="#fff" strokeWidth="1" fill="none"
+                strokeOpacity="0.2"
+             />
+             <motion.path
+                d="M 80,240 L 160,160 L 240,240"
+                stroke="#fff" strokeWidth="1" fill="none"
+                strokeOpacity="0.3"
+             />
+             {/* Dynamic Signal Beam */}
+             <motion.path
+                d="M 160,160 L 240,80"
+                stroke="#FF007F" strokeWidth="2" fill="none"
                 strokeDasharray="5,5"
-                animate={{ strokeDashoffset: [0, 100] }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-             />
-             <motion.path
-                d="M 80,80 Q 100,200 80,240"
-                stroke="#FF007F" strokeWidth="1" fill="none"
-                animate={{ strokeDashoffset: [0, -100] }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-             />
-             <motion.path
-                d="M 240,80 Q 220,200 240,240"
-                stroke="#FF007F" strokeWidth="1" fill="none"
-             />
-             <motion.path
-                d="M 80,240 Q 160,160 240,240"
-                stroke="#FF007F" strokeWidth="1" fill="none"
+                animate={{ strokeDashoffset: [0, 50] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
              />
          </svg>
 
-         {/* Nodes (Floating/Pulsing) - Now representing pillars */}
+         {/* Nodes (Stars) */}
          {[
              {id: 1, x: '20%', y: '20%', label: "MEDIA"},
              {id: 2, x: '70%', y: '25%', label: "ARTS"},
              {id: 3, x: '25%', y: '75%', label: "SPACE"},
              {id: 4, x: '75%', y: '70%', label: "SOCIAL"},
+             {id: 5, x: '50%', y: '50%', label: "HUB", central: true},
          ].map(node => (
              <motion.div
                 key={node.id}
-                className="absolute w-14 h-14 -ml-7 -mt-7 rounded-full bg-act-black text-white border border-act-yellow flex flex-col items-center justify-center z-10 cursor-pointer hover:scale-110 transition-transform"
-                style={{ left: node.x, top: node.y }}
-                animate={{ y: [0, -5, 0] }}
+                className={`absolute rounded-full flex flex-col items-center justify-center z-10 cursor-pointer shadow-[0_0_15px_rgba(255,255,255,0.8)] ${node.central ? 'w-16 h-16 bg-white border-2 border-act-pink text-black' : 'w-2 h-2 bg-white'}`}
+                style={{ left: node.x, top: node.y, marginLeft: node.central ? '-2rem' : '-0.25rem', marginTop: node.central ? '-2rem' : '-0.25rem' }}
+                animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: node.id * 0.5 }}
              >
-                 <Star size={14} className="text-act-yellow fill-current" />
-                 <span className="font-mono text-[8px] font-bold">{node.label}</span>
-                 {/* Pulse Ring */}
-                 <div className="absolute inset-0 rounded-full border border-act-pink animate-ping opacity-30"></div>
+                 {node.central && (
+                    <>
+                       <div className="font-mono text-[8px] font-bold">CORE</div>
+                       <Zap size={10} className="text-act-pink fill-current" />
+                    </>
+                 )}
+                 {/* Star Glow */}
+                 <div className={`absolute inset-0 rounded-full bg-white blur-sm ${node.central ? 'opacity-50' : 'opacity-80'}`}></div>
+
+                 {/* Label */}
+                 {!node.central && (
+                     <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white font-mono text-[8px] font-bold tracking-widest text-shadow-sm">{node.label}</div>
+                 )}
              </motion.div>
          ))}
 
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-act-black px-3 py-2 border border-act-pink font-mono text-[10px] uppercase font-bold z-20 shadow-sm text-act-pink">
-             Network Active
+         <div className="absolute top-4 right-4 text-right">
+             <div className="text-white font-mono text-[10px] uppercase font-bold tracking-widest bg-black/50 px-2 py-1 backdrop-blur-sm border border-white/20">
+                 Signal Strength: 100%
+             </div>
          </div>
 
       </div>
 
-      <div className="mt-4 w-full flex justify-between font-mono text-xs uppercase font-bold text-white/70 relative z-10">
-          <div className="flex items-center gap-2"><Star size={12} className="text-act-yellow fill-current" /> Network Node</div>
-          <div className="flex items-center gap-2 text-act-pink"><div className="w-8 h-0.5 bg-act-pink border-dashed"></div> Affinity Link</div>
+      <div className="mt-4 w-full flex justify-between font-mono text-xs uppercase font-bold">
+          <div className="flex items-center gap-2"><div className="w-2 h-2 bg-white border border-black rounded-full"></div> Cultural Node</div>
+          <div className="flex items-center gap-2 text-act-pink"><div className="w-8 h-0.5 bg-act-pink border-dashed"></div> Signal Boost</div>
       </div>
     </div>
   );
@@ -268,7 +303,7 @@ export const AffinityNetworkDiagram: React.FC = () => {
 export const CentreMarginDiagram: React.FC = () => {
   return (
     <div className="flex flex-col h-[500px] w-full p-8 bg-act-black border-2 border-act-black my-8 relative overflow-hidden items-center justify-between">
-      {/* Background Stardust - CSS gradient instead of external URL */}
+      {/* Background Stardust (CSS Generated to avoid HTTP/HTTPS mixed content issues) */}
       <div
         className="absolute inset-0 opacity-20"
         style={{
@@ -347,7 +382,9 @@ export const OutcomeMetricDiagram: React.FC = () => {
                     <div className="absolute -top-8 w-full text-center font-display text-xl text-red-600">HIGH</div>
                     <motion.div
                         className="w-full bg-stone-300 border-2 border-black"
+                        initial={{ height: "10%" }}
                         animate={{ height: scenario === 'urban' ? '80%' : '90%' }}
+                        transition={{ type: "spring", stiffness: 100 }}
                     />
                     <div className="mt-2 text-center font-mono text-[10px] uppercase font-bold">Sickness<br/>Model</div>
                 </div>
@@ -357,7 +394,9 @@ export const OutcomeMetricDiagram: React.FC = () => {
                     <div className="absolute -top-8 w-full text-center font-display text-xl text-act-blue">LOW</div>
                     <motion.div
                         className="w-full bg-act-yellow border-2 border-black relative overflow-hidden"
+                        initial={{ height: "5%" }}
                         animate={{ height: scenario === 'urban' ? '20%' : '35%' }}
+                        transition={{ type: "spring", stiffness: 100 }}
                     >
                         {/* Stripes */}
                         <div className="absolute inset-0" style={{backgroundImage: 'linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, transparent 75%, transparent)', backgroundSize: '10px 10px'}}></div>

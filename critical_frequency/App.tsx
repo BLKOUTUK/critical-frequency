@@ -10,7 +10,8 @@ import { EvidenceScroll } from './components/ScrollyTelling';
 import { AmplificationStation } from './components/AmplificationStation';
 import { MovementResourceBuilder } from './components/ZineGenerator';
 import { TheRelay } from './components/TheRelay';
-import { ArrowDown, Menu, X, Activity, Scale, Radio, Compass, EyeOff, Send, MessageSquare, User, Mail, Building, FileText, Users, Heart, Mic, Calendar, ExternalLink } from 'lucide-react';
+import { ArrowDown, Menu, X, Activity, Scale, Radio, Compass, EyeOff, Send, MessageSquare, User, Mail, Building, FileText, Users, Heart, Mic, Calendar, ExternalLink, Loader2, CheckCircle, AlertCircle, Gift } from 'lucide-react';
+import { submitCampaignSignup } from './lib/supabase';
 
 // Custom BLKOUT Logo Component - Uses user provided image
 const BlkoutLogo = ({ className = "w-12 h-12" }: { className?: string }) => (
@@ -37,6 +38,28 @@ const App: React.FC = () => {
     org: '',
     message: ''
   });
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [formError, setFormError] = useState<string | null>(null);
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+    setFormError(null);
+
+    try {
+      await submitCampaignSignup({
+        name: formData.name,
+        email: formData.email,
+        roles: formData.org ? [formData.org] : [],
+        feedback: formData.message,
+      });
+      setFormStatus('success');
+      setFormData({ name: '', email: '', org: '', message: '' });
+    } catch (err) {
+      setFormStatus('error');
+      setFormError(err instanceof Error ? err.message : 'Failed to submit. Please try again.');
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -583,8 +606,27 @@ Email: research@blkoutuk.com
                         <p className="font-mono text-xs text-act-pink mb-4 uppercase font-bold tracking-widest flex items-center gap-2">
                              <MessageSquare size={14}/> Stay In Touch / Join The Vanguard
                         </p>
-                        {/* UPDATE: Uses Formspree for actual submission logic */}
-                        <form action="https://formspree.io/f/xbjnqnga" method="POST" className="space-y-4">
+
+                        {formStatus === 'success' ? (
+                          <div className="text-center py-8">
+                            <CheckCircle size={48} className="mx-auto text-green-600 mb-4" />
+                            <p className="font-display text-2xl uppercase mb-2">Transmission Received</p>
+                            <p className="font-mono text-sm text-stone-600">Welcome to the Critical Frequency network.</p>
+                            <button
+                              onClick={() => setFormStatus('idle')}
+                              className="mt-4 px-6 py-2 bg-act-black text-white font-mono text-xs uppercase hover:bg-act-pink transition-colors"
+                            >
+                              Send Another
+                            </button>
+                          </div>
+                        ) : (
+                          <form onSubmit={handleFormSubmit} className="space-y-4">
+                            {formStatus === 'error' && (
+                              <div className="flex items-center gap-2 p-3 bg-red-50 border-2 border-red-500 text-red-700 font-mono text-xs">
+                                <AlertCircle size={16} />
+                                {formError || 'Failed to submit. Please try again.'}
+                              </div>
+                            )}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label htmlFor="name" className="sr-only">Name</label>
@@ -596,7 +638,10 @@ Email: research@blkoutuk.com
                                             type="text"
                                             placeholder="NAME"
                                             required
-                                            className="w-full p-2 bg-transparent outline-none font-mono text-sm uppercase"
+                                            value={formData.name}
+                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                            disabled={formStatus === 'submitting'}
+                                            className="w-full p-2 bg-transparent outline-none font-mono text-sm uppercase disabled:opacity-50"
                                         />
                                     </div>
                                 </div>
@@ -610,7 +655,10 @@ Email: research@blkoutuk.com
                                             type="email"
                                             placeholder="EMAIL"
                                             required
-                                            className="w-full p-2 bg-transparent outline-none font-mono text-sm uppercase"
+                                            value={formData.email}
+                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                            disabled={formStatus === 'submitting'}
+                                            className="w-full p-2 bg-transparent outline-none font-mono text-sm uppercase disabled:opacity-50"
                                         />
                                     </div>
                                 </div>
@@ -624,7 +672,10 @@ Email: research@blkoutuk.com
                                         name="organization"
                                         type="text"
                                         placeholder="ORGANIZATION / ROLE"
-                                        className="w-full p-2 bg-transparent outline-none font-mono text-sm uppercase"
+                                        value={formData.org}
+                                        onChange={(e) => setFormData({ ...formData, org: e.target.value })}
+                                        disabled={formStatus === 'submitting'}
+                                        className="w-full p-2 bg-transparent outline-none font-mono text-sm uppercase disabled:opacity-50"
                                     />
                                 </div>
                             </div>
@@ -635,16 +686,32 @@ Email: research@blkoutuk.com
                                     name="message"
                                     placeholder="COMMENTS / FEEDBACK / PROPOSALS..."
                                     rows={3}
-                                    className="w-full p-2 border-2 border-black bg-stone-100 focus:bg-white outline-none focus:ring-2 focus:ring-act-pink font-mono text-sm"
+                                    value={formData.message}
+                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                    disabled={formStatus === 'submitting'}
+                                    className="w-full p-2 border-2 border-black bg-stone-100 focus:bg-white outline-none focus:ring-2 focus:ring-act-pink font-mono text-sm disabled:opacity-50"
                                 ></textarea>
                             </div>
-                            <button type="submit" className="w-full py-3 bg-black text-white font-display text-xl uppercase hover:bg-act-pink hover:text-black transition-colors flex items-center justify-center gap-2">
-                                <Send size={20} /> SEND TRANSMISSION
+                            <button
+                              type="submit"
+                              disabled={formStatus === 'submitting'}
+                              className="w-full py-3 bg-black text-white font-display text-xl uppercase hover:bg-act-pink hover:text-black transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {formStatus === 'submitting' ? (
+                                  <>
+                                    <Loader2 size={20} className="animate-spin" /> TRANSMITTING...
+                                  </>
+                                ) : (
+                                  <>
+                                    <Send size={20} /> SEND TRANSMISSION
+                                  </>
+                                )}
                             </button>
                             <p className="text-[10px] font-mono text-center text-stone-500">
-                                Directed to BLKOUT UK Policy Unit.
+                                Connected to BLKOUT UK infrastructure. Your data stays in our community.
                             </p>
-                        </form>
+                          </form>
+                        )}
                     </div>
                 </div>
              </div>
@@ -672,6 +739,7 @@ Email: research@blkoutuk.com
                         <a href="https://blkoutuk.com" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">BLKOUTUK.COM</a>
                         <a href="#relay" onClick={scrollToSection('relay')} className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">THE RELAY</a>
                         <a href="https://ivor-blkout.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">SUPPORT - #ASKIVOR</a>
+                        <a href="https://blkoutuk.com/donate" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4 flex items-center gap-1"><Gift size={14} /> DONATE</a>
                     </div>
                     <div className="flex gap-4 md:justify-end">
                         <a href="https://instagram.com/blkoutuk" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink transition-colors" aria-label="Instagram">

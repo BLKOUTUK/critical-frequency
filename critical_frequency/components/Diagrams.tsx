@@ -6,7 +6,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Activity, Heart, BarChart2, User, Users, X, Eye, EyeOff, Zap, Server, Signal, ArrowDown, ArrowUp, Map } from 'lucide-react';
+import { Play, Activity, Heart, BarChart2, User, Users, X, Eye, EyeOff, Zap, Server, Signal, ArrowDown, ArrowUp, Map, Star } from 'lucide-react';
 
 // --- DATA VOID DIAGRAM (Formerly Data Gap) ---
 export const DataGapDiagram: React.FC = () => {
@@ -22,7 +22,7 @@ export const DataGapDiagram: React.FC = () => {
             <h3 className="font-display text-3xl uppercase text-act-black leading-none">The Data Void</h3>
             <p className="font-mono text-xs text-act-pink mt-1 font-bold">/// FIG 1.0: STATISTICAL ERASURE</p>
           </div>
-          <button 
+          <button
              onClick={() => setView(view === 'official' ? 'reality' : 'official')}
              className="px-4 py-2 bg-act-black text-white font-mono text-xs font-bold uppercase hover:bg-act-pink hover:text-black transition-colors border-2 border-transparent"
           >
@@ -31,10 +31,10 @@ export const DataGapDiagram: React.FC = () => {
       </div>
 
       <div className="relative w-full h-64 flex items-end justify-center gap-4 md:gap-12 border-b-4 border-act-black pb-0 z-10">
-         
+
          {/* Population Bar */}
          <div className="flex flex-col items-center gap-2 w-20 md:w-24 group relative">
-            <motion.div 
+            <motion.div
                 className="w-full bg-act-black border-x-2 border-t-2 border-act-black relative"
                 initial={{ height: "10%" }}
                 animate={{ height: view === 'official' ? "20%" : "90%" }}
@@ -48,7 +48,7 @@ export const DataGapDiagram: React.FC = () => {
 
          {/* Engaged in Care Bar */}
          <div className="flex flex-col items-center gap-2 w-20 md:w-24 relative">
-             <motion.div 
+             <motion.div
                 className="w-full bg-act-blue border-x-2 border-t-2 border-act-black"
                 animate={{ height: "15%" }}
                 transition={{ duration: 0.5 }}
@@ -58,7 +58,7 @@ export const DataGapDiagram: React.FC = () => {
 
          {/* Crisis/Detention Bar */}
          <div className="flex flex-col items-center gap-2 w-20 md:w-24 relative">
-             <motion.div 
+             <motion.div
                 className="w-full bg-act-pink border-x-2 border-t-2 border-act-black"
                 initial={{ height: "30%" }}
                 animate={{ height: view === 'official' ? "30%" : "75%" }}
@@ -67,10 +67,10 @@ export const DataGapDiagram: React.FC = () => {
              <span className="font-mono text-[10px] font-bold uppercase text-act-black text-center leading-tight">Crisis /<br/>Custody</span>
          </div>
       </div>
-      
+
       <div className="mt-8 p-4 bg-act-yellow border-2 border-act-black font-mono text-xs md:text-sm text-act-black font-bold uppercase w-full z-10">
-         {view === 'official' 
-            ? "STATUS: Official datasets fragment identity. Black Queer Men are statistically invisible until they become a problem for the state." 
+         {view === 'official'
+            ? "STATUS: Official datasets fragment identity. Black Queer Men are statistically invisible until they become a problem for the state."
             : "REALITY: A massive, unsupported population exists in the void. High crisis rates are not a pathology; they are a policy failure."}
       </div>
     </div>
@@ -92,7 +92,7 @@ export const IntersectionalNexusDiagram: React.FC = () => {
         <div className="flex flex-col items-center justify-center relative w-full h-[450px] border-4 border-act-black bg-act-black overflow-hidden shadow-[8px_8px_0px_0px_#333]">
             {/* Speaker Mesh Background */}
             <div className="absolute inset-0 opacity-30" style={{backgroundImage: 'radial-gradient(circle, #333 1.5px, transparent 1.5px)', backgroundSize: '4px 4px'}}></div>
-            
+
             <div className="absolute top-4 left-4 font-mono text-xs text-white z-20">
                 <p>/// SYSTEM CONFIGURATION</p>
                 <p className="text-act-yellow">MODE: LIBERATION</p>
@@ -101,9 +101,9 @@ export const IntersectionalNexusDiagram: React.FC = () => {
             {/* Controls */}
             <div className="absolute bottom-4 left-4 flex gap-2 z-20">
                 {['housing', 'justice', 'health'].map((type) => (
-                    <button 
+                    <button
                         key={type}
-                        onClick={() => toggle(type)} 
+                        onClick={() => toggle(type)}
                         className={`px-3 py-1 text-[10px] font-mono font-bold border-2 transition-all uppercase ${active.includes(type) ? 'bg-act-pink text-act-black border-act-pink' : 'bg-transparent text-white border-white hover:bg-white hover:text-black'}`}
                     >
                         {active.includes(type) ? '[-]' : '[+]'} {type}
@@ -113,7 +113,7 @@ export const IntersectionalNexusDiagram: React.FC = () => {
 
             {/* Diagram Area */}
             <div className="relative w-full h-full flex items-center justify-center">
-                
+
                 {/* The Individual (Center - Unmoving/Complex) */}
                 <div className={`absolute z-30 w-32 h-32 rounded-full border-4 border-white flex items-center justify-center text-center bg-act-black shadow-[0_0_30px_rgba(255,255,255,0.3)]`}>
                     <div className="flex flex-col relative z-10">
@@ -121,7 +121,7 @@ export const IntersectionalNexusDiagram: React.FC = () => {
                         <span className="font-mono text-[8px] uppercase mt-1 text-act-yellow">Infinite Complexity</span>
                     </div>
                     {/* Radiating Energy */}
-                    <motion.div 
+                    <motion.div
                         className="absolute inset-0 rounded-full border border-act-yellow"
                         animate={{ scale: [1, 1.5], opacity: [1, 0] }}
                         transition={{ repeat: Infinity, duration: 2 }}
@@ -129,11 +129,11 @@ export const IntersectionalNexusDiagram: React.FC = () => {
                 </div>
 
                 {/* System Layers (Bending around the Individual) */}
-                
+
                 {/* Housing */}
-                <motion.div 
+                <motion.div
                     className="absolute w-64 h-64 border-2 border-act-blue rounded-full border-dashed"
-                    animate={{ 
+                    animate={{
                         scale: active.includes('housing') ? 1.1 : 1.5,
                         opacity: active.includes('housing') ? 1 : 0.2,
                         rotate: 360
@@ -144,9 +144,9 @@ export const IntersectionalNexusDiagram: React.FC = () => {
                 </motion.div>
 
                 {/* Justice */}
-                <motion.div 
+                <motion.div
                     className="absolute w-80 h-80 border-2 border-act-pink rounded-full border-dashed"
-                    animate={{ 
+                    animate={{
                         scale: active.includes('justice') ? 1.05 : 1.4,
                         opacity: active.includes('justice') ? 1 : 0.2,
                         rotate: -360
@@ -157,9 +157,9 @@ export const IntersectionalNexusDiagram: React.FC = () => {
                 </motion.div>
 
                  {/* Health */}
-                 <motion.div 
+                 <motion.div
                     className="absolute w-96 h-96 border-2 border-act-yellow rounded-full border-dashed"
-                    animate={{ 
+                    animate={{
                         scale: active.includes('health') ? 1 : 1.3,
                         opacity: active.includes('health') ? 1 : 0.2,
                         rotate: 180
@@ -174,85 +174,90 @@ export const IntersectionalNexusDiagram: React.FC = () => {
                 </div>
 
             </div>
-            
+
         </div>
     )
 }
 
-// --- AFFINITY NETWORK DIAGRAM (Formerly Radical Grid) ---
+// --- CULTURAL CONSTELLATION DIAGRAM (Formerly Affinity Network) ---
 export const AffinityNetworkDiagram: React.FC = () => {
   // Simulating organic, non-grid connections
-  
+
   return (
-    <div className="flex flex-col items-center p-8 bg-white border-2 border-act-black shadow-[8px_8px_0px_0px_#FF007F] my-8">
-      <div className="w-full mb-6 border-b-2 border-act-black pb-4">
-        <h3 className="font-display text-3xl text-act-black uppercase">Affinity Constellation</h3>
-        <p className="font-mono text-xs text-stone-500 mt-2">
+    <div className="flex flex-col items-center p-8 bg-act-black border-2 border-act-pink shadow-[8px_8px_0px_0px_#FF007F] my-8 relative overflow-hidden">
+      {/* Milky Way Background */}
+      <div
+        className="absolute inset-0 opacity-30"
+        style={{
+            backgroundImage: 'radial-gradient(ellipse at center, rgba(100,100,150,0.3) 0%, transparent 60%), radial-gradient(white 1px, transparent 1px)',
+            backgroundSize: '100% 100%, 50px 50px'
+        }}
+      ></div>
+
+      <div className="w-full mb-6 border-b border-act-pink/50 pb-4 relative z-10">
+        <h3 className="font-display text-3xl text-white uppercase">Cultural Constellation</h3>
+        <p className="font-mono text-xs text-act-pink mt-2">
           /// RELATIONSHIP OVER GEOGRAPHY
         </p>
       </div>
-      
-      <div className="relative w-full aspect-square md:h-80 bg-act-paper border-2 border-act-black p-4 overflow-hidden">
-         {/* Background Map (Faded, Irrelevant) */}
-         <div className="absolute inset-0 opacity-10 flex items-center justify-center pointer-events-none">
-             <Map size={300} strokeWidth={0.5} />
-         </div>
+
+      <div className="relative w-full aspect-square md:h-80 p-4 overflow-hidden z-10">
 
          {/* Connection Lines (Organic/Curved) */}
          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
              {/* Dynamic Affinity Lines */}
-             <motion.path 
-                d="M 80,80 Q 160,160 240,80" 
-                stroke="#FF007F" strokeWidth="2" fill="none"
+             <motion.path
+                d="M 80,80 Q 160,160 240,80"
+                stroke="#FF007F" strokeWidth="1" fill="none"
                 strokeDasharray="5,5"
                 animate={{ strokeDashoffset: [0, 100] }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
              />
-             <motion.path 
-                d="M 80,80 Q 100,200 80,240" 
-                stroke="#FF007F" strokeWidth="2" fill="none"
+             <motion.path
+                d="M 80,80 Q 100,200 80,240"
+                stroke="#FF007F" strokeWidth="1" fill="none"
                 animate={{ strokeDashoffset: [0, -100] }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
              />
-             <motion.path 
-                d="M 240,80 Q 220,200 240,240" 
-                stroke="#FF007F" strokeWidth="2" fill="none"
+             <motion.path
+                d="M 240,80 Q 220,200 240,240"
+                stroke="#FF007F" strokeWidth="1" fill="none"
              />
-             <motion.path 
-                d="M 80,240 Q 160,160 240,240" 
-                stroke="#FF007F" strokeWidth="2" fill="none"
+             <motion.path
+                d="M 80,240 Q 160,160 240,240"
+                stroke="#FF007F" strokeWidth="1" fill="none"
              />
          </svg>
 
-         {/* Nodes (Floating/Pulsing) */}
+         {/* Nodes (Floating/Pulsing) - Now representing pillars */}
          {[
-             {id: 1, x: '20%', y: '20%', label: "LDN"},
-             {id: 2, x: '70%', y: '25%', label: "MAN"},
-             {id: 3, x: '25%', y: '75%', label: "BRM"},
-             {id: 4, x: '75%', y: '70%', label: "GLA"},
+             {id: 1, x: '20%', y: '20%', label: "MEDIA"},
+             {id: 2, x: '70%', y: '25%', label: "ARTS"},
+             {id: 3, x: '25%', y: '75%', label: "SPACE"},
+             {id: 4, x: '75%', y: '70%', label: "SOCIAL"},
          ].map(node => (
              <motion.div
                 key={node.id}
-                className="absolute w-12 h-12 -ml-6 -mt-6 rounded-full bg-act-black text-white border-2 border-act-yellow flex flex-col items-center justify-center z-10 shadow-lg cursor-pointer hover:scale-110 transition-transform"
+                className="absolute w-14 h-14 -ml-7 -mt-7 rounded-full bg-act-black text-white border border-act-yellow flex flex-col items-center justify-center z-10 cursor-pointer hover:scale-110 transition-transform"
                 style={{ left: node.x, top: node.y }}
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: node.id * 0.5 }}
              >
-                 <Zap size={14} className="text-act-yellow fill-current" />
+                 <Star size={14} className="text-act-yellow fill-current" />
                  <span className="font-mono text-[8px] font-bold">{node.label}</span>
                  {/* Pulse Ring */}
-                 <div className="absolute inset-0 rounded-full border border-act-pink animate-ping opacity-50"></div>
+                 <div className="absolute inset-0 rounded-full border border-act-pink animate-ping opacity-30"></div>
              </motion.div>
          ))}
 
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 py-1 border border-black font-mono text-[10px] uppercase font-bold z-20 shadow-sm transform rotate-[-5deg]">
-             Digital Bypass Active
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-act-black px-3 py-2 border border-act-pink font-mono text-[10px] uppercase font-bold z-20 shadow-sm text-act-pink">
+             Network Active
          </div>
 
       </div>
 
-      <div className="mt-4 w-full flex justify-between font-mono text-xs uppercase font-bold">
-          <div className="flex items-center gap-2"><div className="w-3 h-3 bg-act-black border border-act-yellow"></div> Secure Node</div>
+      <div className="mt-4 w-full flex justify-between font-mono text-xs uppercase font-bold text-white/70 relative z-10">
+          <div className="flex items-center gap-2"><Star size={12} className="text-act-yellow fill-current" /> Network Node</div>
           <div className="flex items-center gap-2 text-act-pink"><div className="w-8 h-0.5 bg-act-pink border-dashed"></div> Affinity Link</div>
       </div>
     </div>
@@ -263,9 +268,15 @@ export const AffinityNetworkDiagram: React.FC = () => {
 export const CentreMarginDiagram: React.FC = () => {
   return (
     <div className="flex flex-col h-[500px] w-full p-8 bg-act-black border-2 border-act-black my-8 relative overflow-hidden items-center justify-between">
-      {/* Background Stardust */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
-      
+      {/* Background Stardust - CSS gradient instead of external URL */}
+      <div
+        className="absolute inset-0 opacity-20"
+        style={{
+            backgroundImage: 'radial-gradient(white 1px, transparent 1px)',
+            backgroundSize: '30px 30px'
+        }}
+      ></div>
+
       {/* TOP: THE CENTRE (Whitehall) */}
       <div className="w-full relative z-10 flex flex-col items-center">
          <div className="w-64 border-2 border-white bg-white text-act-black p-4 text-center shadow-[0_0_15px_rgba(255,255,255,0.2)]">
@@ -314,7 +325,7 @@ export const CentreMarginDiagram: React.FC = () => {
 // --- OUTCOME METRIC (Outcomes) ---
 export const OutcomeMetricDiagram: React.FC = () => {
     const [scenario, setScenario] = useState<'urban' | 'rural'>('urban');
-    
+
     return (
         <div className="flex flex-col md:flex-row gap-8 items-start p-8 bg-white border-2 border-act-black shadow-[8px_8px_0px_0px_#111] my-8">
             <div className="flex-1">
@@ -328,13 +339,13 @@ export const OutcomeMetricDiagram: React.FC = () => {
                      <button onClick={() => setScenario('rural')} className={`px-2 py-1 font-mono text-xs border-2 uppercase font-bold ${scenario === 'rural' ? 'bg-act-black text-white border-act-black' : 'bg-white text-black border-black'}`}>Regional</button>
                 </div>
             </div>
-            
+
             <div className="w-full md:w-64 h-64 border-l-2 border-b-2 border-act-black flex items-end justify-around p-4 relative bg-[radial-gradient(#ddd_1px,transparent_1px)] [background-size:10px_10px]">
-                
+
                 {/* Bar 1: Status Quo */}
                 <div className="w-16 group relative">
                     <div className="absolute -top-8 w-full text-center font-display text-xl text-red-600">HIGH</div>
-                    <motion.div 
+                    <motion.div
                         className="w-full bg-stone-300 border-2 border-black"
                         animate={{ height: scenario === 'urban' ? '80%' : '90%' }}
                     />
@@ -344,7 +355,7 @@ export const OutcomeMetricDiagram: React.FC = () => {
                 {/* Bar 2: BLKOUT */}
                 <div className="w-16 group relative">
                     <div className="absolute -top-8 w-full text-center font-display text-xl text-act-blue">LOW</div>
-                    <motion.div 
+                    <motion.div
                         className="w-full bg-act-yellow border-2 border-black relative overflow-hidden"
                         animate={{ height: scenario === 'urban' ? '20%' : '35%' }}
                     >

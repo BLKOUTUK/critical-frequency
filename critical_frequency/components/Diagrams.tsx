@@ -32,11 +32,11 @@ export const DataGapDiagram: React.FC = () => {
       <div className="relative w-full h-64 flex items-end justify-center gap-4 md:gap-12 border-b-4 border-act-black pb-0 z-10">
 
          {/* Population Bar */}
-         <div className="flex flex-col items-center gap-2 w-20 md:w-24 group relative">
+         <div className="flex flex-col items-center gap-2 w-20 md:w-24 group relative h-full justify-end">
             <motion.div
                 className="w-full bg-act-black border-x-2 border-t-2 border-act-black relative"
-                initial={{ height: "10%" }}
-                animate={{ height: view === 'official' ? "20%" : "90%" }}
+                initial={{ height: 40 }}
+                animate={{ height: view === 'official' ? 50 : 200 }}
                 transition={{ duration: 0.5, ease: "circOut" }}
             >
                 {/* Hatching pattern */}
@@ -46,22 +46,22 @@ export const DataGapDiagram: React.FC = () => {
          </div>
 
          {/* Engaged in Care Bar */}
-         <div className="flex flex-col items-center gap-2 w-20 md:w-24 relative">
+         <div className="flex flex-col items-center gap-2 w-20 md:w-24 relative h-full justify-end">
              <motion.div
                 className="w-full bg-act-blue border-x-2 border-t-2 border-act-black"
-                initial={{ height: "5%" }}
-                animate={{ height: "15%" }}
+                initial={{ height: 20 }}
+                animate={{ height: 35 }}
                 transition={{ duration: 0.5 }}
              />
              <span className="font-mono text-[10px] font-bold uppercase text-act-black text-center leading-tight">Receiving<br/>Support</span>
          </div>
 
          {/* Crisis/Detention Bar */}
-         <div className="flex flex-col items-center gap-2 w-20 md:w-24 relative">
+         <div className="flex flex-col items-center gap-2 w-20 md:w-24 relative h-full justify-end">
              <motion.div
                 className="w-full bg-act-pink border-x-2 border-t-2 border-act-black"
-                initial={{ height: "30%" }}
-                animate={{ height: view === 'official' ? "30%" : "75%" }}
+                initial={{ height: 60 }}
+                animate={{ height: view === 'official' ? 70 : 170 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
              />
              <span className="font-mono text-[10px] font-bold uppercase text-act-black text-center leading-tight">Crisis /<br/>Custody</span>
@@ -378,24 +378,24 @@ export const OutcomeMetricDiagram: React.FC = () => {
             <div className="w-full md:w-64 h-64 border-l-2 border-b-2 border-act-black flex items-end justify-around p-4 relative bg-[radial-gradient(#ddd_1px,transparent_1px)] [background-size:10px_10px]">
 
                 {/* Bar 1: Status Quo */}
-                <div className="w-16 group relative">
+                <div className="w-16 group relative flex flex-col items-center justify-end h-full">
                     <div className="absolute -top-8 w-full text-center font-display text-xl text-red-600">HIGH</div>
                     <motion.div
                         className="w-full bg-stone-300 border-2 border-black"
-                        initial={{ height: "10%" }}
-                        animate={{ height: scenario === 'urban' ? '80%' : '90%' }}
+                        initial={{ height: 30 }}
+                        animate={{ height: scenario === 'urban' ? 160 : 180 }}
                         transition={{ type: "spring", stiffness: 100 }}
                     />
                     <div className="mt-2 text-center font-mono text-[10px] uppercase font-bold">Sickness<br/>Model</div>
                 </div>
 
                 {/* Bar 2: BLKOUT */}
-                <div className="w-16 group relative">
+                <div className="w-16 group relative flex flex-col items-center justify-end h-full">
                     <div className="absolute -top-8 w-full text-center font-display text-xl text-act-blue">LOW</div>
                     <motion.div
                         className="w-full bg-act-yellow border-2 border-black relative overflow-hidden"
-                        initial={{ height: "5%" }}
-                        animate={{ height: scenario === 'urban' ? '20%' : '35%' }}
+                        initial={{ height: 15 }}
+                        animate={{ height: scenario === 'urban' ? 45 : 70 }}
                         transition={{ type: "spring", stiffness: 100 }}
                     >
                         {/* Stripes */}

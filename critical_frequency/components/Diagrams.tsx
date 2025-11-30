@@ -218,7 +218,7 @@ export const AffinityNetworkDiagram: React.FC = () => {
          <div className="absolute inset-0 bg-black/40"></div>
 
          {/* Connection Lines (Organic/Curved) */}
-         <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 mix-blend-screen">
+         <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 mix-blend-screen" viewBox="0 0 320 320" preserveAspectRatio="xMidYMid slice">
              {/* Constellation Lines */}
              <motion.path
                 d="M 80,80 L 160,160 L 240,80"

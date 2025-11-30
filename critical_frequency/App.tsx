@@ -57,52 +57,94 @@ const App: React.FC = () => {
   };
 
   const handleDownloadStrategy = () => {
-    // Concise Strategy Summary
+    // Strategy Summary based on mental-health.blkoutuk.com proposal
     const content = `
 BLKOUT UK: CRITICAL FREQUENCY
-THE VANGUARD PROTOCOL - STRATEGIC SUMMARY
+SYSTEMS CHANGE FOR BLACK QUEER MENTAL HEALTH
 =============================================================================
 
-THE SHIFT
+THE CASE FOR INVESTMENT
 -----------------------------------------------------------------------------
-The Secretary of State for Health has mandated a move from:
-[1] Hospital -> Community
-[2] Analogue -> Digital
-[3] Sickness -> Prevention
+£10.5M over 5 years | £60/year per person across 35,000 Black queer men
 
-Current policy fails Black Queer men on all three counts. We are invisible
-until crisis.
+Current NHS talking therapy completion rate for Black groups: 3.8%
+Cost per suicide prevented (community model): £50,000
+Cost per suicide (NHS intensive care + lost productivity): £3.12M
+Conservative ROI projection: 4-6:1
 
-THE INTERVENTION
+=============================================================================
+PHASE 1: CAREER FELLOWSHIP (Years 1-5)
+=============================================================================
+ACTION:   10 Black queer specialists in 18-24 month rotations across
+          NHS mental health | Housing | Social care | Legal | Arts | Employment
+
+OUTCOME:  Institutional reform from within. Fellows become sector leaders,
+          carrying community knowledge into decision-making positions.
+          Policy changes appear in organizations without direct programme
+          contact by Year 5.
+
+=============================================================================
+PHASE 2: COMMUNITY-DIRECTED RESOURCES (Years 1-5)
+=============================================================================
+ACTION:
+• Therapy Access: 365 men/year accessing culturally competent care
+  (1,825 total = 5.2% direct intervention)
+• Hub-and-Spoke: London hub + Manchester, Birmingham, Bristol spokes
+• Service Gap Fund: £1.2M for crisis prevention (housing, therapy, legal)
+• Training: 200 men/year in Mental Health First Aid
+
+OUTCOME:  Network effects amplify individual therapy into collective
+          transformation. 1,825 participants x 25 connections = 45,625
+          exposure points (130% of total population). Therapy becomes
+          normalized; stigma reduces in people with NO direct contact.
+
+=============================================================================
+PHASE 3: DEMOCRATIC INFRASTRUCTURE (Years 3-10)
+=============================================================================
+ACTION:
+• Years 1-2: Fellows report to community governance
+• Year 3: Community deliberates on infrastructure for Years 6-10
+• Years 4-5: Development lab pilots community-chosen projects
+
+OUTCOME:  Community decides: housing trust, media co-op, cultural archive,
+          or social care cooperative. Self-sustaining infrastructure
+          requiring no ongoing programme funding after Year 10.
+
+=============================================================================
+THE NETWORK EFFECTS MODEL
+=============================================================================
+Year 1-2:  730 men in therapy | 10-15% network exposure | Local clustering
+Year 3:    1,095 total | 20-25% exposure | Critical mass reached
+Year 4-5:  1,825 total | 30-40% exposure | Tipping point crossed
+Year 6-10: Self-sustaining cultural change | Zero programme dependence
+
+"Without community, there is no liberation—because liberation is not
+individual escape, but collective transformation through network effects."
+
+=============================================================================
+REPARATIVE JUSTICE FRAMEWORK (UN GA Resolution 60/147)
+=============================================================================
+1. RESTITUTION:    Fellowship restores leadership positions
+2. COMPENSATION:   Career investment vs. unpaid community labour
+3. REHABILITATION: Cohort model + consultancy protection
+4. SATISFACTION:   Community democratic control
+5. NON-REPETITION: Fellows become future leaders; reform embeds
+
+This is not charity. It is a legal framework for addressing systematic harm.
+
+=============================================================================
+READ THE FULL PROPOSAL
+=============================================================================
+Research Briefing:  mental-health.blkoutuk.com/research-briefing.html
+Outcomes Paper:     mental-health.blkoutuk.com/outcomes-paper.html
+Policy Briefing:    mental-health.blkoutuk.com/policy-briefing.html
+Cost Model:         mental-health.blkoutuk.com/cost-model.html
+
+CONTACT
 -----------------------------------------------------------------------------
-BLKOUT UK proposes a radical infrastructure update:
-
-1. THE DATA VOID (THE PROBLEM)
-   We replace "Official Statistics" (which fragment identity) with
-   "Reality Data" (Street Intel). We close the feedback loop between
-   the margins and the centre.
-
-2. CULTURAL CONSTELLATION (THE SOLUTION)
-   Community is not a postcode. It is a frequency. We use digital
-   cultural networks to provide safe, always-on peer support that
-   bypasses geographic danger zones.
-
-3. THE RELAY (THE METHOD)
-   A continuous dialogue. No sacred cows. Policy stress-tested
-   against lived reality before implementation.
-
-THE INVESTMENT CASE
------------------------------------------------------------------------------
-We are not asking for charity. We are offering an efficiency upgrade.
-Target: Reduce acute psychiatric admissions by catching users upstream.
-
-"We are tuning the system to the people, not the people to the system."
-
---
-CONTACT:
-BLKOUT UK Policy Unit
-Web: mental-health.blkoutuk.com
-Email: contact@blkoutuk.com
+BLKOUT UK | Community Benefit Society (FCA Registered)
+Web: mental-health.blkoutuk.com | blkoutuk.com
+Email: research@blkoutuk.com
 `;
 
     const blob = new Blob([content], { type: 'text/plain' });
@@ -210,14 +252,13 @@ Email: contact@blkoutuk.com
 
           <div className="max-w-3xl bg-white/95 backdrop-blur-sm p-8 border-2 border-act-black text-center shadow-[8px_8px_0px_0px_#111]">
             <h2 className="text-xl md:text-2xl font-display uppercase mb-4 leading-none text-act-black">
-              Redesigning Mental Health Support<br/>
-              From the Margins to the Centre.
+              £10.5M Investment | 35,000 Lives | 5 Years
             </h2>
             <div className="h-1 w-24 bg-act-pink mx-auto my-4 hidden md:block" aria-hidden="true"></div>
             <p className="text-base md:text-lg font-sans leading-relaxed text-stone-800">
-              This is a strategic proposal to replace the "sickness model" of crisis intervention with a preventative, community-led infrastructure.
+              A phased strategy using network effects to transform individual therapy access into community-wide cultural change.
               <br/><br/>
-              <span className="font-bold">The goal:</span> To stop the cycle of erasure and detention for Black Queer men in the UK.
+              <span className="font-bold">NHS completion rate for Black groups: 3.8%.</span> We propose an alternative: career fellowships, community resources, and democratic infrastructure that becomes self-sustaining.
             </p>
           </div>
 

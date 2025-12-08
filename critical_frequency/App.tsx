@@ -242,6 +242,22 @@ Email: research@blkoutuk.com
         </div>
       )}
 
+      {/* Video Hero - Full width video at the top */}
+      <section className="w-full bg-act-black">
+        <div className="container mx-auto px-4 py-8">
+          <div className="relative w-full border-4 border-act-pink shadow-[8px_8px_0px_0px_#000]" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/A50xkgoI7BI?rel=0&modestbranding=1"
+              title="Critical Frequency - BLKOUT UK"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <header className="relative h-screen flex items-center justify-center overflow-hidden border-b-4 border-act-black" role="banner">
 

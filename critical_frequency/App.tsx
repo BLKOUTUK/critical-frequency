@@ -187,9 +187,25 @@ Email: research@blkoutuk.com
       {/* Noise Texture Overlay */}
       <div className="fixed inset-0 z-0 opacity-40 pointer-events-none bg-noise mix-blend-multiply" aria-hidden="true"></div>
 
-      {/* Navigation */}
+      {/* Video Hero - Full width video at the very top (before navigation) */}
+      <section className="w-full bg-act-black">
+        <div className="container mx-auto px-4 py-8">
+          <div className="relative w-full border-4 border-act-pink shadow-[8px_8px_0px_0px_#000]" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/A50xkgoI7BI?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=A50xkgoI7BI"
+              title="Critical Frequency - BLKOUT UK"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Navigation - positioned below video hero */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-2 ${scrolled ? 'bg-act-paper border-act-black py-2' : 'bg-transparent border-transparent py-6'}`}
+        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 border-b-2 ${scrolled ? 'bg-act-paper border-act-black py-2' : 'bg-act-paper border-act-black py-4'}`}
         role="navigation"
         aria-label="Main Navigation"
       >
@@ -241,22 +257,6 @@ Email: research@blkoutuk.com
             </button>
         </div>
       )}
-
-      {/* Video Hero - Full width video at the top */}
-      <section className="w-full bg-act-black">
-        <div className="container mx-auto px-4 py-8">
-          <div className="relative w-full border-4 border-act-pink shadow-[8px_8px_0px_0px_#000]" style={{ paddingBottom: '56.25%' }}>
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/A50xkgoI7BI?rel=0&modestbranding=1"
-              title="Critical Frequency - BLKOUT UK"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      </section>
 
       {/* Hero Section */}
       <header className="relative h-screen flex items-center justify-center overflow-hidden border-b-4 border-act-black" role="banner">

@@ -422,7 +422,7 @@ Email: research@blkoutuk.com
                     <div className="space-y-8 font-mono text-sm">
                         <p className="text-lg font-sans leading-relaxed text-stone-300 border-l-4 border-white pl-4 mb-8">
                              Black and Queer liberation has always depended on the defiance of "I am who I am." <br/><br/>
-                             We do not ask people to conform to the system's view of them. We align the system to the infinite complexity of the individual.
+                             We do not ask people to conform to the system's view of them. We align the system to the infinite complexity of the individual. At the same time we recognise our shared humanity and our basic needs for a secure base, dignity, and hope in the future.
                         </p>
                         <div className="border-l-2 border-act-pink pl-4 hover:bg-white/5 p-2 transition-colors">
                             <h3 className="text-act-pink font-bold text-lg mb-1">/// HOUSING & HEALTH</h3>

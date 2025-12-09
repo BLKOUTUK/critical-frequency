@@ -27,11 +27,14 @@ export const TheRelay: React.FC = () => {
                  <p className="text-xl font-mono text-stone-300 mb-8 border-l-4 border-act-yellow pl-6 leading-relaxed">
                      Cutting through the hierarchy. New coalitions. Difficult conversations. No sacred cows.
                  </p>
-                 <p className="text-lg font-sans text-white mb-8">
-                     We invite policy makers, activists, and community members into the booth to find the truths that will set us all free. This is where the dialogue begins.
+                 <p className="text-lg font-sans text-white mb-4">
+                     It takes a village - here's our public square.
+                 </p>
+                 <p className="text-lg font-sans text-stone-300 mb-8">
+                     Who gets passed the mic? Help us decide.
                  </p>
                  <button className="px-8 py-4 bg-transparent border-2 border-act-pink text-act-pink hover:bg-act-pink hover:text-black transition-all font-display text-2xl uppercase flex items-center gap-3 focus:outline-none focus:ring-4 focus:ring-white">
-                     <Headphones size={24} aria-hidden="true" /> Listen Now
+                     <Mic size={24} aria-hidden="true" /> Help Us Decide
                  </button>
 
                  <div className="mt-12 flex gap-4 opacity-50" aria-hidden="true">

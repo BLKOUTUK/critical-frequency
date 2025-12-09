@@ -296,9 +296,13 @@ Email: research@blkoutuk.com
             </h2>
             <div className="h-1 w-24 bg-act-pink mx-auto my-4 hidden md:block" aria-hidden="true"></div>
             <p className="text-base md:text-lg font-sans leading-relaxed text-stone-800">
-              A phased strategy using network effects to transform individual therapy access into community-wide cultural change.
-              <br/><br/>
-              <span className="font-bold">NHS completion rate for Black groups: 3.8%.</span> We propose an alternative: career fellowships, community resources, and democratic infrastructure that becomes self-sustaining.
+              A phased strategy using media network effects to transform relationships so that access to effective support and individual therapy translates into community-wide cultural change.
+            </p>
+            <p className="text-base md:text-lg font-sans leading-relaxed text-stone-800 mt-4">
+              Despite persistently higher levels of self-reported anxiety and depression, <span className="font-bold">just 3.8% of Black patients completed NHS Talking Therapies courses compared to 79.8% of white patients.</span> Failure to offer relevant intervention at this stage reverberates through the system, amplifying both distress and costs—contributing to disparities in mental health detention, and declining trust in mental healthcare.
+            </p>
+            <p className="text-base md:text-lg font-sans leading-relaxed text-stone-800 mt-4 font-medium">
+              We propose transformation over tinkering: career fellowships embedding change, community as a resource rather than constraint, and building a sustainable mutual asset base that makes community pride more than a parade.
             </p>
           </div>
 

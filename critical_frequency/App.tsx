@@ -252,20 +252,33 @@ Email: research@blkoutuk.com
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-act-paper flex flex-col items-center justify-center gap-8 text-3xl font-display uppercase">
-            <a href="#demographics" onClick={scrollToSection('demographics')} className="hover:text-act-pink py-4 w-full text-center">The Shift</a>
-            <a href="#evidence" onClick={scrollToSection('evidence')} className="hover:text-act-pink py-4 w-full text-center">Evidence</a>
-            <a href="#relay" onClick={scrollToSection('relay')} className="hover:text-act-pink py-4 w-full text-center">The Relay</a>
-            <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-act-pink py-4 w-full text-center">Impact</a>
-            <a href="#about" onClick={scrollToSection('about')} className="hover:text-act-pink py-4 w-full text-center">About</a>
-            <a href={strategyOutlineUrl} target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-act-black text-white border-2 border-act-black hover:bg-white hover:text-black transition-all focus:outline-none focus:ring-2 focus:ring-act-pink mt-4">
+        <div
+          className="fixed inset-0 z-40 bg-act-paper/98 backdrop-blur-sm flex flex-col items-center justify-center gap-6 text-2xl font-display uppercase pt-20"
+          onClick={(e) => {
+            // Close menu when clicking the backdrop (not the links)
+            if (e.target === e.currentTarget) {
+              setMenuOpen(false);
+            }
+          }}
+        >
+            <a href="#demographics" onClick={scrollToSection('demographics')} className="hover:text-act-pink active:text-act-pink py-3 px-8 w-full text-center min-h-[48px] flex items-center justify-center">The Shift</a>
+            <a href="#evidence" onClick={scrollToSection('evidence')} className="hover:text-act-pink active:text-act-pink py-3 px-8 w-full text-center min-h-[48px] flex items-center justify-center">Evidence</a>
+            <a href="#relay" onClick={scrollToSection('relay')} className="hover:text-act-pink active:text-act-pink py-3 px-8 w-full text-center min-h-[48px] flex items-center justify-center">The Relay</a>
+            <a href="#about" onClick={scrollToSection('about')} className="hover:text-act-pink active:text-act-pink py-3 px-8 w-full text-center min-h-[48px] flex items-center justify-center">About</a>
+            <a href={strategyOutlineUrl} target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-act-black text-white border-2 border-act-black hover:bg-white hover:text-black active:bg-act-pink transition-all focus:outline-none focus:ring-2 focus:ring-act-pink mt-4 min-h-[48px] flex items-center justify-center">
               Strategy Outline
             </a>
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="mt-4 px-6 py-2 text-sm font-mono text-stone-500 hover:text-act-black"
+            >
+              Tap to close
+            </button>
         </div>
       )}
 
       {/* Hero Section */}
-      <header className="relative h-screen flex items-center justify-center overflow-hidden border-b-4 border-act-black" role="banner">
+      <header className="relative min-h-screen flex items-center justify-center overflow-visible border-b-4 border-act-black py-24" role="banner">
 
         {/* Speaker Bass Bin Background */}
         <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
@@ -285,7 +298,7 @@ Email: research@blkoutuk.com
             <HeroScene />
         </div>
 
-        <div className="relative z-20 container mx-auto px-6 flex flex-col items-center justify-center h-full pt-16">
+        <div className="relative z-20 container mx-auto px-6 flex flex-col items-center justify-center">
 
           <div className="inline-block mb-6 px-4 py-2 bg-act-yellow text-black text-xs font-mono font-bold tracking-widest uppercase rotate-[-2deg] border-2 border-black shadow-[4px_4px_0px_0px_#000]">
              <FileText className="inline w-4 h-4 mr-2" aria-hidden="true" /> A POLICY INTERVENTION FOR BLACK QUEER MEN'S HEALTH

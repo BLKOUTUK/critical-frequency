@@ -1,6 +1,3 @@
 {
-  "buildCommand": "cd critical_frequency && npm install && npm run build",
-  "outputDirectory": "critical_frequency/dist",
-  "installCommand": "echo 'Skipping root install'",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }

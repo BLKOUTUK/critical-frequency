@@ -760,6 +760,7 @@ Email: research@blkoutuk.com
                         <a href="#relay" onClick={scrollToSection('relay')} className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">THE RELAY</a>
                         <a href="https://ivor-blkout.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">SUPPORT - #ASKIVOR</a>
                         <a href="https://blkoutuk.com/donate" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4 flex items-center gap-1"><Gift size={14} /> DONATE</a>
+                        <a href="https://docs.google.com/document/d/1W-AEJX0XA0oCtIlu-POCpl3BXCio22KnARNd2TG98eM/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">PROJECT OUTLINE</a>
                     </div>
                     <div className="flex gap-4 md:justify-end">
                         <a href="https://instagram.com/blkoutuk" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink transition-colors" aria-label="Instagram">

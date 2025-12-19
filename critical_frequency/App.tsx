@@ -79,7 +79,13 @@ const App: React.FC = () => {
     }
   };
 
+  const strategyOutlineUrl = 'https://docs.google.com/document/d/1W-AEJX0XA0oCtIlu-POCpl3BXCio22KnARNd2TG98eM/edit?usp=sharing';
+
   const handleDownloadStrategy = () => {
+    window.open(strategyOutlineUrl, '_blank');
+  };
+
+  const handleDownloadStrategyText = () => {
     // Strategy Summary based on mental-health.blkoutuk.com proposal
     const content = `
 BLKOUT UK: CRITICAL FREQUENCY
@@ -228,9 +234,9 @@ Email: research@blkoutuk.com
             <a href="#evidence" onClick={scrollToSection('evidence')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">Evidence</a>
             <a href="#relay" onClick={scrollToSection('relay')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">The Relay</a>
             <a href="#about" onClick={scrollToSection('about')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">About</a>
-            <button onClick={handleDownloadStrategy} className="px-6 py-2 bg-act-black text-white border-2 border-act-black hover:bg-white hover:text-black transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">
-              Download Strategy
-            </button>
+            <a href={strategyOutlineUrl} target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-act-black text-white border-2 border-act-black hover:bg-white hover:text-black transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">
+              Strategy Outline
+            </a>
           </div>
 
           <button
@@ -252,9 +258,9 @@ Email: research@blkoutuk.com
             <a href="#relay" onClick={scrollToSection('relay')} className="hover:text-act-pink py-4 w-full text-center">The Relay</a>
             <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-act-pink py-4 w-full text-center">Impact</a>
             <a href="#about" onClick={scrollToSection('about')} className="hover:text-act-pink py-4 w-full text-center">About</a>
-            <button onClick={handleDownloadStrategy} className="px-6 py-2 bg-act-black text-white border-2 border-act-black hover:bg-white hover:text-black transition-all focus:outline-none focus:ring-2 focus:ring-act-pink mt-4">
-              Download Strategy
-            </button>
+            <a href={strategyOutlineUrl} target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-act-black text-white border-2 border-act-black hover:bg-white hover:text-black transition-all focus:outline-none focus:ring-2 focus:ring-act-pink mt-4">
+              Strategy Outline
+            </a>
         </div>
       )}
 
@@ -306,7 +312,15 @@ Email: research@blkoutuk.com
             </p>
           </div>
 
-          <div className="mt-12 flex justify-center w-full">
+          <div className="mt-8 flex flex-col items-center gap-6 w-full">
+             <a
+               href={strategyOutlineUrl}
+               target="_blank"
+               rel="noopener noreferrer"
+               className="px-8 py-3 bg-act-pink text-black font-display text-lg uppercase tracking-wide hover:bg-act-yellow transition-colors focus:outline-none focus:ring-4 focus:ring-act-black"
+             >
+                Read Full Strategy
+             </a>
              <a
                href="#demographics"
                onClick={scrollToSection('demographics')}

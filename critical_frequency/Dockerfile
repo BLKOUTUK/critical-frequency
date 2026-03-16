@@ -1,9 +1,9 @@
 # Critical Frequency — static site served by nginx
 FROM node:22-alpine AS builder
 WORKDIR /app
-COPY package*.json ./
+COPY critical_frequency/package*.json ./
 RUN npm ci
-COPY . .
+COPY critical_frequency/ .
 RUN npm run build
 
 FROM nginx:alpine

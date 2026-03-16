@@ -101,10 +101,10 @@ We are invisible to the spreadsheet but dying in the streets. We demand data jus
 -----------------
 Prevention is cheaper than cure.
 Acute Episode: £180k+
-Vanguard Intervention: £5k
+Critical Frequency Intervention: £5k
 The math is simple. The choice is political.
 
-3. THE VANGUARD PROTOCOL
+3. THE CRITICAL FREQUENCY PROTOCOL
 ------------------------
 - Digital Affinity Networks (Safe Harbour)
 - Peer-Led Triage (Trust Equity)

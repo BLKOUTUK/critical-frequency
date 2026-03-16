@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can Good Mental Health 'Go Viral'? | BLKOUT × BMHWA</title>
+    <meta name="description" content="A Brown Bag Lunch on designing mental health intervention that transforms individuals and communities. BLKOUT UK's Critical Frequency project.">
+    <meta property="og:title" content="Can Good Mental Health 'Go Viral'?">
+    <meta property="og:description" content="Machine learning, network science, and what Black queer men's healing can teach the whole system. 25 March, 12pm. Bring your lunch, bring your questions.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Scanline overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.008) 2px,
+                rgba(255,255,255,0.008) 4px
+            );
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 30px 80px;
+        }
+
+        /* Header */
+        .event-meta {
+            font-family: 'Courier Prime', monospace;
+            font-size: 13px;
+            color: #666;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .event-meta .live {
+            color: #D4261A;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .date-strip {
+            font-family: 'Courier Prime', monospace;
+            font-size: 15px;
+            color: #999;
+            border-left: 3px solid #D4261A;
+            padding-left: 15px;
+            margin-bottom: 50px;
+        }
+
+        .date-strip strong {
+            color: #fff;
+            font-size: 17px;
+        }
+
+        /* Title */
+        h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(48px, 8vw, 80px);
+            line-height: 0.95;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        h1 .accent {
+            color: #D4261A;
+            display: block;
+        }
+
+        .tagline {
+            font-family: 'Courier Prime', monospace;
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        /* Provocation */
+        .provocation {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #ccc;
+            margin-bottom: 50px;
+            max-width: 650px;
+        }
+
+        .provocation strong {
+            color: #fff;
+        }
+
+        .provocation em {
+            color: #D4261A;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* Separator */
+        .sep {
+            width: 60px;
+            height: 3px;
+            background: #D4261A;
+            margin: 50px 0;
+        }
+
+        /* Body text */
+        .body-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        .body-text strong {
+            color: #ccc;
+        }
+
+        /* Pull quote */
+        .pull-quote {
+            border-left: 3px solid #D4261A;
+            padding: 20px 0 20px 25px;
+            margin: 40px 0;
+            font-size: 19px;
+            line-height: 1.6;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* Speakers */
+        .speakers {
+            margin: 50px 0;
+        }
+
+        .speaker {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(212, 38, 26, 0.05);
+            border: 1px solid rgba(212, 38, 26, 0.15);
+            border-radius: 4px;
+        }
+
+        .speaker-marker {
+            font-family: 'Anton', sans-serif;
+            font-size: 36px;
+            color: #D4261A;
+            line-height: 1;
+            min-width: 30px;
+        }
+
+        .speaker-info h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .speaker-info .role {
+            font-family: 'Courier Prime', monospace;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .speaker-info p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #999;
+        }
+
+        /* Format */
+        .format {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 0;
+            margin: 40px 0;
+        }
+
+        .format-time {
+            font-family: 'Courier Prime', monospace;
+            font-size: 13px;
+            color: #D4261A;
+            padding-top: 3px;
+        }
+
+        .format-item {
+            padding-bottom: 25px;
+            border-left: 1px solid #222;
+            padding-left: 20px;
+            margin-left: -1px;
+        }
+
+        .format-item:last-child {
+            border-left-color: transparent;
+        }
+
+        .format-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .format-item p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        /* CTA */
+        .cta-section {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            font-family: 'Anton', sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #fff;
+            background: #D4261A;
+            padding: 18px 50px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #ff3322;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(212, 38, 26, 0.4);
+        }
+
+        .cta-note {
+            font-family: 'Courier Prime', monospace;
+            font-size: 12px;
+            color: #555;
+            margin-top: 15px;
+            letter-spacing: 0.05em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logos {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #444;
+        }
+
+        .footer-logo.blkout { color: #fff; }
+
+        .footer-link {
+            font-family: 'Courier Prime', monospace;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .footer-link a {
+            color: #D4261A;
+            text-decoration: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .container { padding: 40px 20px 60px; }
+            h1 { font-size: 44px; }
+            .speaker { flex-direction: column; gap: 10px; }
+            .format { grid-template-columns: 50px 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="event-meta">
+        <span class="live">BMHWA</span> Brown Bag Lunch Series
+    </div>
+
+    <div class="date-strip">
+        <strong>Wednesday 25 March 2026</strong><br>
+        12:00 — 13:00 GMT &middot; Online (Microsoft Teams) &middot; Free
+    </div>
+
+    <h1>
+        Can Good<br>Mental Health<br>
+        <span class="accent">'Go Viral'?</span>
+    </h1>
+
+    <div class="tagline">Machine learning &middot; Network science &middot; Community-led healing</div>
+
+    <div class="provocation">
+        How do you design mental health intervention that <strong>transforms individuals and communities</strong>? Can we develop plans that dream big, shift systems that have rarely worked for us, raise expectations — and <em>stay real</em>?
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="body-text">
+        We're sharing <strong>BLKOUT UK's Critical Frequency project</strong> — a proposal that draws on machine learning, data innovation, and behavioural economics to design a mental health intervention for and with Black queer men. Not just for individuals, but for the networks they belong to.
+    </div>
+
+    <div class="pull-quote">
+        The specificity is deliberate. Getting it right for a specific group avoids the slide into generic-serves-no-one services. The margins influence the centre.
+    </div>
+
+    <div class="body-text">
+        When you change the evidence base, change how a community relates to treatment, and change what we actually know about what works — <strong>the system shifts whether or not it was invited to</strong>.
+    </div>
+
+    <div class="body-text">
+        And when we say therapy, we don't mean Eurocentric, white-normative clinical models. We mean therapy in its broadest sense: <strong>anything that is healing for a person</strong>. Peer support, cultural practice, community connection, and relationship-building are therapeutic interventions — not nice things that happen alongside the real clinical work.
+    </div>
+
+    <div class="pull-quote">
+        Solidarity is built through challenge, not around it.
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="speakers">
+        <div class="speaker">
+            <div class="speaker-marker">R</div>
+            <div class="speaker-info">
+                <h3>Dr Rob Berkeley MBE</h3>
+                <div class="role">Co-Director, BLKOUT UK</div>
+                <p>A single arc from vision to methodology: the problem, the vision, networks and behavioural change, machine learning and data innovation, what we're learning — and what we don't yet know.</p>
+            </div>
+        </div>
+
+        <div class="speaker">
+            <div class="speaker-marker">A</div>
+            <div class="speaker-info">
+                <h3>Dr Ariel Breaux Torres</h3>
+                <div class="role">In conversation</div>
+                <p>Exploring the assumptions and interrogating the logic. The upstream/downstream tension. Decolonising therapy. Health-seeking behaviour and harmful healthcare. Specificity and transferability. The logic of transformation.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="format">
+        <div class="format-time">25m</div>
+        <div class="format-item">
+            <h4>Presentation</h4>
+            <p>Rob presents Critical Frequency as a work in progress, not a finished product. From problem to vision to open questions.</p>
+        </div>
+
+        <div class="format-time">20m</div>
+        <div class="format-item">
+            <h4>In Conversation</h4>
+            <p>Ariel and Rob think through the model together. Not defending it — stress-testing it.</p>
+        </div>
+
+        <div class="format-time">10m</div>
+        <div class="format-item">
+            <h4>Your Questions</h4>
+            <p>Open floor. The work gets stronger through challenge. Bring your experience.</p>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <a href="https://events.teams.microsoft.com/event/5214601e-e40d-4f09-aadc-d06712e7cac1@38543a29-5839-4060-90c6-b1aac6064ddf" class="cta-button">Register Now</a>
+        <div class="cta-note">Grab your lunch and pull up a chair &middot; Free &middot; Online via Teams</div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-logos">
+            <span class="footer-logo blkout">BLKOUT UK</span>
+            <span class="footer-logo">&times;</span>
+            <span class="footer-logo">BMHWA</span>
+        </div>
+        <div class="footer-link">
+            <a href="https://critical.blkoutuk.com">critical.blkoutuk.com</a> &middot;
+            <a href="https://blkoutuk.com">blkoutuk.com</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

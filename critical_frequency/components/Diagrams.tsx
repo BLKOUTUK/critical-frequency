@@ -42,7 +42,7 @@ export const DataGapDiagram: React.FC = () => {
                 {/* Hatching pattern */}
                 <div className="absolute inset-0 opacity-20" style={{backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 5px, #fff 5px, #fff 10px)'}}></div>
             </motion.div>
-            <span className="font-mono text-[10px] font-bold uppercase text-act-black text-center leading-tight">Est.<br/>Population</span>
+            <span className="font-mono text-xs font-bold uppercase text-act-black text-center leading-tight">Est.<br/>Population</span>
          </div>
 
          {/* Engaged in Care Bar */}
@@ -53,7 +53,7 @@ export const DataGapDiagram: React.FC = () => {
                 animate={{ height: 35 }}
                 transition={{ duration: 0.5 }}
              />
-             <span className="font-mono text-[10px] font-bold uppercase text-act-black text-center leading-tight">Receiving<br/>Support</span>
+             <span className="font-mono text-xs font-bold uppercase text-act-black text-center leading-tight">Receiving<br/>Support</span>
          </div>
 
          {/* Crisis/Detention Bar */}
@@ -64,7 +64,7 @@ export const DataGapDiagram: React.FC = () => {
                 animate={{ height: view === 'official' ? 70 : 170 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
              />
-             <span className="font-mono text-[10px] font-bold uppercase text-act-black text-center leading-tight">Crisis /<br/>Custody</span>
+             <span className="font-mono text-xs font-bold uppercase text-act-black text-center leading-tight">Crisis /<br/>Custody</span>
          </div>
       </div>
 
@@ -188,7 +188,7 @@ export const AffinityNetworkDiagram: React.FC = () => {
     <div className="flex flex-col items-center p-8 bg-white border-2 border-act-black shadow-[8px_8px_0px_0px_#FF007F] my-8">
       <div className="w-full mb-6 border-b-2 border-act-black pb-4">
         <h3 className="font-display text-3xl text-act-black uppercase">Cultural Constellation</h3>
-        <p className="font-mono text-xs text-stone-500 mt-2">
+        <p className="font-mono text-xs text-stone-600 mt-2">
           /// CULTURE OVER GEOGRAPHY
         </p>
       </div>
@@ -386,7 +386,7 @@ export const OutcomeMetricDiagram: React.FC = () => {
                         animate={{ height: scenario === 'urban' ? 160 : 180 }}
                         transition={{ type: "spring", stiffness: 100 }}
                     />
-                    <div className="mt-2 text-center font-mono text-[10px] uppercase font-bold">Sickness<br/>Model</div>
+                    <div className="mt-2 text-center font-mono text-xs uppercase font-bold">Sickness<br/>Model</div>
                 </div>
 
                 {/* Bar 2: BLKOUT */}
@@ -401,7 +401,7 @@ export const OutcomeMetricDiagram: React.FC = () => {
                         {/* Stripes */}
                         <div className="absolute inset-0" style={{backgroundImage: 'linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, transparent 75%, transparent)', backgroundSize: '10px 10px'}}></div>
                     </motion.div>
-                    <div className="mt-2 text-center font-mono text-[10px] uppercase font-bold bg-act-black text-white">Prevention<br/>Model</div>
+                    <div className="mt-2 text-center font-mono text-xs uppercase font-bold bg-act-black text-white">Prevention<br/>Model</div>
                 </div>
 
             </div>

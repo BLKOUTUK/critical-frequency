@@ -4,7 +4,7 @@
 */
 
 import React from 'react';
-import { Play, Mic, Radio, Headphones, Settings, Volume2 } from 'lucide-react';
+import { Mic, Radio, Settings, Volume2, Clock } from 'lucide-react';
 
 export const TheRelay: React.FC = () => {
   return (
@@ -47,13 +47,13 @@ export const TheRelay: React.FC = () => {
              <div className="md:w-1/2 flex flex-col gap-4" role="list">
                  
                  {/* Top Speaker Box */}
-                 <div className="w-full bg-stone-900 border-2 border-stone-700 p-2 relative group cursor-pointer hover:border-act-pink transition-colors" role="listitem">
-                     {/* "Bass Weight" Thick Border top */}
+                 <div className="w-full bg-stone-900 border-2 border-stone-700 p-2 relative group hover:border-act-pink transition-colors" role="listitem">
                      <div className="h-64 relative overflow-hidden grayscale contrast-125 sepia-50 group-hover:grayscale-0 transition-all duration-500">
-                         {/* Image: The Relay Episode 1 */}
                          <img src="/relay-1.png" alt="The Relay podcast episode 1 - The Systemic Drift" className="w-full h-full object-cover" />
                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                             <Play size={48} className="text-white fill-current" aria-hidden="true" />
+                             <span className="flex items-center gap-2 px-4 py-2 bg-act-pink text-black font-mono text-xs font-bold uppercase border-2 border-black">
+                                 <Clock size={14} aria-hidden="true" /> Coming Soon
+                             </span>
                          </div>
                      </div>
                      <div className="bg-black p-4 mt-2 flex justify-between items-center border-t border-stone-800">
@@ -66,12 +66,13 @@ export const TheRelay: React.FC = () => {
                  </div>
 
                  {/* Middle Speaker Box */}
-                 <div className="w-full bg-stone-900 border-2 border-stone-700 p-2 relative group cursor-pointer hover:border-act-blue transition-colors ml-4 md:ml-12" role="listitem">
+                 <div className="w-full bg-stone-900 border-2 border-stone-700 p-2 relative group hover:border-act-blue transition-colors ml-4 md:ml-12" role="listitem">
                      <div className="h-48 relative overflow-hidden grayscale contrast-125 sepia-50 group-hover:grayscale-0 transition-all duration-500">
-                         {/* Image: The Relay Episode 2 */}
                          <img src="/relay-2.png" alt="The Relay podcast episode 2 - Who Cares?" className="w-full h-full object-cover" />
                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                             <Play size={48} className="text-white fill-current" aria-hidden="true" />
+                             <span className="flex items-center gap-2 px-4 py-2 bg-act-pink text-black font-mono text-xs font-bold uppercase border-2 border-black">
+                                 <Clock size={14} aria-hidden="true" /> Coming Soon
+                             </span>
                          </div>
                      </div>
                      <div className="bg-black p-4 mt-2 flex justify-between items-center border-t border-stone-800">
@@ -84,12 +85,13 @@ export const TheRelay: React.FC = () => {
                  </div>
 
                  {/* Bottom Speaker Box */}
-                 <div className="w-full bg-stone-900 border-2 border-stone-700 p-2 relative group cursor-pointer hover:border-act-yellow transition-colors -ml-2 md:-ml-8" role="listitem">
+                 <div className="w-full bg-stone-900 border-2 border-stone-700 p-2 relative group hover:border-act-yellow transition-colors -ml-2 md:-ml-8" role="listitem">
                      <div className="h-48 relative overflow-hidden grayscale contrast-125 sepia-50 group-hover:grayscale-0 transition-all duration-500">
-                         {/* Image: The Relay Episode 3 */}
                          <img src="/relay-3.png" alt="The Relay podcast episode 3 - New Coalitions" className="w-full h-full object-cover" />
                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                             <Play size={48} className="text-white fill-current" aria-hidden="true" />
+                             <span className="flex items-center gap-2 px-4 py-2 bg-act-pink text-black font-mono text-xs font-bold uppercase border-2 border-black">
+                                 <Clock size={14} aria-hidden="true" /> Coming Soon
+                             </span>
                          </div>
                      </div>
                      <div className="bg-black p-4 mt-2 flex justify-between items-center border-t border-stone-800">

@@ -83,7 +83,7 @@ const PRESETS: { id: string; title: string; type: AssetType; design: DesignState
         title: 'HELLO CHANGE',
         type: 'STICKER',
         design: {
-            headline: "THE VANGUARD",
+            headline: "CRITICAL FREQUENCY",
             subhead: "IS HERE",
             body: "",
             theme: 'PINK',
@@ -120,7 +120,7 @@ export const MovementResourceBuilder: React.FC = () => {
   const [design, setDesign] = useState<DesignState>({
     headline: "REFUSE SILENCE",
     subhead: "THE SYSTEM IS DRIFTING.",
-    body: "We are the signal in the noise. Join the vanguard of community health.",
+    body: "We are the signal in the noise. Join the movement for community health.",
     theme: 'PINK',
     fontMode: 'LOUD',
     texture: true,
@@ -199,8 +199,8 @@ export const MovementResourceBuilder: React.FC = () => {
               </div>
               <div className="flex flex-col items-end gap-2">
                   <p className="font-mono text-sm max-w-md text-right md:text-left">
-                      The revolution will not be templated. <br/>
-                      Customize. Print. Paste. Post.
+                      Community ownership means the message belongs to everyone.<br/>
+                      Remix, share, make it yours.
                   </p>
                   <div className="flex gap-2">
                       <div className="px-3 py-2 bg-stone-100 border-2 border-stone-200 font-mono text-[10px] font-bold uppercase flex items-center gap-1 text-stone-500">
@@ -413,13 +413,13 @@ export const MovementResourceBuilder: React.FC = () => {
                     {/* INCENTIVE SECTION */}
                     <div className="border-t-2 border-stone-800 pt-4">
                         <div className="flex items-center gap-2 text-act-yellow font-mono text-xs uppercase font-bold mb-2">
-                            <Star size={14} className="animate-pulse" aria-hidden="true"/> VANGUARD GALLERY
+                            <Star size={14} className="animate-pulse" aria-hidden="true"/> COMMUNITY GALLERY
                         </div>
                         <p className="font-mono text-[10px] text-stone-400 mb-3 leading-tight">
                             Don't let the signal die on your drive. Send us your remix. We broadcast the most radical designs on our main frequency.
                         </p>
                         <a
-                            href="mailto:contact@blkoutuk.com?subject=My%20BLKOUT%20Remix&body=Attached%20is%20my%20submission%20for%20the%20Vanguard%20Gallery.%20Please%20find%20my%20remix%20attached."
+                            href="mailto:contact@blkoutuk.com?subject=My%20BLKOUT%20Remix&body=Attached%20is%20my%20submission%20for%20the%20Community%20Gallery.%20Please%20find%20my%20remix%20attached."
                             className="w-full py-2 bg-stone-900 border border-stone-700 text-white font-mono text-[10px] font-bold uppercase hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2 group"
                         >
                             <Send size={12} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" /> SUBMIT TO GALLERY
@@ -553,7 +553,7 @@ export const BlueprintTemplate = ({ design }: { design: DesignState }) => {
                           <div className="text-xs opacity-50">SCHEMATIC VIEW</div>
                       </div>
                       <div className="font-mono text-[10px] border border-current px-2 py-1">
-                          REF: VANGUARD-001
+                          REF: CF-001
                       </div>
                  </div>
 

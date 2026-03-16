@@ -233,6 +233,9 @@ Email: research@blkoutuk.com
             <a href="#demographics" onClick={scrollToSection('demographics')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">The Shift</a>
             <a href="#evidence" onClick={scrollToSection('evidence')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">Evidence</a>
             <a href="#relay" onClick={scrollToSection('relay')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">The Relay</a>
+            <a href="#impact" onClick={scrollToSection('impact')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">Impact</a>
+            <a href="#resources" onClick={scrollToSection('resources')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">Resources</a>
+            <a href="#contact" onClick={scrollToSection('contact')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">Contact</a>
             <a href="#about" onClick={scrollToSection('about')} className="hover:bg-act-black hover:text-white px-2 py-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">About</a>
             <a href={strategyOutlineUrl} target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-act-black text-white border-2 border-act-black hover:bg-white hover:text-black transition-all focus:outline-none focus:ring-2 focus:ring-act-pink">
               Strategy Outline
@@ -264,6 +267,9 @@ Email: research@blkoutuk.com
             <a href="#demographics" onClick={scrollToSection('demographics')} className="hover:text-act-pink active:text-act-pink py-3 px-8 w-full text-center min-h-[48px] flex items-center justify-center">The Shift</a>
             <a href="#evidence" onClick={scrollToSection('evidence')} className="hover:text-act-pink active:text-act-pink py-3 px-8 w-full text-center min-h-[48px] flex items-center justify-center">Evidence</a>
             <a href="#relay" onClick={scrollToSection('relay')} className="hover:text-act-pink active:text-act-pink py-3 px-8 w-full text-center min-h-[48px] flex items-center justify-center">The Relay</a>
+            <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-act-pink active:text-act-pink py-3 px-8 w-full text-center min-h-[48px] flex items-center justify-center">Impact</a>
+            <a href="#resources" onClick={scrollToSection('resources')} className="hover:text-act-pink active:text-act-pink py-3 px-8 w-full text-center min-h-[48px] flex items-center justify-center">Resources</a>
+            <a href="#contact" onClick={scrollToSection('contact')} className="hover:text-act-pink active:text-act-pink py-3 px-8 w-full text-center min-h-[48px] flex items-center justify-center">Contact</a>
             <a href="#about" onClick={scrollToSection('about')} className="hover:text-act-pink active:text-act-pink py-3 px-8 w-full text-center min-h-[48px] flex items-center justify-center">About</a>
             <a href={strategyOutlineUrl} target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-act-black text-white border-2 border-act-black hover:bg-white hover:text-black active:bg-act-pink transition-all focus:outline-none focus:ring-2 focus:ring-act-pink mt-4 min-h-[48px] flex items-center justify-center">
               Strategy Outline
@@ -359,7 +365,7 @@ Email: research@blkoutuk.com
         </div>
       </div>
 
-      <main className="relative z-10">
+      <main id="main-content" className="relative z-10">
 
         {/* Context: The Data Void */}
         <section id="demographics" className="py-24 bg-white border-b-2 border-act-black" aria-labelledby="section-demographics">
@@ -651,7 +657,7 @@ Email: research@blkoutuk.com
                     {/* CONTACT FORM */}
                     <div id="contact" className="mt-8 bg-white text-black p-6 border-2 border-act-pink shadow-[8px_8px_0px_0px_#FF007F]">
                         <p className="font-mono text-xs text-act-pink mb-4 uppercase font-bold tracking-widest flex items-center gap-2">
-                             <MessageSquare size={14}/> Stay In Touch / Join The Vanguard
+                             <MessageSquare size={14}/> Stay In Touch / Join The Movement
                         </p>
 
                         {formStatus === 'success' ? (
@@ -754,8 +760,8 @@ Email: research@blkoutuk.com
                                   </>
                                 )}
                             </button>
-                            <p className="text-[10px] font-mono text-center text-stone-500">
-                                Connected to BLKOUT UK infrastructure. Your data stays in our community.
+                            <p className="text-xs font-mono text-center text-stone-600">
+                                Your data is stored securely on BLKOUT-owned infrastructure. We will never share your information with third parties. You can request deletion at any time by emailing rob@blkoutuk.com.
                             </p>
                           </form>
                         )}
@@ -765,6 +771,24 @@ Email: research@blkoutuk.com
         </section>
 
       </main>
+
+      {/* Cross-site navigation */}
+      <div className="bg-stone-900 border-t border-stone-800 py-6">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <div>
+            <div className="font-mono text-xs text-stone-500 uppercase tracking-wider mb-1">You are viewing</div>
+            <div className="font-display text-lg text-white">Critical Frequency <span className="text-act-pink">— The Creative Argument</span></div>
+          </div>
+          <div className="flex gap-4">
+            <a href="https://mental-health.blkoutuk.com" className="px-4 py-2 border border-stone-700 text-stone-400 hover:text-white hover:border-act-pink transition-colors font-mono text-xs uppercase">
+              Evidence Base →
+            </a>
+            <a href="https://blkoutuk.com" className="px-4 py-2 border border-stone-700 text-stone-400 hover:text-white hover:border-act-pink transition-colors font-mono text-xs uppercase">
+              BLKOUT Home →
+            </a>
+          </div>
+        </div>
+      </div>
 
       <footer className="bg-act-paper text-act-black py-12 border-t-4 border-act-black" role="contentinfo">
         <div className="container mx-auto px-6">
@@ -785,7 +809,7 @@ Email: research@blkoutuk.com
                     <div className="flex flex-col md:flex-row gap-6 font-mono text-xs font-bold uppercase">
                         <a href="https://blkoutuk.com" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">BLKOUTUK.COM</a>
                         <a href="#relay" onClick={scrollToSection('relay')} className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">THE RELAY</a>
-                        <a href="https://ivor-blkout.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">SUPPORT - #ASKIVOR</a>
+                        <a href="https://ivor.blkoutuk.cloud" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">SUPPORT - #ASKIVOR</a>
                         <a href="https://blkoutuk.com/donate" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4 flex items-center gap-1"><Gift size={14} /> DONATE</a>
                         <a href="https://docs.google.com/document/d/1W-AEJX0XA0oCtIlu-POCpl3BXCio22KnARNd2TG98eM/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">PROJECT OUTLINE</a>
                     </div>
@@ -793,10 +817,10 @@ Email: research@blkoutuk.com
                         <a href="https://instagram.com/blkoutuk" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink transition-colors" aria-label="Instagram">
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
-                        <a href="https://twitter.com/blaboratories" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink transition-colors" aria-label="Twitter/X">
+                        <a href="https://twitter.com/BlkOutUK" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink transition-colors" aria-label="Twitter/X">
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         </a>
-                        <a href="https://facebook.com/blaboratories" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink transition-colors" aria-label="Facebook">
+                        <a href="https://facebook.com/blkoutukcom" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink transition-colors" aria-label="Facebook">
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
                         <a href="https://youtube.com/@blkoutuk" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink transition-colors" aria-label="YouTube">
@@ -810,10 +834,10 @@ Email: research@blkoutuk.com
             </div>
 
             <div className="border-t-2 border-act-black/10 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <p className="font-mono text-[10px] text-stone-500 max-w-2xl leading-relaxed">
+                <p className="font-mono text-xs text-stone-600 max-w-2xl leading-relaxed">
                     BLKOUT Creative Ltd is registered by the Financial Conduct Authority (London) as a Community Benefit Society under the Co-operative and Community Benefit Societies Act 2014.
                 </p>
-                <div className="font-mono text-[10px] text-stone-500">
+                <div className="font-mono text-xs text-stone-600">
                     &copy; {new Date().getFullYear()}
                 </div>
             </div>

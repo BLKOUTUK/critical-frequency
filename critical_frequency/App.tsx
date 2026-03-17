@@ -224,7 +224,7 @@ Email: research@blkoutuk.com
             </div>
             <div className="flex flex-col leading-none transition-transform duration-300 group-hover:translate-x-2">
                 <span className="font-display text-2xl tracking-tighter uppercase group-hover:text-act-pink transition-colors">BLKOUT UK</span>
-                <span className="font-mono text-[10px] font-bold tracking-widest uppercase bg-act-yellow px-1 self-start group-hover:bg-black group-hover:text-white transition-colors">Policy Unit</span>
+                <span className="font-mono text-xs font-bold tracking-widest uppercase bg-act-yellow px-1 self-start group-hover:bg-black group-hover:text-white transition-colors">Policy Unit</span>
             </div>
           </a>
 
@@ -359,7 +359,7 @@ Email: research@blkoutuk.com
               <span className="text-act-yellow mr-2">/// MISSION:</span>
               To replace the crisis loop with community infrastructure.
            </div>
-           <div className="font-mono text-[10px] md:text-xs text-stone-400 flex items-center gap-2">
+           <div className="font-mono text-xs md:text-xs text-stone-400 flex items-center gap-2">
               SCROLL FOR STRATEGY <ArrowDown size={14}/>
            </div>
         </div>

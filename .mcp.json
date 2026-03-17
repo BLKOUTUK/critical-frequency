@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "coolify": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@masonator/coolify-mcp@latest"
+      ],
+      "env": {
+        "COOLIFY_BASE_URL": "https://infra.blkoutuk.cloud",
+        "COOLIFY_ACCESS_TOKEN": "3|hNEqwwgZ9VWxmJflRCbhlOzV1jKXbdIP2EPI9uC652421704"
+      }
+    }
+  }
+}

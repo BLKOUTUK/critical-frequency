@@ -203,7 +203,7 @@ export const MovementResourceBuilder: React.FC = () => {
                       Remix, share, make it yours.
                   </p>
                   <div className="flex gap-2">
-                      <div className="px-3 py-2 bg-stone-100 border-2 border-stone-200 font-mono text-[10px] font-bold uppercase flex items-center gap-1 text-stone-500">
+                      <div className="px-3 py-2 bg-stone-100 border-2 border-stone-200 font-mono text-xs font-bold uppercase flex items-center gap-1 text-stone-500">
                           <Infinity size={12} /> UNLIMITED DISTRO LICENSE
                       </div>
                       <button
@@ -233,7 +233,7 @@ export const MovementResourceBuilder: React.FC = () => {
                       </div>
                   </div>
 
-                  <div className="absolute bottom-4 right-4 font-mono text-[10px] text-stone-500 uppercase flex items-center gap-2">
+                  <div className="absolute bottom-4 right-4 font-mono text-xs text-stone-500 uppercase flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                       LIVE PREVIEW // 300 DPI
                   </div>
@@ -250,7 +250,7 @@ export const MovementResourceBuilder: React.FC = () => {
                             onClick={() => setActiveTab(type)}
                             role="tab"
                             aria-selected={activeTab === type}
-                            className={`flex-1 py-2 font-mono text-[10px] font-bold uppercase border transition-all focus:outline-none focus:ring-2 focus:ring-act-pink ${activeTab === type ? 'bg-white text-black border-white' : 'bg-transparent text-stone-500 border-stone-700 hover:border-white'}`}
+                            className={`flex-1 py-2 font-mono text-xs font-bold uppercase border transition-all focus:outline-none focus:ring-2 focus:ring-act-pink ${activeTab === type ? 'bg-white text-black border-white' : 'bg-transparent text-stone-500 border-stone-700 hover:border-white'}`}
                           >
                               {type}
                           </button>
@@ -376,7 +376,7 @@ export const MovementResourceBuilder: React.FC = () => {
                                         className={`h-8 border border-stone-700 flex items-center justify-center transition-all ${design.graphic === icon ? 'bg-act-pink text-white border-act-pink' : 'hover:bg-stone-800'}`}
                                         title={icon}
                                      >
-                                         {Icon ? <Icon size={14} /> : <span className="text-[10px]">OFF</span>}
+                                         {Icon ? <Icon size={14} /> : <span className="text-xs">OFF</span>}
                                      </button>
                                  )
                              })}
@@ -415,12 +415,12 @@ export const MovementResourceBuilder: React.FC = () => {
                         <div className="flex items-center gap-2 text-act-yellow font-mono text-xs uppercase font-bold mb-2">
                             <Star size={14} className="animate-pulse" aria-hidden="true"/> COMMUNITY GALLERY
                         </div>
-                        <p className="font-mono text-[10px] text-stone-400 mb-3 leading-tight">
+                        <p className="font-mono text-xs text-stone-400 mb-3 leading-tight">
                             Don't let the signal die on your drive. Send us your remix. We broadcast the most radical designs on our main frequency.
                         </p>
                         <a
                             href="mailto:contact@blkoutuk.com?subject=My%20BLKOUT%20Remix&body=Attached%20is%20my%20submission%20for%20the%20Community%20Gallery.%20Please%20find%20my%20remix%20attached."
-                            className="w-full py-2 bg-stone-900 border border-stone-700 text-white font-mono text-[10px] font-bold uppercase hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2 group"
+                            className="w-full py-2 bg-stone-900 border border-stone-700 text-white font-mono text-xs font-bold uppercase hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2 group"
                         >
                             <Send size={12} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" /> SUBMIT TO GALLERY
                         </a>
@@ -463,7 +463,7 @@ export const MovementResourceBuilder: React.FC = () => {
 
                           <div className="p-3 bg-white border-t-2 border-stone-200 group-hover:border-act-pink">
                               <div className="font-mono text-xs font-bold uppercase text-black">{preset.title}</div>
-                              <div className="font-mono text-[10px] text-stone-500 uppercase">{preset.type} // {preset.design.theme}</div>
+                              <div className="font-mono text-xs text-stone-500 uppercase">{preset.type} // {preset.design.theme}</div>
                           </div>
                       </button>
                   ))}
@@ -527,7 +527,7 @@ export const FlyerTemplate = ({ design }: { design: DesignState }) => {
                      <div className={`w-12 h-12 ${theme.text === 'text-white' ? 'bg-white text-black' : 'bg-black text-white'} flex items-center justify-center`}>
                          <Zap size={24} fill="currentColor" />
                      </div>
-                     <div className="text-right font-mono text-[10px] font-bold uppercase">
+                     <div className="text-right font-mono text-xs font-bold uppercase">
                          BLKOUT UK<br/>POLICY UNIT
                      </div>
                  </div>
@@ -552,7 +552,7 @@ export const BlueprintTemplate = ({ design }: { design: DesignState }) => {
                           <div>FIG 1.1</div>
                           <div className="text-xs opacity-50">SCHEMATIC VIEW</div>
                       </div>
-                      <div className="font-mono text-[10px] border border-current px-2 py-1">
+                      <div className="font-mono text-xs border border-current px-2 py-1">
                           REF: CF-001
                       </div>
                  </div>

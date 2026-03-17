@@ -141,13 +141,13 @@ JOIN THE MOVEMENT: mental-health.blkoutuk.com
                          <div className="absolute inset-0 rounded-full border border-stone-700 w-28 h-28 m-auto opacity-50"></div>
                          <div className="absolute inset-0 rounded-full border border-stone-700 w-24 h-24 m-auto opacity-50"></div>
                          <div className="absolute inset-0 rounded-full border border-stone-700 w-20 h-20 m-auto opacity-50"></div>
-                         <div className="font-mono text-[10px] text-center leading-tight relative z-10 bg-white text-black p-2 rounded-full w-12 h-12 flex items-center justify-center transform rotate-12">
+                         <div className="font-mono text-xs text-center leading-tight relative z-10 bg-white text-black p-2 rounded-full w-12 h-12 flex items-center justify-center transform rotate-12">
                              SIDE<br/>A
                          </div>
                     </div>
                 </div>
 
-                <div className="space-y-2 font-mono text-[10px] text-stone-400 mb-6 border-t border-white/20 pt-4">
+                <div className="space-y-2 font-mono text-xs text-stone-400 mb-6 border-t border-white/20 pt-4">
                     <div className="flex justify-between"><span>TRACK 1:</span> <span className="text-white">REALITY DATA (VIP MIX)</span></div>
                     <div className="flex justify-between"><span>TRACK 2:</span> <span className="text-white">ECONOMIC MODEL</span></div>
                 </div>
@@ -186,7 +186,7 @@ const FrequencyVisualizer: React.FC = () => {
 
                 <div className="flex-1 flex items-end justify-between gap-1 h-32 mb-6 px-4 bg-black/20 border border-white/10 p-2 relative">
                     {/* VU Meter Look */}
-                    <div className="absolute top-2 right-2 text-[10px] font-mono text-red-500 font-bold">PEAK</div>
+                    <div className="absolute top-2 right-2 text-xs font-mono text-red-500 font-bold">PEAK</div>
                     {[40, 70, 30, 80, 50, 90, 60, 40].map((h, i) => (
                         <div key={i} className={`w-full animate-pulse ${h > 75 ? 'bg-red-500' : 'bg-act-yellow'}`} style={{height: `${h}%`, animationDelay: `${i * 0.1}s`}}></div>
                     ))}

@@ -104,7 +104,7 @@ export const IntersectionalNexusDiagram: React.FC = () => {
                     <button
                         key={type}
                         onClick={() => toggle(type)}
-                        className={`px-3 py-1 text-[10px] font-mono font-bold border-2 transition-all uppercase ${active.includes(type) ? 'bg-act-pink text-act-black border-act-pink' : 'bg-transparent text-white border-white hover:bg-white hover:text-black'}`}
+                        className={`px-3 py-1 text-xs font-mono font-bold border-2 transition-all uppercase ${active.includes(type) ? 'bg-act-pink text-act-black border-act-pink' : 'bg-transparent text-white border-white hover:bg-white hover:text-black'}`}
                     >
                         {active.includes(type) ? '[-]' : '[+]'} {type}
                     </button>
@@ -118,7 +118,7 @@ export const IntersectionalNexusDiagram: React.FC = () => {
                 <div className={`absolute z-30 w-32 h-32 rounded-full border-4 border-white flex items-center justify-center text-center bg-act-black shadow-[0_0_30px_rgba(255,255,255,0.3)]`}>
                     <div className="flex flex-col relative z-10">
                         <span className="font-display text-3xl leading-none text-white">THE<br/>HUMAN</span>
-                        <span className="font-mono text-[8px] uppercase mt-1 text-act-yellow">Infinite Complexity</span>
+                        <span className="font-mono text-xs uppercase mt-1 text-act-yellow">Infinite Complexity</span>
                     </div>
                     {/* Radiating Energy */}
                     <motion.div
@@ -269,7 +269,7 @@ export const AffinityNetworkDiagram: React.FC = () => {
              >
                  {node.central && (
                     <>
-                       <div className="font-mono text-[8px] font-bold">CORE</div>
+                       <div className="font-mono text-xs font-bold">CORE</div>
                        <Zap size={10} className="text-act-pink fill-current" />
                     </>
                  )}
@@ -278,13 +278,13 @@ export const AffinityNetworkDiagram: React.FC = () => {
 
                  {/* Label */}
                  {!node.central && (
-                     <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white font-mono text-[8px] font-bold tracking-widest text-shadow-sm">{node.label}</div>
+                     <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white font-mono text-xs font-bold tracking-widest text-shadow-sm">{node.label}</div>
                  )}
              </motion.div>
          ))}
 
          <div className="absolute top-4 right-4 text-right">
-             <div className="text-white font-mono text-[10px] uppercase font-bold tracking-widest bg-black/50 px-2 py-1 backdrop-blur-sm border border-white/20">
+             <div className="text-white font-mono text-xs uppercase font-bold tracking-widest bg-black/50 px-2 py-1 backdrop-blur-sm border border-white/20">
                  Signal Strength: 100%
              </div>
          </div>
@@ -316,7 +316,7 @@ export const CentreMarginDiagram: React.FC = () => {
       <div className="w-full relative z-10 flex flex-col items-center">
          <div className="w-64 border-2 border-white bg-white text-act-black p-4 text-center shadow-[0_0_15px_rgba(255,255,255,0.2)]">
             <h3 className="font-display text-2xl uppercase leading-none">THE CENTRE</h3>
-            <p className="font-mono text-[10px] uppercase tracking-wider mt-1">Whitehall / Policy / Scale</p>
+            <p className="font-mono text-xs uppercase tracking-wider mt-1">Whitehall / Policy / Scale</p>
          </div>
          {/* Top-Down Flow (Rigid/Structured) */}
          <div className="flex flex-col items-center mt-2 space-y-1">
@@ -331,7 +331,7 @@ export const CentreMarginDiagram: React.FC = () => {
          <div className="text-center">
              <div className="font-mono text-xs text-act-pink uppercase mb-1 font-bold">/// THE FULCRUM</div>
              <h3 className="font-display text-4xl text-white uppercase leading-none">Equity<br/>Transfer</h3>
-             <p className="font-sans text-[10px] text-stone-300 mt-2">Correcting the Imbalance.</p>
+             <p className="font-sans text-xs text-stone-300 mt-2">Correcting the Imbalance.</p>
          </div>
          {/* Side connectors */}
          <div className="absolute left-0 top-1/2 -translate-x-full w-8 h-0.5 bg-act-pink"></div>
@@ -347,7 +347,7 @@ export const CentreMarginDiagram: React.FC = () => {
          </div>
          <div className="w-64 border-2 border-act-yellow bg-act-yellow text-act-black p-4 text-center shadow-[0_0_15px_rgba(230,255,0,0.4)]">
             <h3 className="font-display text-2xl uppercase leading-none">THE MARGINS</h3>
-            <p className="font-mono text-[10px] uppercase tracking-wider mt-1">Community / Innovation / Survival</p>
+            <p className="font-mono text-xs uppercase tracking-wider mt-1">Community / Innovation / Survival</p>
          </div>
       </div>
 

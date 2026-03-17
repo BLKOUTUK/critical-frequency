@@ -105,15 +105,15 @@ const papers: Paper[] = [
         <div className="grid grid-cols-3 gap-4 my-6">
             <div className="bg-act-black text-white p-4 text-center">
                 <div className="text-2xl font-display text-act-yellow">£10.5M</div>
-                <div className="text-[10px] uppercase">5-Year Investment</div>
+                <div className="text-xs uppercase">5-Year Investment</div>
             </div>
             <div className="bg-act-pink text-white p-4 text-center">
                 <div className="text-2xl font-display">35,000</div>
-                <div className="text-[10px] uppercase">People Reached</div>
+                <div className="text-xs uppercase">People Reached</div>
             </div>
             <div className="bg-act-yellow text-black p-4 text-center">
                 <div className="text-2xl font-display">4-6:1</div>
-                <div className="text-[10px] uppercase">ROI Ratio</div>
+                <div className="text-xs uppercase">ROI Ratio</div>
             </div>
         </div>
 
@@ -305,7 +305,7 @@ const StackedCard: React.FC<{ item: Paper; index: number; total: number; onClick
                     ) : (
                         <div className="md:w-1/3 bg-act-black text-white p-8 flex flex-col justify-between border-b-4 md:border-b-0 md:border-r-4 border-black pattern-grid-lg">
                              <Quote size={48} className="text-act-yellow" />
-                             <div className="font-mono text-[10px] uppercase opacity-50">{item.type} DOCUMENT</div>
+                             <div className="font-mono text-xs uppercase opacity-50">{item.type} DOCUMENT</div>
                         </div>
                     )}
 
@@ -330,10 +330,10 @@ const StackedCard: React.FC<{ item: Paper; index: number; total: number; onClick
                         </div>
 
                         <div className="pt-6 border-t-2 border-stone-200 flex justify-between items-center mt-auto">
-                            <div className="font-mono text-[10px] uppercase font-bold text-stone-500">
+                            <div className="font-mono text-xs uppercase font-bold text-stone-500">
                                 {item.author}
                             </div>
-                            <div className="bg-act-yellow px-2 py-1 font-mono text-[10px] font-bold uppercase border border-black shadow-[2px_2px_0px_0px_#000]">
+                            <div className="bg-act-yellow px-2 py-1 font-mono text-xs font-bold uppercase border border-black shadow-[2px_2px_0px_0px_#000]">
                                 Open Dossier
                             </div>
                         </div>

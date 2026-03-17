@@ -190,7 +190,7 @@ export const MovementResourceBuilder: React.FC = () => {
        <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
               <div>
-                  <div className="inline-block px-4 py-1 bg-black text-white font-mono text-xs font-bold uppercase mb-4 transform -rotate-1">
+                  <div className="inline-block px-4 py-1 bg-black text-white font-mono text-sm font-bold uppercase mb-4 transform -rotate-1">
                       /// DIY DISTRO CENTRE
                   </div>
                   <h2 id="resources-title" className="font-display text-5xl md:text-6xl text-act-black uppercase leading-none">
@@ -203,13 +203,13 @@ export const MovementResourceBuilder: React.FC = () => {
                       Remix, share, make it yours.
                   </p>
                   <div className="flex gap-2">
-                      <div className="px-3 py-2 bg-stone-100 border-2 border-stone-200 font-mono text-xs font-bold uppercase flex items-center gap-1 text-stone-500">
+                      <div className="px-3 py-2 bg-stone-100 border-2 border-stone-200 font-mono text-sm font-bold uppercase flex items-center gap-1 text-stone-500">
                           <Infinity size={12} /> UNLIMITED DISTRO LICENSE
                       </div>
                       <button
                         onClick={handleSave}
                         disabled={isSaving}
-                        className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-act-black font-mono text-xs font-bold uppercase hover:bg-act-yellow transition-colors focus:outline-none focus:ring-2 focus:ring-act-pink"
+                        className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-act-black font-mono text-sm font-bold uppercase hover:bg-act-yellow transition-colors focus:outline-none focus:ring-2 focus:ring-act-pink"
                       >
                         {isSaving ? <Loader2 size={14} className="animate-spin"/> : <Save size={14}/>}
                         {saveMessage ? saveMessage : "SAVE PROGRESS"}
@@ -233,7 +233,7 @@ export const MovementResourceBuilder: React.FC = () => {
                       </div>
                   </div>
 
-                  <div className="absolute bottom-4 right-4 font-mono text-xs text-stone-500 uppercase flex items-center gap-2">
+                  <div className="absolute bottom-4 right-4 font-mono text-sm text-stone-500 uppercase flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                       LIVE PREVIEW // 300 DPI
                   </div>
@@ -250,7 +250,7 @@ export const MovementResourceBuilder: React.FC = () => {
                             onClick={() => setActiveTab(type)}
                             role="tab"
                             aria-selected={activeTab === type}
-                            className={`flex-1 py-2 font-mono text-xs font-bold uppercase border transition-all focus:outline-none focus:ring-2 focus:ring-act-pink ${activeTab === type ? 'bg-white text-black border-white' : 'bg-transparent text-stone-500 border-stone-700 hover:border-white'}`}
+                            className={`flex-1 py-2 font-mono text-sm font-bold uppercase border transition-all focus:outline-none focus:ring-2 focus:ring-act-pink ${activeTab === type ? 'bg-white text-black border-white' : 'bg-transparent text-stone-500 border-stone-700 hover:border-white'}`}
                           >
                               {type}
                           </button>
@@ -262,7 +262,7 @@ export const MovementResourceBuilder: React.FC = () => {
 
                       {/* Text Edit */}
                       <div className="space-y-3">
-                          <div className="flex items-center gap-2 text-act-yellow font-mono text-xs uppercase font-bold" id="text-edit-label">
+                          <div className="flex items-center gap-2 text-act-yellow font-mono text-sm uppercase font-bold" id="text-edit-label">
                               <Type size={14} aria-hidden="true" /> Text Content
                           </div>
                           <label htmlFor="headline-input" className="sr-only">Headline</label>
@@ -281,7 +281,7 @@ export const MovementResourceBuilder: React.FC = () => {
                             type="text"
                             value={design.subhead}
                             onChange={(e) => setDesign({...design, subhead: e.target.value})}
-                            className="w-full bg-stone-900 border border-stone-700 p-3 font-mono text-xs text-white focus:border-act-pink outline-none focus:ring-1 focus:ring-act-pink placeholder:text-stone-700"
+                            className="w-full bg-stone-900 border border-stone-700 p-3 font-mono text-sm text-white focus:border-act-pink outline-none focus:ring-1 focus:ring-act-pink placeholder:text-stone-700"
                             placeholder="SUBHEAD"
                             maxLength={50}
                           />
@@ -302,7 +302,7 @@ export const MovementResourceBuilder: React.FC = () => {
 
                       {/* Theme Select */}
                       <div className="space-y-3">
-                          <div className="flex items-center gap-2 text-act-blue font-mono text-xs uppercase font-bold" id="theme-label">
+                          <div className="flex items-center gap-2 text-act-blue font-mono text-sm uppercase font-bold" id="theme-label">
                               <Palette size={14} aria-hidden="true" /> Colorway
                           </div>
                           <div className="grid grid-cols-4 gap-2" role="radiogroup" aria-labelledby="theme-label">
@@ -326,7 +326,7 @@ export const MovementResourceBuilder: React.FC = () => {
 
                       {/* Style Toggles */}
                       <div className="space-y-3">
-                           <div className="flex items-center gap-2 text-act-pink font-mono text-xs uppercase font-bold">
+                           <div className="flex items-center gap-2 text-act-pink font-mono text-sm uppercase font-bold">
                               <Layout size={14} aria-hidden="true" /> Style & Layout
                           </div>
 
@@ -342,7 +342,7 @@ export const MovementResourceBuilder: React.FC = () => {
                               <button
                                 onClick={() => setDesign({...design, fontMode: 'TECH'})}
                                 aria-pressed={design.fontMode === 'TECH'}
-                                className={`flex-1 py-2 font-mono text-xs uppercase border-2 text-center font-bold focus:outline-none focus:ring-2 focus:ring-act-pink ${design.fontMode === 'TECH' ? 'bg-white text-black border-white' : 'border-stone-700 text-stone-500'}`}
+                                className={`flex-1 py-2 font-mono text-sm uppercase border-2 text-center font-bold focus:outline-none focus:ring-2 focus:ring-act-pink ${design.fontMode === 'TECH' ? 'bg-white text-black border-white' : 'border-stone-700 text-stone-500'}`}
                               >
                                   TECH
                               </button>
@@ -363,7 +363,7 @@ export const MovementResourceBuilder: React.FC = () => {
                           </div>
 
                            {/* Graphic Overlays */}
-                           <div className="flex items-center gap-2 text-white font-mono text-xs uppercase font-bold mt-2">
+                           <div className="flex items-center gap-2 text-white font-mono text-sm uppercase font-bold mt-2">
                               <Stamp size={14} aria-hidden="true" /> Overlay Graphic
                           </div>
                           <div className="grid grid-cols-6 gap-2">
@@ -412,15 +412,15 @@ export const MovementResourceBuilder: React.FC = () => {
 
                     {/* INCENTIVE SECTION */}
                     <div className="border-t-2 border-stone-800 pt-4">
-                        <div className="flex items-center gap-2 text-act-yellow font-mono text-xs uppercase font-bold mb-2">
+                        <div className="flex items-center gap-2 text-act-yellow font-mono text-sm uppercase font-bold mb-2">
                             <Star size={14} className="animate-pulse" aria-hidden="true"/> COMMUNITY GALLERY
                         </div>
-                        <p className="font-mono text-xs text-stone-400 mb-3 leading-tight">
+                        <p className="font-mono text-sm text-stone-400 mb-3 leading-tight">
                             Don't let the signal die on your drive. Send us your remix. We broadcast the most radical designs on our main frequency.
                         </p>
                         <a
                             href="mailto:contact@blkoutuk.com?subject=My%20BLKOUT%20Remix&body=Attached%20is%20my%20submission%20for%20the%20Community%20Gallery.%20Please%20find%20my%20remix%20attached."
-                            className="w-full py-2 bg-stone-900 border border-stone-700 text-white font-mono text-xs font-bold uppercase hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2 group"
+                            className="w-full py-2 bg-stone-900 border border-stone-700 text-white font-mono text-sm font-bold uppercase hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2 group"
                         >
                             <Send size={12} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" /> SUBMIT TO GALLERY
                         </a>
@@ -455,15 +455,15 @@ export const MovementResourceBuilder: React.FC = () => {
                               <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
 
                               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20">
-                                   <span className="bg-black text-white px-3 py-1 font-mono text-xs font-bold uppercase flex items-center gap-2">
+                                   <span className="bg-black text-white px-3 py-1 font-mono text-sm font-bold uppercase flex items-center gap-2">
                                        <RefreshCw size={12} /> Remix This
                                    </span>
                               </div>
                           </div>
 
                           <div className="p-3 bg-white border-t-2 border-stone-200 group-hover:border-act-pink">
-                              <div className="font-mono text-xs font-bold uppercase text-black">{preset.title}</div>
-                              <div className="font-mono text-xs text-stone-500 uppercase">{preset.type} // {preset.design.theme}</div>
+                              <div className="font-mono text-sm font-bold uppercase text-black">{preset.title}</div>
+                              <div className="font-mono text-sm text-stone-500 uppercase">{preset.type} // {preset.design.theme}</div>
                           </div>
                       </button>
                   ))}
@@ -527,7 +527,7 @@ export const FlyerTemplate = ({ design }: { design: DesignState }) => {
                      <div className={`w-12 h-12 ${theme.text === 'text-white' ? 'bg-white text-black' : 'bg-black text-white'} flex items-center justify-center`}>
                          <Zap size={24} fill="currentColor" />
                      </div>
-                     <div className="text-right font-mono text-xs font-bold uppercase">
+                     <div className="text-right font-mono text-sm font-bold uppercase">
                          BLKOUT UK<br/>POLICY UNIT
                      </div>
                  </div>
@@ -548,11 +548,11 @@ export const BlueprintTemplate = ({ design }: { design: DesignState }) => {
 
              <div className={`relative z-10 h-full border-2 border-dashed ${theme.border} p-4 flex flex-col`}>
                  <div className={`flex justify-between items-start border-b ${theme.border} pb-2 mb-4`}>
-                      <div className="font-mono text-xs font-bold uppercase">
+                      <div className="font-mono text-sm font-bold uppercase">
                           <div>FIG 1.1</div>
                           <div className="text-xs opacity-50">SCHEMATIC VIEW</div>
                       </div>
-                      <div className="font-mono text-xs border border-current px-2 py-1">
+                      <div className="font-mono text-sm border border-current px-2 py-1">
                           REF: CF-001
                       </div>
                  </div>
@@ -561,7 +561,7 @@ export const BlueprintTemplate = ({ design }: { design: DesignState }) => {
                      <div className="w-1/2">
                          <h1 className="font-mono text-4xl font-bold uppercase mb-2 leading-none">{design.headline}</h1>
                          <h2 className="font-mono text-sm uppercase opacity-70 mb-4">{design.subhead}</h2>
-                         <p className="font-mono text-xs leading-relaxed pl-2 border-l-2 border-current">
+                         <p className="font-mono text-sm leading-relaxed pl-2 border-l-2 border-current">
                              {design.body}
                          </p>
                      </div>

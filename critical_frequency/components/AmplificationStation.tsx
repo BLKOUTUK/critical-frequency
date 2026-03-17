@@ -14,7 +14,7 @@ export const AmplificationStation: React.FC = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center mb-16">
-           <div className="inline-block px-4 py-1 bg-act-blue text-white font-mono text-xs font-bold uppercase mb-4 border border-black shadow-[4px_4px_0px_0px_#000]">
+           <div className="inline-block px-4 py-1 bg-act-blue text-white font-mono text-sm font-bold uppercase mb-4 border border-black shadow-[4px_4px_0px_0px_#000]">
               /// BROADCAST UNIT
            </div>
            <h2 className="font-display text-5xl md:text-7xl uppercase leading-none text-act-black mb-4">
@@ -68,7 +68,7 @@ const PreAmpWidget: React.FC = () => {
            <p className="font-sans font-bold text-sm mb-4">
              "I found something that resonates."
            </p>
-           <div className="bg-stone-100 p-4 border border-stone-300 font-mono text-xs text-stone-600 italic">
+           <div className="bg-stone-100 p-4 border border-stone-300 font-mono text-sm text-stone-600 italic">
                "{textToShare}"
            </div>
         </div>
@@ -76,7 +76,7 @@ const PreAmpWidget: React.FC = () => {
         <div className="mt-8">
              <button
                 onClick={handleCopy}
-                className={`w-full py-3 font-mono text-xs font-bold uppercase border-2 border-black flex items-center justify-center gap-2 transition-all ${copied ? 'bg-act-pink text-white' : 'bg-act-black text-white hover:bg-white hover:text-black'}`}
+                className={`w-full py-3 font-mono text-sm font-bold uppercase border-2 border-black flex items-center justify-center gap-2 transition-all ${copied ? 'bg-act-pink text-white' : 'bg-act-black text-white hover:bg-white hover:text-black'}`}
              >
                 {copied ? <span className="flex items-center gap-2">TRANSMITTED <Share2 size={14}/></span> : <span className="flex items-center gap-2">BOOST SIGNAL <Copy size={14}/></span>}
              </button>
@@ -141,13 +141,13 @@ JOIN THE MOVEMENT: mental-health.blkoutuk.com
                          <div className="absolute inset-0 rounded-full border border-stone-700 w-28 h-28 m-auto opacity-50"></div>
                          <div className="absolute inset-0 rounded-full border border-stone-700 w-24 h-24 m-auto opacity-50"></div>
                          <div className="absolute inset-0 rounded-full border border-stone-700 w-20 h-20 m-auto opacity-50"></div>
-                         <div className="font-mono text-xs text-center leading-tight relative z-10 bg-white text-black p-2 rounded-full w-12 h-12 flex items-center justify-center transform rotate-12">
+                         <div className="font-mono text-sm text-center leading-tight relative z-10 bg-white text-black p-2 rounded-full w-12 h-12 flex items-center justify-center transform rotate-12">
                              SIDE<br/>A
                          </div>
                     </div>
                 </div>
 
-                <div className="space-y-2 font-mono text-xs text-stone-400 mb-6 border-t border-white/20 pt-4">
+                <div className="space-y-2 font-mono text-sm text-stone-400 mb-6 border-t border-white/20 pt-4">
                     <div className="flex justify-between"><span>TRACK 1:</span> <span className="text-white">REALITY DATA (VIP MIX)</span></div>
                     <div className="flex justify-between"><span>TRACK 2:</span> <span className="text-white">ECONOMIC MODEL</span></div>
                 </div>
@@ -192,7 +192,7 @@ const FrequencyVisualizer: React.FC = () => {
                     ))}
                 </div>
 
-                <div className="font-mono text-xs text-center mb-6 opacity-80">
+                <div className="font-mono text-sm text-center mb-6 opacity-80">
                     "We refuse to be left picking up the pieces."
                 </div>
 

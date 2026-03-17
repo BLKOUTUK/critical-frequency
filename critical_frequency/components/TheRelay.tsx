@@ -18,7 +18,7 @@ export const TheRelay: React.FC = () => {
              
              {/* Left Column: Text */}
              <div className="md:w-1/2 sticky top-24">
-                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-white text-black font-mono text-xs font-bold uppercase mb-6 transform -rotate-2">
+                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-white text-black font-mono text-sm font-bold uppercase mb-6 transform -rotate-2">
                      <Radio size={14} aria-hidden="true"/> LIVE TRANSMISSION
                  </div>
                  <h2 id="relay-title" className="font-display text-6xl md:text-8xl mb-6 leading-none text-white">
@@ -51,7 +51,7 @@ export const TheRelay: React.FC = () => {
                      <div className="h-64 relative overflow-hidden grayscale contrast-125 sepia-50 group-hover:grayscale-0 transition-all duration-500">
                          <img src="/relay-1.png" alt="The Relay podcast episode 1 - The Systemic Drift" className="w-full h-full object-cover" />
                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                             <span className="flex items-center gap-2 px-4 py-2 bg-act-pink text-black font-mono text-xs font-bold uppercase border-2 border-black">
+                             <span className="flex items-center gap-2 px-4 py-2 bg-act-pink text-black font-mono text-sm font-bold uppercase border-2 border-black">
                                  <Clock size={14} aria-hidden="true" /> Coming Soon
                              </span>
                          </div>
@@ -61,7 +61,7 @@ export const TheRelay: React.FC = () => {
                              <div className="font-mono text-act-yellow text-xs uppercase">EPISODE 01</div>
                              <div className="font-display text-2xl uppercase leading-none">The Systemic Drift</div>
                          </div>
-                         <div className="font-mono text-xs text-stone-500" aria-label="Duration 45 minutes">45:00</div>
+                         <div className="font-mono text-sm text-stone-500" aria-label="Duration 45 minutes">45:00</div>
                      </div>
                  </div>
 
@@ -70,7 +70,7 @@ export const TheRelay: React.FC = () => {
                      <div className="h-48 relative overflow-hidden grayscale contrast-125 sepia-50 group-hover:grayscale-0 transition-all duration-500">
                          <img src="/relay-2.png" alt="The Relay podcast episode 2 - Who Cares?" className="w-full h-full object-cover" />
                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                             <span className="flex items-center gap-2 px-4 py-2 bg-act-pink text-black font-mono text-xs font-bold uppercase border-2 border-black">
+                             <span className="flex items-center gap-2 px-4 py-2 bg-act-pink text-black font-mono text-sm font-bold uppercase border-2 border-black">
                                  <Clock size={14} aria-hidden="true" /> Coming Soon
                              </span>
                          </div>
@@ -80,7 +80,7 @@ export const TheRelay: React.FC = () => {
                              <div className="font-mono text-act-blue text-xs uppercase">EPISODE 02</div>
                              <div className="font-display text-2xl uppercase leading-none">Who Cares?</div>
                          </div>
-                         <div className="font-mono text-xs text-stone-500" aria-label="Duration 32 minutes">32:15</div>
+                         <div className="font-mono text-sm text-stone-500" aria-label="Duration 32 minutes">32:15</div>
                      </div>
                  </div>
 
@@ -89,7 +89,7 @@ export const TheRelay: React.FC = () => {
                      <div className="h-48 relative overflow-hidden grayscale contrast-125 sepia-50 group-hover:grayscale-0 transition-all duration-500">
                          <img src="/relay-3.png" alt="The Relay podcast episode 3 - New Coalitions" className="w-full h-full object-cover" />
                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                             <span className="flex items-center gap-2 px-4 py-2 bg-act-pink text-black font-mono text-xs font-bold uppercase border-2 border-black">
+                             <span className="flex items-center gap-2 px-4 py-2 bg-act-pink text-black font-mono text-sm font-bold uppercase border-2 border-black">
                                  <Clock size={14} aria-hidden="true" /> Coming Soon
                              </span>
                          </div>
@@ -99,7 +99,7 @@ export const TheRelay: React.FC = () => {
                              <div className="font-mono text-act-yellow text-xs uppercase">EPISODE 03</div>
                              <div className="font-display text-2xl uppercase leading-none">New Coalitions</div>
                          </div>
-                         <div className="font-mono text-xs text-stone-500" aria-label="Duration 51 minutes">51:00</div>
+                         <div className="font-mono text-sm text-stone-500" aria-label="Duration 51 minutes">51:00</div>
                      </div>
                  </div>
 

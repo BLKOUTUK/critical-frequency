@@ -224,7 +224,7 @@ Email: research@blkoutuk.com
             </div>
             <div className="flex flex-col leading-none transition-transform duration-300 group-hover:translate-x-2">
                 <span className="font-display text-2xl tracking-tighter uppercase group-hover:text-act-pink transition-colors">BLKOUT UK</span>
-                <span className="font-mono text-xs font-bold tracking-widest uppercase bg-act-yellow px-1 self-start group-hover:bg-black group-hover:text-white transition-colors">Policy Unit</span>
+                <span className="font-mono text-sm font-bold tracking-widest uppercase bg-act-yellow px-1 self-start group-hover:bg-black group-hover:text-white transition-colors">Policy Unit</span>
             </div>
           </a>
 
@@ -355,11 +355,11 @@ Email: research@blkoutuk.com
       {/* Mission Band - New Section to explicitly state purpose */}
       <div className="bg-act-black text-white py-4 border-b-2 border-act-pink relative z-20">
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-4">
-           <div className="font-mono text-xs md:text-sm font-bold uppercase tracking-widest">
+           <div className="font-mono text-sm md:text-sm font-bold uppercase tracking-widest">
               <span className="text-act-yellow mr-2">/// MISSION:</span>
               To replace the crisis loop with community infrastructure.
            </div>
-           <div className="font-mono text-xs md:text-xs text-stone-400 flex items-center gap-2">
+           <div className="font-mono text-sm md:text-xs text-stone-400 flex items-center gap-2">
               SCROLL FOR STRATEGY <ArrowDown size={14}/>
            </div>
         </div>
@@ -375,7 +375,7 @@ Email: research@blkoutuk.com
                    <DataGapDiagram />
                 </div>
                 <div className="order-1 md:order-2">
-                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-act-black text-white font-mono text-xs font-bold uppercase mb-6">
+                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-act-black text-white font-mono text-sm font-bold uppercase mb-6">
                         <EyeOff size={14} aria-hidden="true"/> SECTION 1: THE OPPORTUNITY
                    </div>
                    <h2 id="section-demographics" className="font-display text-5xl md:text-6xl mb-6 leading-none text-act-black">Illuminating<br/><span className="text-act-blue underline decoration-4 underline-offset-4">The Invisible</span></h2>
@@ -403,7 +403,7 @@ Email: research@blkoutuk.com
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-act-black text-white font-mono text-xs font-bold uppercase mb-6">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-act-black text-white font-mono text-sm font-bold uppercase mb-6">
                             <Compass size={14} aria-hidden="true"/> SECTION 2: CULTURAL INFRASTRUCTURE
                         </div>
                         <h2 id="section-network" className="font-display text-5xl md:text-6xl mb-6 leading-none">CULTURAL<br/>CONSTELLATION</h2>
@@ -481,7 +481,7 @@ Email: research@blkoutuk.com
                         <CentreMarginDiagram />
                      </div>
                      <div className="order-1 lg:order-2">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-act-black text-white font-mono text-xs font-bold uppercase mb-6">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-act-black text-white font-mono text-sm font-bold uppercase mb-6">
                             <Scale size={14} aria-hidden="true"/> SECTION 3: THE STRATEGIC TRANSFER
                         </div>
                         <h2 id="section-transfer" className="font-display text-5xl mb-6 text-act-black uppercase leading-none">The<br/>Power Shift</h2>
@@ -492,7 +492,7 @@ Email: research@blkoutuk.com
                             Transformational change is impossible without correcting the vast power imbalance. We argue for resources to be pushed to the edges, creating the capacity for the margins to engage, challenge, and redesign the centre.
                         </p>
                         <div className="bg-white p-4 border-2 border-black inline-block shadow-[4px_4px_0px_0px_#000]">
-                             <div className="font-mono text-xs font-bold uppercase mb-2 text-stone-500">SYSTEM STATUS:</div>
+                             <div className="font-mono text-sm font-bold uppercase mb-2 text-stone-500">SYSTEM STATUS:</div>
                              <div className="font-display text-2xl uppercase">
                                  Analogue <span aria-hidden="true">→</span> Digital
                              </div>
@@ -534,7 +534,7 @@ Email: research@blkoutuk.com
 
                     {/* Header */}
                     <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-act-black text-white font-mono text-xs font-bold uppercase mb-6">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-act-black text-white font-mono text-sm font-bold uppercase mb-6">
                             <Users size={14} aria-hidden="true"/> WHO WE ARE
                         </div>
                         <h2 id="section-about" className="font-display text-5xl md:text-7xl mb-6 text-act-black uppercase leading-none">
@@ -561,7 +561,7 @@ Email: research@blkoutuk.com
                             </div>
 
                             <div className="bg-act-black text-white p-6 border-2 border-act-black">
-                                <div className="font-mono text-xs text-act-pink uppercase mb-3 font-bold">/// Core Belief</div>
+                                <div className="font-mono text-sm text-act-pink uppercase mb-3 font-bold">/// Core Belief</div>
                                 <p className="font-display text-2xl uppercase leading-tight">
                                     "Without community, there is no liberation."
                                 </p>
@@ -584,7 +584,7 @@ Email: research@blkoutuk.com
                                     </div>
                                     <div>
                                         <h4 className="font-display text-lg uppercase text-act-black">{item.title}</h4>
-                                        <p className="font-mono text-xs text-stone-600">{item.desc}</p>
+                                        <p className="font-mono text-sm text-stone-600">{item.desc}</p>
                                     </div>
                                 </div>
                             ))}
@@ -597,7 +597,7 @@ Email: research@blkoutuk.com
 
                         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                             <div>
-                                <div className="font-mono text-xs text-act-yellow uppercase mb-2 font-bold">/// Full Research Proposal</div>
+                                <div className="font-mono text-sm text-act-yellow uppercase mb-2 font-bold">/// Full Research Proposal</div>
                                 <h3 className="font-display text-3xl uppercase leading-tight mb-2">
                                     Read the Complete Strategy
                                 </h3>
@@ -629,10 +629,10 @@ Email: research@blkoutuk.com
              <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10">
                 <div className="md:col-span-5 relative min-h-[400px] border-2 border-white overflow-hidden bg-stone-900 hidden md:block" aria-hidden="true">
                      <CommunityHubScene />
-                     <div className="absolute top-4 left-4 bg-act-pink text-black px-2 py-1 font-mono text-xs font-bold animate-pulse border border-black">
+                     <div className="absolute top-4 left-4 bg-act-pink text-black px-2 py-1 font-mono text-sm font-bold animate-pulse border border-black">
                          /// FREQUENCY: LOCKED
                      </div>
-                     <div className="absolute bottom-4 right-4 bg-black px-2 py-1 font-mono text-xs border border-white text-right">
+                     <div className="absolute bottom-4 right-4 bg-black px-2 py-1 font-mono text-sm border border-white text-right">
                          FIG 5.0: THE HORIZON
                      </div>
                 </div>
@@ -656,7 +656,7 @@ Email: research@blkoutuk.com
 
                     {/* CONTACT FORM */}
                     <div id="contact" className="mt-8 bg-white text-black p-6 border-2 border-act-pink shadow-[8px_8px_0px_0px_#FF007F]">
-                        <p className="font-mono text-xs text-act-pink mb-4 uppercase font-bold tracking-widest flex items-center gap-2">
+                        <p className="font-mono text-sm text-act-pink mb-4 uppercase font-bold tracking-widest flex items-center gap-2">
                              <MessageSquare size={14}/> Stay In Touch / Join The Movement
                         </p>
 
@@ -667,7 +667,7 @@ Email: research@blkoutuk.com
                             <p className="font-mono text-sm text-stone-600">Welcome to the Critical Frequency network.</p>
                             <button
                               onClick={() => setFormStatus('idle')}
-                              className="mt-4 px-6 py-2 bg-act-black text-white font-mono text-xs uppercase hover:bg-act-pink transition-colors"
+                              className="mt-4 px-6 py-2 bg-act-black text-white font-mono text-sm uppercase hover:bg-act-pink transition-colors"
                             >
                               Send Another
                             </button>
@@ -675,7 +675,7 @@ Email: research@blkoutuk.com
                         ) : (
                           <form onSubmit={handleFormSubmit} className="space-y-4">
                             {formStatus === 'error' && (
-                              <div className="flex items-center gap-2 p-3 bg-red-50 border-2 border-red-500 text-red-700 font-mono text-xs">
+                              <div className="flex items-center gap-2 p-3 bg-red-50 border-2 border-red-500 text-red-700 font-mono text-sm">
                                 <AlertCircle size={16} />
                                 {formError || 'Failed to submit. Please try again.'}
                               </div>
@@ -776,14 +776,14 @@ Email: research@blkoutuk.com
       <div className="bg-stone-900 border-t border-stone-800 py-6">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
           <div>
-            <div className="font-mono text-xs text-stone-500 uppercase tracking-wider mb-1">You are viewing</div>
+            <div className="font-mono text-sm text-stone-500 uppercase tracking-wider mb-1">You are viewing</div>
             <div className="font-display text-lg text-white">Critical Frequency <span className="text-act-pink">— The Creative Argument</span></div>
           </div>
           <div className="flex gap-4">
-            <a href="https://mental-health.blkoutuk.com" className="px-4 py-2 border border-stone-700 text-stone-400 hover:text-white hover:border-act-pink transition-colors font-mono text-xs uppercase">
+            <a href="https://mental-health.blkoutuk.com" className="px-4 py-2 border border-stone-700 text-stone-400 hover:text-white hover:border-act-pink transition-colors font-mono text-sm uppercase">
               Evidence Base →
             </a>
-            <a href="https://blkoutuk.com" className="px-4 py-2 border border-stone-700 text-stone-400 hover:text-white hover:border-act-pink transition-colors font-mono text-xs uppercase">
+            <a href="https://blkoutuk.com" className="px-4 py-2 border border-stone-700 text-stone-400 hover:text-white hover:border-act-pink transition-colors font-mono text-sm uppercase">
               BLKOUT Home →
             </a>
           </div>
@@ -799,14 +799,14 @@ Email: research@blkoutuk.com
                     </div>
                     <div>
                         <div className="font-display text-4xl mb-2 uppercase">BLKOUT_UK</div>
-                        <p className="font-mono text-xs max-w-sm font-bold uppercase tracking-widest">
+                        <p className="font-mono text-sm max-w-sm font-bold uppercase tracking-widest">
                             Where Realness Lives.<br/>
                             Black. Queer. Welcome.
                         </p>
                     </div>
                 </div>
                 <div className="flex flex-col gap-4">
-                    <div className="flex flex-col md:flex-row gap-6 font-mono text-xs font-bold uppercase">
+                    <div className="flex flex-col md:flex-row gap-6 font-mono text-sm font-bold uppercase">
                         <a href="https://blkoutuk.com" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">BLKOUTUK.COM</a>
                         <a href="#relay" onClick={scrollToSection('relay')} className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">THE RELAY</a>
                         <a href="https://ivor.blkoutuk.cloud" target="_blank" rel="noopener noreferrer" className="hover:text-act-pink focus:text-act-pink focus:outline-none underline decoration-2 underline-offset-4">SUPPORT - #ASKIVOR</a>
@@ -834,10 +834,10 @@ Email: research@blkoutuk.com
             </div>
 
             <div className="border-t-2 border-act-black/10 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <p className="font-mono text-xs text-stone-600 max-w-2xl leading-relaxed">
+                <p className="font-mono text-sm text-stone-600 max-w-2xl leading-relaxed">
                     BLKOUT Creative Ltd is registered by the Financial Conduct Authority (London) as a Community Benefit Society under the Co-operative and Community Benefit Societies Act 2014.
                 </p>
-                <div className="font-mono text-xs text-stone-600">
+                <div className="font-mono text-sm text-stone-600">
                     &copy; {new Date().getFullYear()}
                 </div>
             </div>

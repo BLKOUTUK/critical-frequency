@@ -286,7 +286,7 @@ const StackedCard: React.FC<{ item: Paper; index: number; total: number; onClick
                 onClick={onClick}
                 className="w-full relative group transition-all duration-300 hover:-translate-y-4 focus:outline-none"
             >
-                <div className="absolute -top-8 left-0 bg-act-black text-white px-4 py-2 font-mono text-xs font-bold uppercase border-t-2 border-x-2 border-white rounded-t-lg z-0 group-hover:bg-act-pink group-hover:text-black transition-colors">
+                <div className="absolute -top-8 left-0 bg-act-black text-white px-4 py-2 font-mono text-sm font-bold uppercase border-t-2 border-x-2 border-white rounded-t-lg z-0 group-hover:bg-act-pink group-hover:text-black transition-colors">
                     Case File 00{item.id} // {item.type}
                 </div>
 
@@ -305,7 +305,7 @@ const StackedCard: React.FC<{ item: Paper; index: number; total: number; onClick
                     ) : (
                         <div className="md:w-1/3 bg-act-black text-white p-8 flex flex-col justify-between border-b-4 md:border-b-0 md:border-r-4 border-black pattern-grid-lg">
                              <Quote size={48} className="text-act-yellow" />
-                             <div className="font-mono text-xs uppercase opacity-50">{item.type} DOCUMENT</div>
+                             <div className="font-mono text-sm uppercase opacity-50">{item.type} DOCUMENT</div>
                         </div>
                     )}
 
@@ -316,7 +316,7 @@ const StackedCard: React.FC<{ item: Paper; index: number; total: number; onClick
 
                         <div>
                             <div className="flex justify-between items-start mb-4">
-                                <span className="font-mono text-xs font-bold uppercase text-act-pink tracking-widest">{item.subtitle}</span>
+                                <span className="font-mono text-sm font-bold uppercase text-act-pink tracking-widest">{item.subtitle}</span>
                                 <span className="w-8 h-8 rounded-full border-2 border-black flex items-center justify-center font-bold hover:bg-black hover:text-white transition-colors">
                                     <ArrowRight size={16} />
                                 </span>
@@ -330,10 +330,10 @@ const StackedCard: React.FC<{ item: Paper; index: number; total: number; onClick
                         </div>
 
                         <div className="pt-6 border-t-2 border-stone-200 flex justify-between items-center mt-auto">
-                            <div className="font-mono text-xs uppercase font-bold text-stone-500">
+                            <div className="font-mono text-sm uppercase font-bold text-stone-500">
                                 {item.author}
                             </div>
-                            <div className="bg-act-yellow px-2 py-1 font-mono text-xs font-bold uppercase border border-black shadow-[2px_2px_0px_0px_#000]">
+                            <div className="bg-act-yellow px-2 py-1 font-mono text-sm font-bold uppercase border border-black shadow-[2px_2px_0px_0px_#000]">
                                 Open Dossier
                             </div>
                         </div>
@@ -401,12 +401,12 @@ export const EvidenceScroll: React.FC = () => {
                          <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none"></div>
 
                          <div>
-                             <div className="font-mono text-xs text-act-pink font-bold uppercase mb-4 flex items-center gap-2">
+                             <div className="font-mono text-sm text-act-pink font-bold uppercase mb-4 flex items-center gap-2">
                                 <Library size={14}/> {selectedPaper.type} DOSSIER
                              </div>
                              <h2 className="font-display text-4xl md:text-5xl uppercase leading-[0.85] mb-6 text-white">{selectedPaper.title}</h2>
 
-                             <div className="space-y-3 font-mono text-xs text-stone-400 border-t border-stone-700 pt-4">
+                             <div className="space-y-3 font-mono text-sm text-stone-400 border-t border-stone-700 pt-4">
                                  <div><span className="text-white">SUBTITLE:</span> {selectedPaper.subtitle}</div>
                                  <div><span className="text-white">AUTHOR:</span> {selectedPaper.author}</div>
                                  <div><span className="text-white">REF:</span> {selectedPaper.type}-00{selectedPaper.id}</div>
@@ -423,7 +423,7 @@ export const EvidenceScroll: React.FC = () => {
                                href={selectedPaper.externalLink}
                                target="_blank"
                                rel="noopener noreferrer"
-                               className="inline-flex items-center gap-2 px-4 py-2 bg-act-pink text-black font-mono text-xs font-bold uppercase hover:bg-white transition-colors"
+                               className="inline-flex items-center gap-2 px-4 py-2 bg-act-pink text-black font-mono text-sm font-bold uppercase hover:bg-white transition-colors"
                              >
                                <ExternalLink size={14} /> Read Full Document
                              </a>
@@ -433,10 +433,10 @@ export const EvidenceScroll: React.FC = () => {
                     <div className="flex-1 bg-white text-black overflow-y-auto custom-scrollbar relative">
 
                         <div className="sticky top-0 bg-white/95 backdrop-blur border-b-2 border-stone-100 p-4 flex justify-between items-center z-20">
-                            <div className="font-mono text-xs font-bold uppercase text-stone-500">Summary</div>
+                            <div className="font-mono text-sm font-bold uppercase text-stone-500">Summary</div>
                             <button
                                 onClick={() => setSelectedPaper(null)}
-                                className="flex items-center gap-2 px-4 py-2 bg-black text-white hover:bg-act-pink hover:text-black transition-colors font-mono text-xs font-bold uppercase"
+                                className="flex items-center gap-2 px-4 py-2 bg-black text-white hover:bg-act-pink hover:text-black transition-colors font-mono text-sm font-bold uppercase"
                             >
                                 <X size={14} /> Close
                             </button>

@@ -367,6 +367,54 @@ Email: research@blkoutuk.com
 
       <main id="main-content" className="relative z-10">
 
+        {/* The Core Problem: Data Invisibility */}
+        <section className="py-24 bg-stone-900 text-white border-b-2 border-act-pink" aria-labelledby="section-core-problem">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-act-pink text-black font-mono text-sm font-bold uppercase mb-8">
+                <EyeOff size={14} aria-hidden="true"/> THE CORE PROBLEM
+              </div>
+              <h2 id="section-core-problem" className="font-display text-4xl md:text-6xl mb-8 leading-[0.9] uppercase">
+                The system runs on data.<br/>
+                The data doesn't see us.<br/>
+                <span className="text-act-pink">So the system doesn't serve us.</span>
+              </h2>
+              <div className="space-y-6 text-lg font-sans leading-relaxed text-stone-300 mb-12">
+                <p>
+                  Being made invisible in a data-driven system is likely to be fatal. The NHS, local authorities, and commissioners are incentivised to address gaps that the evidence shows them. But the evidence base for Black queer men's mental health barely exists — not because the need isn't there, but because the will to gather it never was.
+                </p>
+                <p>
+                  The ONS nearly collapsed under the last Census, forcing new government management. This means intersections beyond gender, income, age, and ethnicity are invisible unless they have reliable independent comparator data. Disability has DWP benefits data. Religion has established institutional infrastructure. Sexual orientation among racialised communities has <em className="text-act-yellow font-bold not-italic">nothing</em>.
+                </p>
+                <p className="border-l-4 border-act-pink pl-6 text-white font-medium">
+                  No independent comparator dataset. Invisible in data. Invisible in commissioning. Invisible in services.
+                </p>
+                <p>
+                  This isn't a communications challenge. Going viral isn't our strategy — it's a survival response to a system whose evidence base was built to ignore us. What we're building here is the dataset that doesn't exist, and the case for why it must.
+                </p>
+              </div>
+
+              {/* Video Essay */}
+              <div className="bg-black p-6 border-2 border-stone-700 shadow-[8px_8px_0px_0px_rgba(255,0,127,0.3)]">
+                <div className="font-mono text-sm text-act-pink uppercase mb-2 font-bold tracking-widest">/// Video Essay</div>
+                <p className="font-sans text-base text-stone-400 mb-4">
+                  On intersectionality, and the politics that renders us invisible to the NHS and at greater risk of poorer physical and mental health. A data void obscures our realities from the clinicians who collect, interpret, and act on data about Black queer patients — often pathologising, misrecognising, or rendering them invisible.
+                </p>
+                <div className="relative w-full border-2 border-stone-600" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src="https://www.youtube.com/embed/BcBwsjtP86Q?rel=0&modestbranding=1"
+                    title="Black queer men, intersectionality, and data invisibility — Critical Frequency"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Context: The Data Void */}
         <section id="demographics" className="py-24 bg-white border-b-2 border-act-black" aria-labelledby="section-demographics">
           <div className="container mx-auto px-6">
@@ -606,7 +654,7 @@ Email: research@blkoutuk.com
                                 </p>
                             </div>
                             <a
-                                href="https://mental-health.blkoutuk.com"
+                                href="/mental-health.html"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 px-8 py-4 bg-white text-act-blue font-display text-xl uppercase hover:bg-act-yellow hover:text-act-black transition-colors border-2 border-white whitespace-nowrap"
@@ -780,7 +828,7 @@ Email: research@blkoutuk.com
             <div className="font-display text-lg text-white">Critical Frequency <span className="text-act-pink">— The Creative Argument</span></div>
           </div>
           <div className="flex gap-4">
-            <a href="https://mental-health.blkoutuk.com" className="px-4 py-2 border border-stone-700 text-stone-400 hover:text-white hover:border-act-pink transition-colors font-mono text-sm uppercase">
+            <a href="/mental-health.html" className="px-4 py-2 border border-stone-700 text-stone-400 hover:text-white hover:border-act-pink transition-colors font-mono text-sm uppercase">
               Evidence Base →
             </a>
             <a href="https://blkoutuk.com" className="px-4 py-2 border border-stone-700 text-stone-400 hover:text-white hover:border-act-pink transition-colors font-mono text-sm uppercase">

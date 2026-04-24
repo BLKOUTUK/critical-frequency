@@ -218,6 +218,54 @@ export const MovementResourceBuilder: React.FC = () => {
               </div>
           </div>
 
+          {/* ═══ REMIX THIS — video remix invitation ═══ */}
+          <div className="mb-12 bg-act-black text-white border-2 border-act-black shadow-[8px_8px_0px_0px_#FF007F] p-6 md:p-8 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
+              <div className="md:col-span-5 lg:col-span-4">
+                  <div className="aspect-[9/16] max-w-[280px] mx-auto md:mx-0 bg-black border-2 border-act-pink overflow-hidden">
+                      <iframe
+                          src="https://www.youtube.com/embed/WWk9doTl74k"
+                          title="Intersectional, not invisible — Critical Frequency (30s)"
+                          className="w-full h-full"
+                          loading="lazy"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                      />
+                  </div>
+              </div>
+              <div className="md:col-span-7 lg:col-span-8">
+                  <div className="inline-block px-4 py-1 bg-act-pink text-black font-mono text-xs font-bold uppercase mb-4 transform rotate-1">
+                      /// REMIX THIS
+                  </div>
+                  <h3 className="font-display text-4xl md:text-5xl uppercase leading-none mb-4">
+                      Duet it.<br/>Stitch it.<br/>Make it yours.
+                  </h3>
+                  <p className="font-mono text-sm md:text-base mb-6 max-w-xl">
+                      Thirty seconds on why data that refuses to see Black queer men is not neutral. Remix on YouTube Shorts, duet on TikTok, stitch into a Reel. Translate it, subtitle it, counter it, extend it — the argument travels further through your channel than ours. That is the whole point.
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                      <a
+                          href="https://www.youtube.com/shorts/WWk9doTl74k"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black border-2 border-white font-mono text-xs font-bold uppercase hover:bg-act-yellow hover:border-act-yellow transition-colors focus:outline-none focus:ring-2 focus:ring-act-pink"
+                      >
+                          Watch / Remix on YouTube ↗
+                      </a>
+                      <a
+                          href="https://www.youtube.com/shorts/WWk9doTl74k"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-transparent text-white border-2 border-white font-mono text-xs font-bold uppercase hover:bg-white hover:text-black transition-colors focus:outline-none focus:ring-2 focus:ring-act-pink"
+                      >
+                          Share ↗
+                      </a>
+                  </div>
+                  <p className="font-mono text-[11px] text-stone-400 mt-4 uppercase tracking-wider">
+                      Tag @BlkOutUK so we can amplify back.
+                  </p>
+              </div>
+          </div>
+
           <div id="resource-editor" className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-auto lg:h-[800px]">
 
               {/* LEFT: CANVAS PREVIEW */}

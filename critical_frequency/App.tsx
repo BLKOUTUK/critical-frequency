@@ -669,6 +669,63 @@ Email: research@blkoutuk.com
             </div>
         </section>
 
+        {/* Resources — the briefings. Fixes the previously dead #resources nav anchor. */}
+        <section id="resources" className="py-24 bg-act-paper border-b-2 border-act-black" aria-labelledby="section-resources">
+            <div className="container mx-auto px-6">
+
+                <div className="mb-12 max-w-3xl">
+                    <div className="font-mono text-sm text-act-pink uppercase mb-3 font-bold">/// Resources</div>
+                    <h2 id="section-resources" className="font-display text-5xl md:text-7xl text-act-black uppercase leading-none mb-6">
+                        Three pages.<br /><span className="text-act-pink">Then the working.</span>
+                    </h2>
+                    <p className="font-mono text-stone-600 text-lg">
+                        What the problem is, what solutions look like, and what different parts of the system can do about it. Most of what we ask for costs nothing.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {[
+                        {
+                            file: 'critical-frequency-briefing.pdf',
+                            label: 'Start here',
+                            title: 'What Each of Us Can Do',
+                            desc: 'Recommendations for public health, primary care practitioners, the community and voluntary sector, and Black queer men ourselves.',
+                        },
+                        {
+                            file: 'critical-frequency-briefing-mental-health.pdf',
+                            label: 'For commissioners',
+                            title: 'The Mental Health Case',
+                            desc: 'The same argument made to a single commissioner, with a three-rung ask that begins at nothing.',
+                        },
+                        {
+                            file: 'critical-frequency-briefing-four-conditions.pdf',
+                            label: 'Broadened scope',
+                            title: 'Four Conditions, One Population',
+                            desc: 'HIV, prostate cancer and cardiovascular disease. Why counting once serves all four, and why the next three cost a fraction of the first.',
+                        },
+                    ].map((b) => (
+                        <a
+                            key={b.file}
+                            href={`/${b.file}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group bg-white border-2 border-act-black shadow-[8px_8px_0px_0px_#000] p-6 flex flex-col hover:shadow-[4px_4px_0px_0px_#FF007F] hover:-translate-y-1 transition-all focus:outline-none focus:ring-2 focus:ring-act-pink"
+                        >
+                            <div className="font-mono text-xs uppercase font-bold text-act-blue mb-3">{b.label}</div>
+                            <h3 className="font-display text-2xl uppercase leading-none text-act-black mb-3">{b.title}</h3>
+                            <p className="font-mono text-sm text-stone-600 leading-relaxed flex-grow">{b.desc}</p>
+                            <div className="flex items-center gap-2 mt-6 pt-4 border-t-2 border-act-black font-display text-lg uppercase text-act-black group-hover:text-act-pink transition-colors">
+                                <FileText size={18} />
+                                PDF &middot; 3 pages
+                            </div>
+                        </a>
+                    ))}
+                </div>
+
+            </div>
+        </section>
+
+
         {/* Manifesto / Footer - UPDATED "THE WAY FORWARD" */}
         <section className="py-24 bg-act-black text-white relative border-b-4 border-act-pink" aria-label="Manifesto and Footer">
              {/* Flashing Urgent Background Element */}

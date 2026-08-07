@@ -44,8 +44,8 @@ const papers: Paper[] = [
               <div className="text-xs uppercase opacity-70">Black queer men in the UK</div>
             </div>
             <div>
-              <div className="text-4xl font-display text-act-pink">3.8%</div>
-              <div className="text-xs uppercase opacity-70">Therapy completion (vs 79.8% white)</div>
+              <div className="text-4xl font-display text-act-pink">4&times;</div>
+              <div className="text-xs uppercase opacity-70">MHA detention rate (Black vs White)</div>
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@ const papers: Paper[] = [
       <div className="space-y-6 font-mono text-sm md:text-base leading-relaxed">
         <h3 className="font-display text-2xl md:text-3xl mb-4 uppercase">Where We Are Now</h3>
         <p>
-          UK Black queer men face mental health crisis rooted in colonial violence and systemic institutional failure. NHS services achieve only 3.8% therapy completion rates for Black populations versus 79.8% for white groups, while communities sustain themselves through unpaid peer support, mutual aid networks, and cultural reclamation work.
+          UK Black queer men face mental health crisis rooted in colonial violence and systemic institutional failure. Black service users fall out of the NHS talking-therapies pathway at every stage — referral, assessment and treatment start — while communities sustain themselves through unpaid peer support, mutual aid networks, and cultural reclamation work.
         </p>
 
         <hr className="border-stone-300 my-8"/>
@@ -112,7 +112,7 @@ const papers: Paper[] = [
                 <div className="text-xs uppercase">People Reached</div>
             </div>
             <div className="bg-act-yellow text-black p-4 text-center">
-                <div className="text-2xl font-display">4-6:1</div>
+                <div className="text-2xl font-display">4:1</div>
                 <div className="text-xs uppercase">ROI Ratio</div>
             </div>
         </div>
@@ -237,7 +237,7 @@ const papers: Paper[] = [
     subtitle: "DEEP DIVE: EVIDENCE & CITATIONS",
     author: "BLKOUT POLICY UNIT",
     type: "RESEARCH",
-    quote: "3.8% therapy completion for Black communities vs 79.8% for white. The system isn't broken—it was never built for us.",
+    quote: "Black patients are lost at every stage before treatment even begins. The system isn't broken—it was never built for us.",
     image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1000&auto=format&fit=crop",
     externalLink: "https://mental-health.blkoutuk.com/research-briefing.html",
     fullText: (

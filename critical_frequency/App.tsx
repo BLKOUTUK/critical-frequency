@@ -96,10 +96,10 @@ THE CASE FOR INVESTMENT
 -----------------------------------------------------------------------------
 £10.5M over 5 years | £60/year per person across 35,000 Black queer men
 
-Current NHS talking therapy completion rate for Black groups: 3.8%
+MHA detention rate, Black or Black British vs White: 262.4 vs 65.8 per 100,000
 Cost per suicide prevented (community model): £50,000
 Cost per suicide (NHS intensive care + lost productivity): £3.12M
-Conservative ROI projection: 4-6:1
+Conservative ROI projection: 4:1
 
 =============================================================================
 PHASE 1: CAREER FELLOWSHIP (Years 1-5)
@@ -324,7 +324,7 @@ Email: research@blkoutuk.com
               A phased strategy using media network effects to transform relationships so that access to effective support and individual therapy translates into community-wide cultural change.
             </p>
             <p className="text-base md:text-lg font-sans leading-relaxed text-stone-800 mt-4">
-              Despite persistently higher levels of self-reported anxiety and depression, <span className="font-bold">just 3.8% of Black patients completed NHS Talking Therapies courses compared to 79.8% of white patients.</span> Failure to offer relevant intervention at this stage reverberates through the system, amplifying both distress and costs—contributing to disparities in mental health detention, and declining trust in mental healthcare.
+              Despite persistently higher levels of self-reported anxiety and depression, <span className="font-bold">Black patients are less likely to self-refer to NHS Talking Therapies, less likely to be assessed, and less likely to start treatment at all.</span> Failure to offer relevant intervention at this stage reverberates through the system, amplifying both distress and costs—contributing to disparities in mental health detention, and declining trust in mental healthcare.
             </p>
             <p className="text-base md:text-lg font-sans leading-relaxed text-stone-800 mt-4 font-medium">
               We propose transformation over tinkering: career fellowships embedding change, community as a resource rather than constraint, and building a sustainable mutual asset base that makes community pride more than a parade.

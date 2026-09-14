@@ -117,7 +117,22 @@ const HeroContent = () => {
   );
 };
 
+// WebGL feature check. Without it, a device (or a headless crawler) with no WebGL context
+// threw inside <Canvas> and unmounted the whole page — the entire site read as blank.
+let webglSupport: boolean | null = null;
+const hasWebGL = (): boolean => {
+  if (webglSupport !== null) return webglSupport;
+  try {
+    const c = document.createElement('canvas');
+    webglSupport = !!(c.getContext('webgl2') || c.getContext('webgl'));
+  } catch {
+    webglSupport = false;
+  }
+  return webglSupport;
+};
+
 export const HeroScene: React.FC = () => {
+  if (!hasWebGL()) return null;
   return (
     <div className="absolute inset-0 z-0 opacity-80 pointer-events-none mix-blend-multiply">
       {/* Clamp DPR to max 1.5 to prevent mobile overheating */}
@@ -174,6 +189,7 @@ const HubContent = () => {
 
 // "The Beacon" / "Speaker Stack Totem"
 export const CommunityHubScene: React.FC = () => {
+  if (!hasWebGL()) return null;
   return (
     <div className="w-full h-full absolute inset-0">
       <Canvas camera={{ position: [4, 2, 6], fov: 45 }} dpr={[1, 1.5]}>

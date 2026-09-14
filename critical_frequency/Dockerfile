@@ -6,6 +6,11 @@ RUN npm ci
 COPY critical_frequency/ .
 RUN npm run build
 
+# Prerender / into dist/index.html (keeps dist/shell.html); the page is otherwise empty to a crawler
+RUN apk add --no-cache chromium nss freetype harfbuzz ca-certificates ttf-freefont
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+RUN node scripts/prerender.mjs dist prerender.routes.json
+
 FROM nginx:alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
 # Brown Bag Lunch campaign page + assets

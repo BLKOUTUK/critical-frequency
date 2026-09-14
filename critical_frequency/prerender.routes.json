@@ -1,0 +1,7 @@
+{
+  "origin": "https://critical.blkoutuk.com",
+  "routes": [
+    { "path": "/", "title": "Critical Frequency — tuning the mental health system to Black queer reality | BLKOUT UK", "description": "A policy intervention by BLKOUT UK: research on mental health for Black queer men in the UK, reimagined as an interactive narrative, with three briefings for commissioners and funders.",
+      "jsonld": { "@context": "https://schema.org", "@type": "WebPage", "name": "Critical Frequency", "url": "https://critical.blkoutuk.com/", "description": "Mental health policy research for Black queer men in the UK, by BLKOUT UK.", "publisher": { "@type": "Organization", "name": "BLKOUT UK", "url": "https://blkoutuk.com" }, "about": ["Black queer men", "mental health", "UK health policy"] } }
+  ]
+}

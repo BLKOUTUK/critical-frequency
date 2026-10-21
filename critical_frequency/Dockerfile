@@ -24,7 +24,7 @@ COPY briefings/ /usr/share/nginx/html/
 # Static files first; / is the (prerendered) app. Anything else: index.html with a real 404 status
 # (SEO plan K2, 11 Oct 2026) — the app reads no URL, so there are no other routes.
 RUN echo 'server { listen 80; root /usr/share/nginx/html; index index.html; \
-  location = /public/podcast-pilot.html { return 301 /podcast-pilot.html; } \
+  location = /public/podcast-pilot.html { return 301 https://critical.blkoutuk.com/podcast-pilot.html; } \
   location = / { try_files /index.html =404; } \
   location / { try_files $uri $uri/ =404; } \
   error_page 404 /index.html; \

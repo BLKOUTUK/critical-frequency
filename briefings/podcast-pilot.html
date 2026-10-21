@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilot Podcast: Voices in Relay | Mental Health Reparations Campaign</title>
+<link rel="canonical" href="https://critical.blkoutuk.com/podcast-pilot.html">
+<meta name="description" content="Voices in Relay: the pilot podcast from Critical Frequency, BLKOUT's mental health campaign for Black queer men.">
+<meta property="og:title" content="Pilot Podcast: Voices in Relay | Mental Health Reparations Campaign">
+<meta property="og:description" content="Voices in Relay: the pilot podcast from Critical Frequency, BLKOUT's mental health campaign for Black queer men.">
+<meta property="og:url" content="https://critical.blkoutuk.com/podcast-pilot.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://critical.blkoutuk.com/og-image.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            background: #fafafa;
+            line-height: 1.6;
+            padding-top: 40px;
+        }
+
+        .draft-notice {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #F59E0B;
+            color: #000;
+            text-align: center;
+            padding: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 30px 80px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 600;
+            line-height: 1.3;
+            color: #D4261A;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .doc-meta {
+            background: linear-gradient(135deg, #264653 0%, #2A9D8F 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .doc-meta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .doc-meta p {
+            font-size: 16px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #264653;
+            margin: 50px 0 20px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2A9D8F;
+            margin: 30px 0 15px;
+        }
+
+        h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin: 25px 0 12px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .participant-box {
+            background: #f8f9fa;
+            border-left: 4px solid #2A9D8F;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .participant-box h4 {
+            margin-top: 0;
+            color: #264653;
+        }
+
+        .relay-segment {
+            background: white;
+            border: 1px solid #e5e5e5;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .relay-segment h4 {
+            color: #D4261A;
+            margin-top: 0;
+        }
+
+        .segment-meta {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .key-questions {
+            background: #FFF4E6;
+            border-left: 4px solid #F4A261;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .key-questions h4 {
+            margin-top: 0;
+            color: #E76F51;
+        }
+
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .budget-table th,
+        .budget-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .budget-table th {
+            background: #264653;
+            color: white;
+            font-weight: 600;
+        }
+
+        .budget-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .budget-total {
+            font-weight: 600;
+            background: #f8f9fa;
+        }
+
+        .impact-box {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .impact-box h3 {
+            margin-top: 0;
+            color: #2E7D32;
+        }
+
+        .quote {
+            font-size: 18px;
+            font-style: italic;
+            color: #555;
+            border-left: 4px solid #2A9D8F;
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 60px;
+            margin-top: 60px;
+            border-top: 1px solid #e5e5e5;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #2A9D8F;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .footer-links a:hover {
+            color: #264653;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 30px 20px 60px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .budget-table {
+                font-size: 14px;
+            }
+        }
+
+        @media print {
+            .draft-notice {
+                position: static;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="draft-notice">DRAFT - NOT FOR CIRCULATION</div>
+
+    <div class="container">
+        <header>
+            <img src="/images/blkoutlogo_blk_transparent.png" alt="BLKOUT" class="logo">
+            <h1>Voices in Relay</h1>
+            <div class="subtitle">A Pilot Podcast for Mental Health Reparations</div>
+        </header>
+
+        <div class="doc-meta">
+            <h2>Introducing the Proposal Through Collective Conversation</h2>
+            <p>A single pilot episode using an innovative relay interview format where participants rotate between interviewer and interviewee, embodying the co-production values at the heart of the mental health reparations proposal. Each voice both questions and is questioned, creating a democratic space where expertise is collective and transformation is shared.</p>
+        </div>
+
+        <h2>The Relay Format</h2>
+
+        <p>The relay format positions participants as both subject and object, both petitioned and petitioner. After a brief introduction, six participants engage in 7-minute segments where each person:</p>
+
+        <ol>
+            <li><strong>Answers questions</strong> from the previous participant (7 minutes)</li>
+            <li><strong>Transitions to interviewer role</strong> to question the next participant</li>
+            <li><strong>Passes the baton</strong> continuing the relay until it returns to the anchor</li>
+        </ol>
+
+        <p>This structure creates urgency (time pressure demands clarity), democratises expertise (everyone is both teacher and learner), and embodies collective intelligence (understanding builds through conversation, not monologue).</p>
+
+        <div class="quote">
+            "Without community, there is no liberation. This format makes that visible—we're not individuals speaking to an audience, we're a community thinking together."
+        </div>
+
+        <h2>Pilot Episode: "Beginning the Conversation"</h2>
+
+        <h3>Duration</h3>
+        <p>45 minutes total (5-minute introduction + 6 × 7-minute segments = 47 minutes including transitions)</p>
+
+        <h3>Episode Goal</h3>
+        <p>Introduce the mental health reparations proposal through six voices that represent different relationships to the work: lived experience, clinical practice, research, commissioning, community organising, and policy-making. By the end, listeners understand what's being proposed, why it matters, who it's for, and how they can engage.</p>
+
+        <h2>The Six Participants</h2>
+
+        <div class="participant-box">
+            <h4>1. Anchor Participant: Jamal (Black Gay Man, 28, Birmingham)</h4>
+            <p><strong>Role:</strong> Community organiser and mental health advocate with lived experience of mental health crisis and recovery</p>
+            <p><strong>Why Jamal:</strong> Anchors the episode in lived experience while demonstrating leadership and expertise. Opens and closes the relay, creating circular structure.</p>
+            <p><strong>Key Perspective:</strong> "The system wasn't built for us. This proposal is about building what should have always existed."</p>
+        </div>
+
+        <div class="participant-box">
+            <h4>2. Dr. Amara Thompson (Black Lesbian Psychologist, 45, London)</h4>
+            <p><strong>Role:</strong> Clinical psychologist specialising in trauma and minority stress</p>
+            <p><strong>Why Dr. Thompson:</strong> Brings clinical credibility and can translate lived experience into mental health frameworks. Can speak to why culturally-specific approaches work.</p>
+            <p><strong>Key Perspective:</strong> "Generic mental health services aren't failing Black queer men by accident—they were never designed to succeed with us."</p>
+        </div>
+
+        <div class="participant-box">
+            <h4>3. Professor Michael Adeyemi (Nigerian British Researcher, 52, Manchester)</h4>
+            <p><strong>Role:</strong> Professor of Public Health researching LGBTQ+ health inequalities</p>
+            <p><strong>Why Prof. Adeyemi:</strong> Provides evidence base and can contextualise the proposal within broader health policy and research landscapes.</p>
+            <p><strong>Key Perspective:</strong> "We have decades of research showing the problem. This proposal is about finally matching the scale of the solution to the scale of the harm."</p>
+        </div>
+
+        <div class="participant-box">
+            <h4>4. Sarah Chen (NHS Commissioner, 38, Leeds)</h4>
+            <p><strong>Role:</strong> Mental health commissioning lead with responsibility for LGBTQ+ health</p>
+            <p><strong>Why Sarah:</strong> Represents the system side—understands budgets, procurement, service specifications. Can speak to what makes proposals implementable.</p>
+            <p><strong>Key Perspective:</strong> "Commissioners want to fund what works. This proposal gives us a roadmap with evidence, costings, and outcomes we can measure."</p>
+        </div>
+
+        <div class="participant-box">
+            <h4>5. Marcus Williams (Black Trans Man, 31, Bristol)</h4>
+            <p><strong>Role:</strong> Peer support worker and community organiser focused on housing and mental health</p>
+            <p><strong>Why Marcus:</strong> Brings intersectional perspective (trans + Black + working class), represents grassroots organising, speaks to structural determinants.</p>
+            <p><strong>Key Perspective:</strong> "You can't therapy your way out of structural violence. This proposal understands that mental health is housing, employment, safety, and community."</p>
+        </div>
+
+        <div class="participant-box">
+            <h4>6. Councillor David Okafor (Local Government, 44, London)</h4>
+            <p><strong>Role:</strong> Cabinet member for health and social care, Borough of Southwark</p>
+            <p><strong>Why Cllr Okafor:</strong> Represents political will and local implementation. Can speak to how national proposals become local action.</p>
+            <p><strong>Key Perspective:</strong> "This isn't just a mental health proposal—it's economic justice, workforce development, and community power. That's why it's politically viable."</p>
+        </div>
+
+        <h2>Episode Structure: The Relay in Action</h2>
+
+        <div class="relay-segment">
+            <h4>Introduction (5 minutes)</h4>
+            <div class="segment-meta">Host: Dr. Rob Berkeley, Director of BLKOUT</div>
+            <p>Sets context for the proposal, explains the relay format, introduces why this conversation matters now. Brief introductions of all six participants (30 seconds each).</p>
+            <p><strong>Key Frame:</strong> "This isn't a traditional interview because the work isn't traditional. Mental health reparations require collective thinking. So we're going to think together."</p>
+        </div>
+
+        <div class="relay-segment">
+            <h4>Segment 1: Jamal interviewed by Rob (7 minutes)</h4>
+            <div class="segment-meta">Jamal answers questions from host Rob</div>
+            <p><strong>Focus:</strong> What is the lived experience that makes this proposal necessary? What does mental health crisis look like for Black queer men?</p>
+            <div class="key-questions">
+                <h4>Sample Questions:</h4>
+                <ul>
+                    <li>Walk us through your first mental health crisis. Where were the systems? What was missing?</li>
+                    <li>When you finally found support that worked, what made it different?</li>
+                    <li>This proposal talks about "reparations." Why that word?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="relay-segment">
+            <h4>Segment 2: Dr. Thompson interviewed by Jamal (7 minutes)</h4>
+            <div class="segment-meta">Dr. Thompson answers, Jamal asks</div>
+            <p><strong>Focus:</strong> What does the clinical evidence say? Why do Black queer men experience mental health differently?</p>
+            <div class="key-questions">
+                <h4>Sample Questions from Jamal:</h4>
+                <ul>
+                    <li>When I was in crisis, the therapist didn't understand my family, my church, or what it meant to be Black and gay. Is that just my experience?</li>
+                    <li>What does the research say about why we're 5 times more likely to need mental health support?</li>
+                    <li>Can therapy actually work if the therapist doesn't get your life?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="relay-segment">
+            <h4>Segment 3: Prof. Adeyemi interviewed by Dr. Thompson (7 minutes)</h4>
+            <div class="segment-meta">Prof. Adeyemi answers, Dr. Thompson asks</div>
+            <p><strong>Focus:</strong> What does the research evidence base tell us about scale, intervention types, and outcomes?</p>
+            <div class="key-questions">
+                <h4>Sample Questions from Dr. Thompson:</h4>
+                <ul>
+                    <li>I see individual trauma in my clinic every day. You research population health. What's the bigger picture?</li>
+                    <li>This proposal suggests 35,000 Black queer men need support. How did we get that number?</li>
+                    <li>We've had smaller projects before. Why hasn't that been enough?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="relay-segment">
+            <h4>Segment 4: Sarah Chen interviewed by Prof. Adeyemi (7 minutes)</h4>
+            <div class="segment-meta">Sarah answers, Prof. Adeyemi asks</div>
+            <p><strong>Focus:</strong> How do good ideas become commissioned services? What makes this proposal implementable?</p>
+            <div class="key-questions">
+                <h4>Sample Questions from Prof. Adeyemi:</h4>
+                <ul>
+                    <li>I write research papers. You write service contracts. What would make you commission this?</li>
+                    <li>£10.5 million over 5 years—is that realistic? Too much? Not enough?</li>
+                    <li>How would you measure whether this worked?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="relay-segment">
+            <h4>Segment 5: Marcus interviewed by Sarah (7 minutes)</h4>
+            <div class="segment-meta">Marcus answers, Sarah asks</div>
+            <p><strong>Focus:</strong> How does structural inequality shape mental health? What are the connections between housing, employment, safety, and wellbeing?</p>
+            <div class="key-questions">
+                <h4>Sample Questions from Sarah:</h4>
+                <ul>
+                    <li>As a commissioner, I fund therapy. You organise around housing. What am I missing?</li>
+                    <li>This proposal includes employment support and peer networks alongside therapy. Why?</li>
+                    <li>What does "mental health reparations" mean when you're organising at street level?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="relay-segment">
+            <h4>Segment 6: Cllr Okafor interviewed by Marcus (7 minutes)</h4>
+            <div class="segment-meta">Cllr Okafor answers, Marcus asks</div>
+            <p><strong>Focus:</strong> What's the political case? How does national policy become local action?</p>
+            <div class="key-questions">
+                <h4>Sample Questions from Marcus:</h4>
+                <ul>
+                    <li>Politicians talk about mental health in election campaigns. What happens after?</li>
+                    <li>If this money became available, could Southwark actually deliver this? What would it take?</li>
+                    <li>What makes a mental health proposal politically viable right now?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="relay-segment">
+            <h4>Closing: Cllr Okafor questions Jamal (3 minutes)</h4>
+            <div class="segment-meta">Relay returns to anchor participant</div>
+            <p><strong>Focus:</strong> Bringing the conversation full circle—what does transformation look like?</p>
+            <div class="key-questions">
+                <h4>Final Question from Cllr Okafor:</h4>
+                <ul>
+                    <li>Jamal, you started this relay. We've heard from clinicians, researchers, commissioners, organisers, and politicians. If this actually happened—if we secured the funding and delivered this proposal—what changes for you personally? For your community?</li>
+                </ul>
+            </div>
+            <p><strong>Jamal's closing:</strong> Connects his personal story to collective transformation, articulates both immediate impact (services exist, people survive) and long-term vision (community power, self-determination, liberation).</p>
+        </div>
+
+        <h2>Production Design</h2>
+
+        <h3>Format Principles</h3>
+        <ul>
+            <li><strong>Intimacy:</strong> Recorded in a single room with all six participants present. They can see each other, react to each other, build on each other's words.</li>
+            <li><strong>Simplicity:</strong> No music, no sound effects, minimal editing. The content is compelling; production stays out of the way.</li>
+            <li><strong>Accessibility:</strong> Full transcript published alongside audio. British Sign Language interpretation available on video version.</li>
+            <li><strong>Transparency:</strong> Light editing only (removing long pauses, technical glitches). Keep the natural flow, including moments of emotion or disagreement.</li>
+        </ul>
+
+        <h3>Technical Specifications</h3>
+        <ul>
+            <li><strong>Recording:</strong> Professional studio (1 day: 4 hours recording + 2 hours setup/breakdown)</li>
+            <li><strong>Equipment:</strong> Individual microphones for each participant, professional recording/mixing</li>
+            <li><strong>Post-production:</strong> Light editing, mastering, transcription</li>
+            <li><strong>Distribution:</strong> All major podcast platforms (Spotify, Apple Podcasts, etc.) + YouTube video + dedicated webpage</li>
+        </ul>
+
+        <h2>Budget: Single Pilot Episode</h2>
+
+        <table class="budget-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Cost</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Participant honoraria</td>
+                    <td>£1,800</td>
+                    <td>£300 × 6 participants (preparation + recording time)</td>
+                </tr>
+                <tr>
+                    <td>Studio hire & engineer</td>
+                    <td>£800</td>
+                    <td>Full day hire with professional recording engineer</td>
+                </tr>
+                <tr>
+                    <td>Post-production</td>
+                    <td>£600</td>
+                    <td>Editing, mixing, mastering</td>
+                </tr>
+                <tr>
+                    <td>Transcription</td>
+                    <td>£200</td>
+                    <td>Professional transcription service</td>
+                </tr>
+                <tr>
+                    <td>BSL interpretation</td>
+                    <td>£400</td>
+                    <td>BSL interpreter for video version</td>
+                </tr>
+                <tr>
+                    <td>Video production</td>
+                    <td>£500</td>
+                    <td>Single camera, minimal editing for YouTube</td>
+                </tr>
+                <tr>
+                    <td>Travel & catering</td>
+                    <td>£400</td>
+                    <td>Participant travel costs + food for recording day</td>
+                </tr>
+                <tr>
+                    <td>Distribution & hosting</td>
+                    <td>£200</td>
+                    <td>Podcast hosting, web hosting, domain</td>
+                </tr>
+                <tr>
+                    <td>Project coordination</td>
+                    <td>£600</td>
+                    <td>Logistics, scheduling, participant liaison (3 days @ £200/day)</td>
+                </tr>
+                <tr class="budget-total">
+                    <td><strong>TOTAL</strong></td>
+                    <td><strong>£5,500</strong></td>
+                    <td>Single pilot episode</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Timeline</h2>
+
+        <ul>
+            <li><strong>Week 1-2:</strong> Participant recruitment and scheduling</li>
+            <li><strong>Week 3:</strong> Pre-production (brief participants, finalise questions, logistics)</li>
+            <li><strong>Week 4:</strong> Recording day (1 day)</li>
+            <li><strong>Week 5-6:</strong> Post-production (editing, transcription, BSL interpretation)</li>
+            <li><strong>Week 7:</strong> Distribution (upload to platforms, create webpage, prepare promotional materials)</li>
+            <li><strong>Week 8:</strong> Launch and promotion</li>
+        </ul>
+
+        <p><strong>Total delivery time:</strong> 8 weeks from funding to launch</p>
+
+        <h2>Success Metrics for Pilot</h2>
+
+        <h3>Audience Reach</h3>
+        <ul>
+            <li>1,000+ downloads/listens in first month</li>
+            <li>500+ transcript views</li>
+            <li>Engagement from at least 3 target stakeholder groups (community members, commissioners, policy makers)</li>
+        </ul>
+
+        <h3>Engagement Quality</h3>
+        <ul>
+            <li>10+ substantive responses/feedback from listeners</li>
+            <li>Requests for follow-up conversations or more information about the proposal</li>
+            <li>Evidence of sharing within professional and community networks</li>
+        </ul>
+
+        <h3>Strategic Impact</h3>
+        <ul>
+            <li>Opens doors for meetings with commissioners or funders</li>
+            <li>Creates shareable content for proposal advocacy</li>
+            <li>Generates interest in expanded podcast series (if resources become available)</li>
+            <li>Demonstrates co-production approach in practice</li>
+        </ul>
+
+        <div class="impact-box">
+            <h3>Why This Pilot Matters</h3>
+            <p>The relay format isn't just innovative audio—it's the proposal's values made audible. When listeners hear six people thinking together, building on each other's expertise, moving seamlessly between lived experience and policy analysis, they're experiencing what co-production sounds like.</p>
+            <p>The pilot demonstrates that mental health reparations isn't one person's idea or one organisation's agenda. It's a collective understanding emerging from community knowledge, clinical practice, research evidence, and political possibility. The format makes that visible—or rather, audible.</p>
+            <p>If the pilot succeeds, it creates a template for ongoing dialogue. The relay can continue, bringing in new voices, exploring specific aspects of implementation, tracking progress as the proposal moves towards funding and delivery. But it starts here: six voices, 45 minutes, a conversation that invites everyone listening to join.</p>
+        </div>
+
+        <h2>Next Steps</h2>
+
+        <ol>
+            <li><strong>Secure pilot funding:</strong> £5,500 for single episode production</li>
+            <li><strong>Recruit participants:</strong> Approach potential participants with invitation and concept</li>
+            <li><strong>Finalise questions:</strong> Work with participants to develop question framework</li>
+            <li><strong>Schedule recording:</strong> Find date that works for all six participants + host</li>
+            <li><strong>Produce and launch:</strong> Execute production plan and distribute widely</li>
+        </ol>
+
+        <p>This pilot isn't the end of the conversation—it's the beginning. Let's start talking.</p>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="https://blkoutuk.com">blkoutuk.com</a>
+                <a href="mailto:research@blkoutuk.com">research@blkoutuk.com</a>
+            </div>
+            <div>BLKOUT – Community-Owned Liberation Platform</div>
+            <div style="margin-top: 20px; font-size: 13px; opacity: 0.7;">
+                Creative Commons BY-NC-SA 4.0<br>
+                Freely shared for organising, education, and advocacy
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

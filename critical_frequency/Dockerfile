@@ -18,13 +18,13 @@ COPY mental-health-campaign/brown-bag-lunch.html /usr/share/nginx/html/brown-bag
 COPY mental-health-campaign/bmhm.png /usr/share/nginx/html/bmhm.png
 COPY mental-health-campaign/brown-bag-og.png /usr/share/nginx/html/brown-bag-og.png
 COPY mental-health-campaign/index.html /usr/share/nginx/html/mental-health.html
-# Static files first; / is the (prerendered) app. The briefings that /mental-health.html links to
-# relatively live on mental-health.blkoutuk.com, so they get a temporary redirect there (302 while
-# Rob decides K3, the legacy site's future). Anything else: index.html with a real 404 status
+# The Critical Frequency papers live here now (SEO plan K3, 21 Oct 2026): the legacy
+# mental-health.blkoutuk.com essay site points each page at its copy below.
+COPY briefings/ /usr/share/nginx/html/
+# Static files first; / is the (prerendered) app. Anything else: index.html with a real 404 status
 # (SEO plan K2, 11 Oct 2026) — the app reads no URL, so there are no other routes.
 RUN echo 'server { listen 80; root /usr/share/nginx/html; index index.html; \
-  location ~ ^/(research-briefing|research-briefing-prose|policy-briefing|cost-model|outcomes-paper|who-are-uk-black-queer-men|user-journeys|podcast-pilot)\.html$ { return 302 https://mental-health.blkoutuk.com$request_uri; } \
-  location = /public/podcast-pilot.html { return 302 https://mental-health.blkoutuk.com/podcast-pilot.html; } \
+  location = /public/podcast-pilot.html { return 301 /podcast-pilot.html; } \
   location = / { try_files /index.html =404; } \
   location / { try_files $uri $uri/ =404; } \
   error_page 404 /index.html; \
